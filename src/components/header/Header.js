@@ -44,23 +44,21 @@ class Header extends Component {
 
         return (
             <div className="header">
-                <div className="header header--logo">
+                <div className="headerItem headerItem--logo">
                     <img
                         src={require(`../../images/header.png`)}
                         width="1080"
                         alt="header"
                     />
                 </div>
-                <div className="header header--welcome">
-                    <p className="header--welcome--text">
-                        WELCOME TO AIRWAYS RESIDENCES
-                    </p>
+                <div className="headerItem headerItem--welcome">
+                    <p>WELCOME TO AIRWAYS RESIDENCES</p>
                 </div>
-                <div className="header header--time">
-                    <p className="header--time--text">{time}</p>
+                <div className="headerItem headerItem--time">
+                    <p>{time}</p>
                 </div>
-                <div className="header header--date">
-                    <p className="header--date--text">{date}</p>
+                <div className="headerItem headerItem--date">
+                    <p>{date}</p>
                 </div>
             </div>
         );

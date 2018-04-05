@@ -8,8 +8,7 @@
 
 .footerItem {
     font-size: 12px;
-    font-family: sans-serif;
-    font-weight: 100;
+    font-weight: lighter;
     letter-spacing: 2px;
     color: white;
     &--name {
@@ -17,10 +16,6 @@
         grid-row: 1 / -1;
         align-self: center;
         justify-self: center;
-
-        &--text {
-            text-align: center;
-        }
     }
     &--logo {
         grid-column: 2 / 3;
@@ -34,9 +29,5 @@
         grid-row: 1 / -1;
         align-self: center;
         justify-self: center;
-
-        &--text {
-            text-align: center;
-        }
     }
 }

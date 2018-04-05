@@ -2,34 +2,29 @@
   display: grid;
   grid-template-columns: 600px 216px 264px;
   grid-template-rows: 290px 60px;
-  grid-row-gap: 3px; }
+  grid-row-gap: 3px;
+  background-color: #c29a78; }
 
-.header {
-  font-size: 19px;
-  font-family: sans-serif;
-  letter-spacing: 3px;
+.headerItem {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 4px;
   color: white; }
-  .header--logo {
+  .headerItem--logo {
     grid-column: 1 / -1;
     grid-row: 1 / 2; }
-  .header--welcome {
+  .headerItem--welcome {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    background-color: #c29a78; }
-    .header--welcome--text {
-      width: 600px;
-      text-align: right; }
-  .header--time {
+    align-self: center;
+    justify-self: end; }
+  .headerItem--time {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    background-color: #c29a78; }
-    .header--time--text {
-      width: 216px;
-      text-align: center; }
-  .header--date {
+    align-self: center;
+    justify-self: center; }
+  .headerItem--date {
     grid-column: 3 / 4;
     grid-row: 2 / 3;
-    background-color: #c29a78; }
-    .header--date--text {
-      width: 264px;
-      text-align: center; }
+    align-self: center;
+    justify-self: center; }

@@ -1,6 +1,43 @@
+@font-face {
+  font-family: Metric;
+  font-weight: normal;
+  src: url("../fonts/Metric-Regular.otf") format("opentype"); }
+
+@font-face {
+  font-family: Metric;
+  font-weight: bold;
+  src: url("../fonts/Metric-Bold.otf") format("opentype"); }
+
+@font-face {
+  font-family: Metric;
+  font-weight: lighter;
+  src: url("../fonts/Metric-Light.otf") format("opentype"); }
+
+@font-face {
+  font-family: Metric;
+  font-weight: 500;
+  src: url("../fonts/Metric-Medium.otf") format("opentype"); }
+
+@font-face {
+  font-family: Metric;
+  font-weight: 600;
+  src: url("../fonts/Metric-Semibold.otf") format("opentype"); }
+
+@font-face {
+  font-family: Metric;
+  font-weight: 100;
+  src: url("../fonts/Metric-Thin.otf") format("opentype"); }
+
+@font-face {
+  font-family: Metric;
+  font-weight: bold;
+  font-style: italic;
+  src: url("../fonts/Metric-LightItalic.otf") format("opentype"); }
+
 body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-family: Metric; }
 
 .container {
   height: 1920px;
@@ -11,8 +48,7 @@ body {
   grid-row-gap: 10px; }
 
 .section {
-  font-size: 20px;
-  font-family: sans-serif; }
+  font-size: 20px; }
   .section--header {
     grid-column: 1 / -1;
     grid-row: 1 / 2; }

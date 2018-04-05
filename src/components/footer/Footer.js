@@ -9,22 +9,17 @@ class Footer extends Component {
         return (
             <div className="footer">
                 <div className="footerItem footerItem--name">
-                    <p className="footerItem--name--text">
-                        © AIRWAYS RESIDENCES 2018
-                    </p>
+                    <p>© AIRWAYS RESIDENCES 2018</p>
                 </div>
                 <div className="footerItem footerItem--logo">
                     <img
-                        className="footerItem--logo--image"
                         src={require(`../../images/footer_logo.png`)}
                         width="35"
                         alt="footer"
                     />
                 </div>
                 <div className="footerItem footerItem--website">
-                    <p className="footerItem--website--text">
-                        AIRWAYSRESIDENCES.COM.PG
-                    </p>
+                    <p>AIRWAYSRESIDENCES.COM.PG</p>
                 </div>
             </div>
         );

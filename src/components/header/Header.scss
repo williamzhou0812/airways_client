@@ -3,13 +3,13 @@
     grid-template-columns: 600px 216px 264px;
     grid-template-rows: 290px 60px;
     grid-row-gap: 3px;
+    background-color: rgba(194, 154, 120, 1);
 }
 
-.header {
-    font-size: 19px;
-    font-family: sans-serif;
-    letter-spacing: 3px;
-
+.headerItem {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 4px;
     color: white;
 
     &--logo {
@@ -20,30 +20,21 @@
     &--welcome {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
-        background-color: rgba(194, 154, 120, 1);
-        &--text {
-            width: 600px;
-            text-align: right;
-        }
+        align-self: center;
+        justify-self: end;
     }
 
     &--time {
         grid-column: 2 / 3;
         grid-row: 2 / 3;
-        background-color: rgba(194, 154, 120, 1);
-        &--text {
-            width: 216px;
-            text-align: center;
-        }
+        align-self: center;
+        justify-self: center;
     }
 
     &--date {
         grid-column: 3 / 4;
         grid-row: 2 / 3;
-        background-color: rgba(194, 154, 120, 1);
-        &--text {
-            width: 264px;
-            text-align: center;
-        }
+        align-self: center;
+        justify-self: center;
     }
 }
