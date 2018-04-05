@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import './App.css';
 import Header from './header/Header';
+import Footer from './footer/Footer';
 
 class App extends Component {
     render() {
@@ -15,7 +16,9 @@ class App extends Component {
                 </div>
                 <div className="section section--menu">Menu</div>
                 <div className="section section--main">Main</div>
-                <div className="section section--footer">Footer</div>
+                <div className="section section--footer">
+                    <Footer />
+                </div>
             </div>
         );
     }

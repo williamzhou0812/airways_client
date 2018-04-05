@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import { ConnectedRouter as Router } from 'react-router-redux';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import moment from 'moment-timezone';
@@ -50,6 +48,7 @@ class Header extends Component {
                     <img
                         src={require(`../../images/header.png`)}
                         width="1080"
+                        alt="header"
                     />
                 </div>
                 <div className="header header--welcome">
@@ -68,8 +67,4 @@ class Header extends Component {
     }
 }
 
-function mapStateToProps({}) {
-    return {};
-}
-
-export default connect(mapStateToProps, actions)(Header);
+export default connect(null, actions)(Header);

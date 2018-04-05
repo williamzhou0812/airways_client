@@ -1,0 +1,42 @@
+.footer {
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 60px;
+    grid-row-gap: 3px;
+}
+
+.footerItem {
+    font-size: 12px;
+    font-family: sans-serif;
+    font-weight: 100;
+    letter-spacing: 2px;
+    color: white;
+    &--name {
+        grid-column: 1 / 2;
+        grid-row: 1 / -1;
+        align-self: center;
+        justify-self: center;
+
+        &--text {
+            text-align: center;
+        }
+    }
+    &--logo {
+        grid-column: 2 / 3;
+        grid-row: 1 / -1;
+        align-self: center;
+        justify-self: center;
+    }
+
+    &--website {
+        grid-column: 3 / 4;
+        grid-row: 1 / -1;
+        align-self: center;
+        justify-self: center;
+
+        &--text {
+            text-align: center;
+        }
+    }
+}
