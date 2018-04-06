@@ -6,6 +6,7 @@ import * as actions from '../actions';
 import './App.css';
 import Header from './header/Header';
 import Footer from './footer/Footer';
+import Menu from './menu/Menu';
 
 class App extends Component {
     render() {
@@ -14,7 +15,9 @@ class App extends Component {
                 <div className="section section--header">
                     <Header />
                 </div>
-                <div className="section section--menu">Menu</div>
+                <div className="section section--menu">
+                    <Menu />
+                </div>
                 <div className="section section--main">Main</div>
                 <div className="section section--footer">
                     <Footer />
