@@ -18,7 +18,12 @@ class Apartments extends Component {
                 className="main-section-animation"
                 style={{ backgroundColor: 'red' }}
             >
-                <p>Apartments</p>
+                <div className="apt--container">
+                    <div className="aptsection aptsection--sidebar">
+                        <p className="aptsection--sidebar--text">APARTMENTS</p>
+                    </div>
+                    <div className="aptsection aptsection--main">main</div>
+                </div>
             </div>
         );
     }

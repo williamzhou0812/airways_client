@@ -1,1 +1,38 @@
 @import '../sass/animation.scss';
+@import '../sass/variables.scss';
+
+.apt--container {
+    background-color: #eee;
+
+    display: grid;
+
+    grid-template-columns: 200px 880px;
+    grid-template-rows: 1367px;
+}
+
+.aptsection {
+    font-size: 30px;
+
+    &--sidebar {
+        background: linear-gradient($color-black 35%, $color-light-grey);
+        text-align: center;
+        color: white;
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        font-size: 70px;
+        letter-spacing: 10px;
+        writing-mode: vertical-rl; /* vertical text */
+        line-height: 5rem; /* center in div */
+        transform: rotate(180deg); /* spin to orient as required */
+        text-transform: uppercase;
+    }
+
+    &--main {
+        background-color: grey;
+        grid-row: 1 / 2;
+        grid-column: 2 / 3;
+    }
+}
+
+.aptsection--sidebar--text {
+}
