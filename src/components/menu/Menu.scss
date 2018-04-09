@@ -2,10 +2,8 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 120px;
-    grid-row-gap: 5px;
-    grid-column-gap: 5px;
-
-    //background-color: black;
+    grid-gap: 5px;
+    background-color: white;
 }
 
 .menuItem {
@@ -14,7 +12,7 @@
     letter-spacing: 2px;
     color: white;
     background-color: rgba(95, 102, 98, 1);
-
+    text-align: center;
     &--apartments {
         grid-column: 1 / 2;
         grid-row: 1 / -1;
@@ -23,14 +21,17 @@
         grid-column: 2 / 3;
         grid-row: 1 / -1;
     }
-
     &--features {
         grid-column: 3 / 4;
         grid-row: 1 / -1;
     }
-
     &--gallery {
         grid-column: 4 / 5;
         grid-row: 1 / -1;
     }
+}
+
+.menuText {
+    margin: 0;
+    font-size: 22px;
 }

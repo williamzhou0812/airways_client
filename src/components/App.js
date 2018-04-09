@@ -15,6 +15,7 @@ class App extends Component {
                 <div className="section section--header">
                     <Header />
                 </div>
+                <div className="section section--breakline" />
                 <div className="section section--menu">
                     <Menu />
                 </div>

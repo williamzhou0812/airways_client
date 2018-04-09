@@ -10,7 +10,8 @@
   letter-spacing: 4px;
   color: white;
   background-color: #c29a78;
-  width: 100%; }
+  width: 100%;
+  text-align: center; }
   .headerItem--logo {
     grid-column: 1 / -1;
     grid-row: 1 / 2; }
