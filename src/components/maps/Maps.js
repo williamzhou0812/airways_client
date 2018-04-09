@@ -4,6 +4,14 @@ import * as actions from '../../actions';
 import './Maps.css';
 
 class Maps extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        console.log(this.props.mapsList.maps);
+    }
+
     render() {
         return (
             <div
@@ -16,4 +24,8 @@ class Maps extends Component {
     }
 }
 
-export default connect(null, actions)(Maps);
+function mapStateToProps({ mapsList }) {
+    return { mapsList };
+}
+
+export default connect(mapStateToProps, actions)(Maps);

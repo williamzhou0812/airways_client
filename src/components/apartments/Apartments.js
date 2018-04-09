@@ -4,6 +4,14 @@ import * as actions from '../../actions';
 import './Apartments.css';
 
 class Apartments extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        console.log(this.props.apartmentsList.apartments);
+    }
+
     render() {
         return (
             <div
@@ -16,4 +24,8 @@ class Apartments extends Component {
     }
 }
 
-export default connect(null, actions)(Apartments);
+function mapStateToProps({ apartmentsList }) {
+    return { apartmentsList };
+}
+
+export default connect(mapStateToProps, actions)(Apartments);

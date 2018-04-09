@@ -4,6 +4,14 @@ import * as actions from '../../actions';
 import './Gallery.css';
 
 class Gallery extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        console.log(this.props.galleryList.gallery);
+    }
+
     render() {
         return (
             <div
@@ -15,5 +23,8 @@ class Gallery extends Component {
         );
     }
 }
+function mapStateToProps({ galleryList }) {
+    return { galleryList };
+}
 
-export default connect(null, actions)(Gallery);
+export default connect(mapStateToProps, actions)(Gallery);

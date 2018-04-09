@@ -4,6 +4,14 @@ import * as actions from '../../actions';
 import './Features.css';
 
 class Features extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        console.log(this.props.featuresList.features);
+    }
+
     render() {
         return (
             <div
@@ -16,4 +24,8 @@ class Features extends Component {
     }
 }
 
-export default connect(null, actions)(Features);
+function mapStateToProps({ featuresList }) {
+    return { featuresList };
+}
+
+export default connect(mapStateToProps, actions)(Features);

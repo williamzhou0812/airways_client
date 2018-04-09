@@ -41,10 +41,16 @@ class Header extends Component {
 
     render() {
         const { time, date } = this.state;
+        const { navigateTo } = this.props;
 
         return (
             <div className="header">
-                <div className="headerItem headerItem--logo">
+                <div
+                    className="headerItem headerItem--logo"
+                    onClick={() => {
+                        navigateTo('/');
+                    }}
+                >
                     <img
                         src={require(`../../images/header.png`)}
                         width="1080"

@@ -32,7 +32,7 @@ class Menu extends Component {
                         width="90"
                         alt="menu_apartment_icon"
                     />
-                    <p className="menuText">Apartments</p>
+                    <p className="menuText">APARTMENTS</p>
                 </div>
                 <div
                     className={
@@ -50,7 +50,7 @@ class Menu extends Component {
                         width="90"
                         alt="menu_map_icon"
                     />
-                    <p className="menuText">Maps</p>
+                    <p className="menuText">MAPS</p>
                 </div>
                 <div
                     className={
@@ -68,7 +68,7 @@ class Menu extends Component {
                         width="90"
                         alt="menu_feature_icon"
                     />
-                    <p className="menuText">Features</p>
+                    <p className="menuText">FEATURES</p>
                 </div>
                 <div
                     className={
@@ -86,7 +86,7 @@ class Menu extends Component {
                         width="90"
                         alt="menu_gallery_icon"
                     />
-                    <p className="menuText">Gallery</p>
+                    <p className="menuText">GALLERY</p>
                 </div>
             </div>
         );
