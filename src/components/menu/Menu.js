@@ -6,8 +6,13 @@ import './Menu.css';
 class Menu extends Component {
     constructor(props) {
         super(props);
+        console.log(this.props.router.location.pathname);
+        let currentMenuId = '/apartments';
+        if (this.props.router.location.pathname != '/') {
+            currentMenuId = this.props.router.location.pathname;
+        }
         this.state = {
-            currentMenu: 'Apartments'
+            currentMenu: currentMenuId
         };
     }
 
@@ -18,13 +23,13 @@ class Menu extends Component {
             <div className="menu">
                 <div
                     className={
-                        currentMenu === 'Apartments'
+                        currentMenu === '/apartments'
                             ? 'menuItem menuItem--apartments menuItem--active'
                             : 'menuItem menuItem--apartments menuItem--inactive'
                     }
                     onClick={() => {
                         navigateTo('/apartments');
-                        this.setState({ currentMenu: 'Apartments' });
+                        this.setState({ currentMenu: '/apartments' });
                     }}
                 >
                     <img
@@ -36,13 +41,13 @@ class Menu extends Component {
                 </div>
                 <div
                     className={
-                        currentMenu === 'Maps'
+                        currentMenu === '/maps'
                             ? 'menuItem menuItem--maps menuItem--active'
                             : 'menuItem menuItem--maps menuItem--inactive'
                     }
                     onClick={() => {
                         navigateTo('/maps');
-                        this.setState({ currentMenu: 'Maps' });
+                        this.setState({ currentMenu: '/maps' });
                     }}
                 >
                     <img
@@ -54,13 +59,13 @@ class Menu extends Component {
                 </div>
                 <div
                     className={
-                        currentMenu === 'Features'
+                        currentMenu === '/features'
                             ? 'menuItem menuItem--features menuItem--active'
                             : 'menuItem menuItem--features menuItem--inactive'
                     }
                     onClick={() => {
                         navigateTo('/features');
-                        this.setState({ currentMenu: 'Features' });
+                        this.setState({ currentMenu: '/features' });
                     }}
                 >
                     <img
@@ -72,13 +77,13 @@ class Menu extends Component {
                 </div>
                 <div
                     className={
-                        currentMenu === 'Gallery'
+                        currentMenu === '/gallery'
                             ? 'menuItem menuItem--gallery menuItem--active'
                             : 'menuItem menuItem--gallery menuItem--inactive'
                     }
                     onClick={() => {
                         navigateTo('/gallery');
-                        this.setState({ currentMenu: 'Gallery' });
+                        this.setState({ currentMenu: '/gallery' });
                     }}
                 >
                     <img
@@ -93,4 +98,8 @@ class Menu extends Component {
     }
 }
 
-export default connect(null, actions)(Menu);
+function mapStateToProps({ router }) {
+    return { router };
+}
+
+export default connect(mapStateToProps, actions)(Menu);

@@ -21,6 +21,7 @@ class App extends Component {
     }
 
     componentDidMount() {
+        console.log('123');
         this.props.getApartmentList();
         this.props.getFeatureList();
         this.props.getGalleryList();
@@ -60,10 +61,15 @@ class App extends Component {
                     </div>
                     <Switch>
                         <Route exact path="/" component={Apartments} />
-                        <Route path="/apartments" component={Apartments} />
-                        <Route path="/features" component={Features} />
-                        <Route path="/gallery" component={Gallery} />
-                        <Route path="/maps" component={Maps} />
+                        <Route
+                            exact
+                            path="/apartments"
+                            component={Apartments}
+                        />
+                        <Route exact path="/features" component={Features} />
+                        <Route exact path="/gallery" component={Gallery} />
+                        <Route exact path="/maps" component={Maps} />
+                        <Redirect from="/" to="/apartments" />
                     </Switch>
                     <div className="section section--footer">
                         <Footer />

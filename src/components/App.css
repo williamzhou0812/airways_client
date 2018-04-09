@@ -44,7 +44,7 @@ body {
   width: 1080px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 355px 8px 120px auto 60px;
+  grid-template-rows: 353px 8px 120px auto 60px;
   grid-row-gap: 3px; }
 
 .section {
