@@ -1,16 +1,17 @@
+@import '../sass/variables.scss';
 .footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 60px;
     grid-row-gap: 3px;
-    background-color: black;
+    background-color: $color-black;
 }
 
 .footerItem {
     font-size: 12px;
     font-weight: lighter;
     letter-spacing: 2px;
-    color: white;
+    color: $color-white;
 
     &--name {
         grid-column: 1 / 2;

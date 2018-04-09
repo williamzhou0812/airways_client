@@ -24,6 +24,12 @@
   .menuItem--gallery {
     grid-column: 4 / 5;
     grid-row: 1 / -1; }
+  .menuItem--active {
+    background-color: #c29a78;
+    transition: all 0.5s ease-in-out; }
+  .menuItem--inactive {
+    background-color: #5f6662;
+    transition: all 0.5s ease-in-out; }
 
 .menuText {
   margin: 0;

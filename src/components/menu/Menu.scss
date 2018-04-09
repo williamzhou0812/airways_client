@@ -1,9 +1,10 @@
+@import '../sass/variables.scss';
 .menu {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 120px;
     grid-gap: 5px;
-    background-color: white;
+    background-color: $color-white;
 }
 
 .menuItem {
@@ -11,7 +12,7 @@
     font-weight: lighter;
     letter-spacing: 2px;
     color: white;
-    background-color: rgba(95, 102, 98, 1);
+    background-color: $color-dark-grey;
     text-align: center;
     &--apartments {
         grid-column: 1 / 2;
@@ -28,6 +29,16 @@
     &--gallery {
         grid-column: 4 / 5;
         grid-row: 1 / -1;
+    }
+
+    &--active {
+        background-color: $color-light-grey;
+        transition: all 0.5s ease-in-out;
+    }
+
+    &--inactive {
+        background-color: $color-dark-grey;
+        transition: all 0.5s ease-in-out;
     }
 }
 

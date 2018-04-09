@@ -1,14 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-
 import './Menu.css';
 
 class Menu extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentMenu: 'Apartments'
+        };
+    }
+
     render() {
+        const { currentMenu } = this.state;
+        const { navigateTo } = this.props;
         return (
             <div className="menu">
-                <div className="menuItem menuItem--apartments">
+                <div
+                    className={
+                        currentMenu === 'Apartments'
+                            ? 'menuItem menuItem--apartments menuItem--active'
+                            : 'menuItem menuItem--apartments menuItem--inactive'
+                    }
+                    onClick={() => {
+                        navigateTo('/apartments');
+                        this.setState({ currentMenu: 'Apartments' });
+                    }}
+                >
                     <img
                         src={require(`../../images/menu_apartment_icon.png`)}
                         width="90"
@@ -16,7 +34,17 @@ class Menu extends Component {
                     />
                     <p className="menuText">Apartments</p>
                 </div>
-                <div className="menuItem menuItem--maps menuIcon">
+                <div
+                    className={
+                        currentMenu === 'Maps'
+                            ? 'menuItem menuItem--maps menuItem--active'
+                            : 'menuItem menuItem--maps menuItem--inactive'
+                    }
+                    onClick={() => {
+                        navigateTo('/maps');
+                        this.setState({ currentMenu: 'Maps' });
+                    }}
+                >
                     <img
                         src={require(`../../images/menu_map_icon.png`)}
                         width="90"
@@ -24,7 +52,17 @@ class Menu extends Component {
                     />
                     <p className="menuText">Maps</p>
                 </div>
-                <div className="menuItem menuItem--features">
+                <div
+                    className={
+                        currentMenu === 'Features'
+                            ? 'menuItem menuItem--features menuItem--active'
+                            : 'menuItem menuItem--features menuItem--inactive'
+                    }
+                    onClick={() => {
+                        navigateTo('/features');
+                        this.setState({ currentMenu: 'Features' });
+                    }}
+                >
                     <img
                         src={require(`../../images/menu_feature_icon.png`)}
                         width="90"
@@ -32,7 +70,17 @@ class Menu extends Component {
                     />
                     <p className="menuText">Features</p>
                 </div>
-                <div className="menuItem menuItem--gallery">
+                <div
+                    className={
+                        currentMenu === 'Gallery'
+                            ? 'menuItem menuItem--gallery menuItem--active'
+                            : 'menuItem menuItem--gallery menuItem--inactive'
+                    }
+                    onClick={() => {
+                        navigateTo('/gallery');
+                        this.setState({ currentMenu: 'Gallery' });
+                    }}
+                >
                     <img
                         src={require(`../../images/menu_gallery_icon.png`)}
                         width="90"

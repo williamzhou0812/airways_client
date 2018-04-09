@@ -65,36 +65,3 @@ body {
   .section--footer {
     grid-column: 1 / -1;
     grid-row: 5 / 6; }
-
-/*.container {
-    height: 1920px;
-    width: 1080px;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: 355px 120px auto 60px;
-    grid-row-gap: 5px;
-}
-
-.section {
-    font-size: 20px;
-
-    &--header {
-        grid-column: 1 / -1;
-        grid-row: 1 / 2;
-    }
-
-    &--menu {
-        grid-column: 1 / -1;
-        grid-row: 2 / 3;
-    }
-
-    &--main {
-        grid-column: 1 / -1;
-        grid-row: 3 / 4;
-    }
-
-    &--footer {
-        grid-column: 1 / -1;
-        grid-row: 4 / 5;
-    }
-}*/
