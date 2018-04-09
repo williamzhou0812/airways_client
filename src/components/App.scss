@@ -80,3 +80,25 @@ body {
         grid-row: 5 / 6;
     }
 }
+
+.loadingContainer {
+    height: 1920px;
+    width: 1080px;
+    display: grid;
+    grid-template-columns: 1fr 500px 1fr;
+    grid-template-rows: 1fr 500px 1fr;
+    background-color: #058c9b;
+    text-align: center;
+    color: white;
+    font-size: 60px;
+    letter-spacing: 10px;
+}
+
+.loading {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    &--title {
+        padding: 0;
+        margin: 0;
+    }
+}

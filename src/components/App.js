@@ -36,16 +36,19 @@ class App extends Component {
             this.props.featuresList.status !== 200
         ) {
             return (
-                <div className="laodingContainer">
-                    <h1 className="loadingTitle">Initialising</h1>
-                    <ReactLoading
-                        className="loadingAnimation"
-                        type={'bubbles'}
-                        color={'#b9dfe3'}
-                        height="700"
-                        width="393"
-                        delay={0}
-                    />
+                <div className="loadingContainer">
+                    <div className="loading ">
+                        <p className="loading--title">Initialising</p>
+
+                        <ReactLoading
+                            className="loadingAnimation"
+                            type={'bubbles'}
+                            color={'#b9dfe3'}
+                            height="900"
+                            width="393"
+                            delay={0}
+                        />
+                    </div>
                 </div>
             );
         }
