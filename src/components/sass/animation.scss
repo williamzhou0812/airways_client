@@ -1,25 +1,20 @@
 .main-section-animation {
     animation-name: moveInBottom;
     animation-duration: 1s;
-    animation-timing-function: linear;
+    animation-timing-function: ease-in;
 }
 
 @keyframes moveInBottom {
-    /*Before the animation starts*/
     0% {
         opacity: 0;
-        /*Starts with invisible*/
-        transform: translateY(50%);
-        /*Starts with 100px on x axis*/
+        transform: translateY(100%);
     }
-    /*When the animation finished*/
     100% {
         opacity: 1;
-        /*Finishs with invisible*/
         transform: translateY(0);
-        /*Finish with 0px on x axis*/
     }
 }
+
 @keyframes moveInLeft {
     0% {
         opacity: 0;
