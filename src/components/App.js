@@ -39,7 +39,6 @@ class App extends Component {
                 <div className="loadingContainer">
                     <div className="loading ">
                         <p className="loading--title">Initialising</p>
-
                         <ReactLoading
                             className="loadingAnimation"
                             type={'bubbles'}
@@ -54,7 +53,7 @@ class App extends Component {
         }
         return (
             <Router history={this.props.history}>
-                <div className="container">
+                <div className="container home-section-animation">
                     <div className="section section--header">
                         <Header />
                     </div>
