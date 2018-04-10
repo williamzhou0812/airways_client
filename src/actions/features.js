@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { FEATURES_LIST, FEATURES_LIST_ERROR } from './types';
+import { FEATURES_LIST, FEATURES_LIST_ERROR, FEATURE_DETAIL } from './types';
 import { createURL } from '../components/utils/Constants';
+import _ from 'lodash';
 
 export const getFeatureList = () => async dispatch => {
     await axios
@@ -22,4 +23,26 @@ export const getFeatureList = () => async dispatch => {
                 error: error.response
             });
         });
+};
+
+export const getSelectedFeatureDetail = (id, featureList) => dispatch => {
+    const featureDetailID = parseInt(id);
+
+    const selectedFeatureDetail = _.find(featureList, o => {
+        return o.id === featureDetailID;
+    });
+
+    let [data, responseStatus] = [null, 404];
+
+    if (selectedFeatureDetail) {
+        data = selectedFeatureDetail;
+        responseStatus = 200;
+        dispatch({
+            type: FEATURE_DETAIL,
+            payload: {
+                apartment: data,
+                status: responseStatus
+            }
+        });
+    }
 };

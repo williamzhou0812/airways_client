@@ -4,6 +4,7 @@ import * as actions from '../../actions';
 import './Apartments.css';
 import _ from 'lodash';
 import { createImageURL } from '../utils/Constants';
+import { Link } from 'react-router-dom';
 
 class Apartments extends Component {
     constructor(props) {
@@ -19,23 +20,27 @@ class Apartments extends Component {
             this.props.apartmentsList.apartments.concat(
                 this.props.apartmentsList.apartments
             ),
-            ({ name, images_path }) => {
+            ({ id, name, images_path }) => {
                 return (
-                    <div
-                        className="aptsection--list--each"
-                        style={{
-                            backgroundImage: `url(${createImageURL(
-                                images_path[0]
-                            )})`,
-                            backgroundRepeat: 'no-repeat',
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center'
-                        }}
-                    >
-                        <div className="aptsection--list--each--name">
-                            <span>{name}</span>
+                    <Link to={`/apartments/${id}`}>
+                        <div
+                            className="aptsection--list--each"
+                            style={
+                                !_.isEmpty(images_path[0]) && {
+                                    backgroundImage: `url(${createImageURL(
+                                        images_path[0]
+                                    )})`,
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center'
+                                }
+                            }
+                        >
+                            <div className="aptsection--list--each--name">
+                                {name}
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 );
             }
         );
@@ -43,19 +48,28 @@ class Apartments extends Component {
 
     render() {
         return (
-            <div
-                className="main-section-animation"
-                style={{ backgroundColor: 'red' }}
-            >
-                <div className="apt--container">
-                    <div className="aptsection aptsection--sidebar">
-                        <p>APARTMENTS</p>
-                    </div>
-                    <div className="aptsection  ">
-                        <div className=" aptsection--list">
-                            {this.renderEachApartment()}
+            <div>
+                <div
+                    className="main-section-animation"
+                    style={{ backgroundColor: 'red' }}
+                >
+                    <div className="apt--container">
+                        <div className="aptsection aptsection--sidebar">
+                            <p>APARTMENTS</p>
+                        </div>
+
+                        <div className="aptsection  ">
+                            <div className=" aptsection--list">
+                                {this.renderEachApartment()}
+                            </div>
                         </div>
                     </div>
+                    <img
+                        className="sidebar--logo"
+                        src={require(`../../images/sidebar_logo.png`)}
+                        alt="sidebar_logo"
+                        width="260"
+                    />
                 </div>
             </div>
         );

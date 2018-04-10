@@ -4,11 +4,15 @@ import apartmentsReducer from './apartmentsReducer';
 import featuresReducer from './featuresReducer';
 import galleryReducer from './galleryReducer';
 import mapsReducer from './mapsReducer';
+import apartmentDetailReducer from './apartmentDetailReducer';
+import featureDetailReducer from './featureDetailReducer';
 
 export default combineReducers({
     router: routerReducer,
     apartmentsList: apartmentsReducer,
     featuresList: featuresReducer,
     galleryList: galleryReducer,
-    mapsList: mapsReducer
+    mapsList: mapsReducer,
+    apartmentDetail: apartmentDetailReducer,
+    featureDetail: featureDetailReducer
 });

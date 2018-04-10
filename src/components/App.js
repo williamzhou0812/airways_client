@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { ConnectedRouter as Router } from 'react-router-redux';
-//import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import './App.css';
@@ -11,6 +9,7 @@ import Footer from './footer/Footer';
 import Menu from './menu/Menu';
 import ReactLoading from 'react-loading';
 import Apartments from './apartments/Apartments';
+import ApartmentDetail from './apartments/ApartmentDetail';
 import Features from './features/Features';
 import Gallery from './gallery/Gallery';
 import Maps from './maps/Maps';
@@ -21,7 +20,6 @@ class App extends Component {
     }
 
     componentDidMount() {
-        console.log('123');
         this.props.getApartmentList();
         this.props.getFeatureList();
         this.props.getGalleryList();
@@ -67,6 +65,11 @@ class App extends Component {
                             exact
                             path="/apartments"
                             component={Apartments}
+                        />
+                        <Route
+                            exact
+                            path="/apartments/:id"
+                            component={ApartmentDetail}
                         />
                         <Route exact path="/features" component={Features} />
                         <Route exact path="/gallery" component={Gallery} />
