@@ -21,16 +21,19 @@
     }
 
     &--welcome {
+        padding-top: 3px;
         grid-column: 1 / 2;
         grid-row: 2 / 3;
     }
 
     &--time {
+        padding-top: 3px;
         grid-column: 2 / 3;
         grid-row: 2 / 3;
     }
 
     &--date {
+        padding-top: 3px;
         grid-column: 3 / 4;
         grid-row: 2 / 3;
     }
