@@ -69,6 +69,14 @@ class App extends Component {
                     <div className="section section--menu">
                         <Menu />
                     </div>
+
+                    <img
+                        className="menu--shadow"
+                        src={require(`../images/Button-Shadow.png`)}
+                        alt="sidebar_logo"
+                        width="1080"
+                    />
+
                     <div className="section section--sidebar">
                         <p>{sidebarText}</p>
                     </div>

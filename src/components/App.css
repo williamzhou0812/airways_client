@@ -85,6 +85,11 @@ body {
     box-shadow: -7px 0px 5px 0px rgba(0, 0, 0, 0.6);
     z-index: 10; }
 
+.menu--shadow {
+  position: fixed;
+  z-index: 20;
+  top: 490px; }
+
 .sidebar--logo {
   position: fixed;
   z-index: 20;
