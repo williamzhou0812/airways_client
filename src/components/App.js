@@ -29,7 +29,6 @@ class App extends Component {
 
     render() {
         let sidebarText = 'APARTMENTS';
-        console.log(this.props.router.location);
         if (!_.isEmpty(this.props.router.location)) {
             if (this.props.router.location.pathname === '/') {
                 sidebarText = 'APARTMENTS';

@@ -1,0 +1,66 @@
+@import '../sass/variables.scss';
+
+.apt--detail--container {
+    background-color: $color-white;
+    display: grid;
+    grid-template-columns: 880px;
+    grid-template-rows: 50px 650px auto 50px;
+    grid-row-gap: 3px;
+}
+
+.aptdetail {
+    color: $color-white;
+    font-size: 20px;
+
+    &--up--arrow {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        background-color: $color-arrow-grey;
+        text-align: center;
+        padding-top: 0.7em;
+    }
+
+    &--gallery {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+        background-color: green;
+    }
+
+    &--description {
+        grid-column: 1 / -1;
+        grid-row: 3 / 4;
+        background-color: $color-arrow-grey;
+        padding-left: 60px;
+        padding-right: 60px;
+        letter-spacing: 2px;
+        &--name {
+            text-align: center;
+            font-size: 28px;
+        }
+        &--contact {
+            text-align: left;
+            font-size: 20px;
+            span {
+                font-weight: 500;
+            }
+        }
+    }
+
+    &--down--arrow {
+        grid-column: 1 / -1;
+        grid-row: 4 / 5;
+        background-color: $color-arrow-grey;
+        text-align: center;
+        padding-top: 0.7em;
+    }
+
+    &--click {
+        background-color: $color-dark-grey;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &--clicked {
+        background-color: $color-arrow-grey;
+        transition: all 0.3s ease-in-out;
+    }
+}

@@ -17,12 +17,10 @@ class Apartments extends Component {
 
     renderEachApartment() {
         return _.map(
-            this.props.apartmentsList.apartments.concat(
-                this.props.apartmentsList.apartments
-            ),
+            this.props.apartmentsList.apartments,
             ({ id, name, images_path }) => {
                 return (
-                    <Link to={`/apartments/${id}`}>
+                    <Link to={`/apartments/${id}`} key={id}>
                         <div
                             className="aptsection--list--each"
                             style={
