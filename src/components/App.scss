@@ -46,7 +46,7 @@ body {
     height: 1920px;
     width: 1080px;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 200px repeat(1, 1fr);
     grid-template-rows: 353px 8px 120px auto 60px;
     grid-row-gap: 3px;
 }
@@ -71,7 +71,7 @@ body {
     }
 
     &--main {
-        grid-column: 1 / -1;
+        grid-column: 2 / -1;
         grid-row: 4 / 5;
     }
 
@@ -79,6 +79,30 @@ body {
         grid-column: 1 / -1;
         grid-row: 5 / 6;
     }
+
+    &--sidebar {
+        grid-column: 1 / 2;
+        grid-row: 4 / 5;
+        background: linear-gradient($color-black 35%, $color-light-grey);
+        text-align: center;
+        color: white;
+        font-size: 70px;
+        letter-spacing: 10px;
+        writing-mode: vertical-rl; /* vertical text */
+        line-height: 5rem; /* center in div */
+        transform: rotate(180deg); /* spin to orient as required */
+        text-transform: uppercase;
+        -webkit-box-shadow: -7px 0px 5px 0px rgba(0, 0, 0, 0.6);
+        -moz-box-shadow: -7px 0px 5px 0px rgba(0, 0, 0, 0.6);
+        box-shadow: -7px 0px 5px 0px rgba(0, 0, 0, 0.6);
+        z-index: 10;
+    }
+}
+
+.sidebar--logo {
+    position: fixed;
+    z-index: 20;
+    bottom: 63px;
 }
 
 .loadingContainer {
@@ -87,7 +111,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 500px 1fr;
     grid-template-rows: 1fr 500px 1fr;
-    background-color: #058c9b;
+    background: linear-gradient($color-light-grey, $color-black 35%);
     text-align: center;
     color: white;
     font-size: 60px;

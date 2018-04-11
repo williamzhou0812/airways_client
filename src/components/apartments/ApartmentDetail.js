@@ -26,7 +26,7 @@ class ApartmentDetail extends Component {
     render() {
         if (!_.isEmpty(this.props.apartmentDetail)) {
             return (
-                <div>
+                <div className="main-section-animation">
                     ApartmentDetail {this.props.apartmentDetail.apartment.id}
                 </div>
             );

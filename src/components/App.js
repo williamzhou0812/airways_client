@@ -13,6 +13,7 @@ import ApartmentDetail from './apartments/ApartmentDetail';
 import Features from './features/Features';
 import Gallery from './gallery/Gallery';
 import Maps from './maps/Maps';
+import _ from 'lodash';
 
 class App extends Component {
     constructor(props) {
@@ -27,6 +28,16 @@ class App extends Component {
     }
 
     render() {
+        let sidebarText = 'APARTMENTS';
+        console.log(this.props.router.location);
+        if (!_.isEmpty(this.props.router.location)) {
+            if (this.props.router.location.pathname === '/') {
+                sidebarText = 'APARTMENTS';
+            } else {
+                sidebarText = this.props.router.location.pathname.split('/')[1];
+            }
+        }
+
         if (
             this.props.apartmentsList.status !== 200 ||
             this.props.galleryList.status !== 200 ||
@@ -59,6 +70,10 @@ class App extends Component {
                     <div className="section section--menu">
                         <Menu />
                     </div>
+                    <div className="section section--sidebar">
+                        <p>{sidebarText}</p>
+                    </div>
+
                     <Switch>
                         <Route exact path="/" component={Apartments} />
                         <Route
@@ -76,6 +91,13 @@ class App extends Component {
                         <Route exact path="/maps" component={Maps} />
                         <Redirect from="/" to="/apartments" />
                     </Switch>
+
+                    <img
+                        className="sidebar--logo"
+                        src={require(`../images/sidebar_logo.png`)}
+                        alt="sidebar_logo"
+                        width="260"
+                    />
                     <div className="section section--footer">
                         <Footer />
                     </div>
@@ -89,9 +111,10 @@ function mapStateToProps({
     apartmentsList,
     featuresList,
     galleryList,
-    mapsList
+    mapsList,
+    router
 }) {
-    return { apartmentsList, featuresList, galleryList, mapsList };
+    return { apartmentsList, featuresList, galleryList, mapsList, router };
 }
 
 export default connect(mapStateToProps, actions)(App);

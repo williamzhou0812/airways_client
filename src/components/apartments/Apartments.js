@@ -49,27 +49,14 @@ class Apartments extends Component {
     render() {
         return (
             <div>
-                <div
-                    className="main-section-animation"
-                    style={{ backgroundColor: 'red' }}
-                >
+                <div className="main-section-animation">
                     <div className="apt--container">
-                        <div className="aptsection aptsection--sidebar">
-                            <p>APARTMENTS</p>
-                        </div>
-
                         <div className="aptsection  ">
                             <div className=" aptsection--list">
                                 {this.renderEachApartment()}
                             </div>
                         </div>
                     </div>
-                    <img
-                        className="sidebar--logo"
-                        src={require(`../../images/sidebar_logo.png`)}
-                        alt="sidebar_logo"
-                        width="260"
-                    />
                 </div>
             </div>
         );
