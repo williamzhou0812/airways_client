@@ -4,7 +4,7 @@
     background-color: $color-white;
     display: grid;
     grid-template-columns: 880px;
-    grid-template-rows: 50px 650px auto 50px;
+    grid-template-rows: 50px 700px auto 50px;
     grid-row-gap: 3px;
 }
 
@@ -23,7 +23,7 @@
     &--gallery {
         grid-column: 1 / -1;
         grid-row: 2 / 3;
-        background-color: green;
+        background-color: $color-arrow-grey;
     }
 
     &--description {

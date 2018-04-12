@@ -2,7 +2,7 @@
   background-color: white;
   display: grid;
   grid-template-columns: 880px;
-  grid-template-rows: 50px 650px auto 50px;
+  grid-template-rows: 50px 700px auto 50px;
   grid-row-gap: 3px; }
 
 .aptdetail {
@@ -17,7 +17,7 @@
   .aptdetail--gallery {
     grid-column: 1 / -1;
     grid-row: 2 / 3;
-    background-color: green; }
+    background-color: #8d8e90; }
   .aptdetail--description {
     grid-column: 1 / -1;
     grid-row: 3 / 4;

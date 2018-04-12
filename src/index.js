@@ -7,7 +7,7 @@ import reduxThunk from 'redux-thunk';
 import { routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import reducers from './reducers';
-
+import '../node_modules/react-image-gallery/styles/css/image-gallery.css';
 const history = createHistory();
 const middleware = routerMiddleware(history);
 

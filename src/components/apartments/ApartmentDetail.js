@@ -30,6 +30,19 @@ class ApartmentDetail extends Component {
         );
     }
 
+    processImageList(apartment) {
+        let images = [];
+        apartment.images_path.forEach(each => {
+            images.push({
+                original: createImageURL(each),
+                thumbnail: createImageURL(each),
+                description: apartment.name,
+                sizes: { width: '500px', height: '500px' }
+            });
+        });
+        return images;
+    }
+
     render() {
         console.log(this.props.apartmentDetail);
         const { up, down } = this.state;
@@ -37,6 +50,7 @@ class ApartmentDetail extends Component {
         const { apartment } = this.props.apartmentDetail;
 
         if (!_.isEmpty(this.props.apartmentDetail)) {
+            const images = this.processImageList(apartment);
             return (
                 <div className="apt--detail--container main-section-animation">
                     <div
@@ -77,7 +91,28 @@ class ApartmentDetail extends Component {
                         </Link>
                     </div>
 
-                    <div className="aptdetail aptdetail--gallery">Gallery</div>
+                    <div className="aptdetail aptdetail--gallery">
+                        <ImageGallery
+                            items={images}
+                            autoPlay={true}
+                            showPlayButton={false}
+                            showFullscreenButton={false}
+                            renderItem={item => {
+                                return (
+                                    <div className="image-gallery-image">
+                                        <img
+                                            src={item.original}
+                                            srcSet={item.srcSet}
+                                            style={{
+                                                width: '880px',
+                                                height: '600px'
+                                            }}
+                                        />
+                                    </div>
+                                );
+                            }}
+                        />
+                    </div>
 
                     <div className="aptdetail aptdetail--description">
                         <p className="aptdetail--description--name">
