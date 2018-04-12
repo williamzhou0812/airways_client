@@ -64,8 +64,19 @@ class ApartmentDetail extends Component {
         return nextID;
     }
 
+    resetAnimationClass() {
+        document
+            .getElementById('apartmentDetailSection')
+            .classList.remove('main-section-animation');
+        document
+            .getElementById('apartmentDetailSection')
+            .classList.remove('section-down-animation');
+        document
+            .getElementById('apartmentDetailSection')
+            .classList.remove('section-up-animation');
+    }
+
     render() {
-        console.log(this.props.apartmentDetail);
         const { up, down } = this.state;
         const { navigateTo, apartmentsList } = this.props;
         const { apartment } = this.props.apartmentDetail;
@@ -73,7 +84,10 @@ class ApartmentDetail extends Component {
         if (!_.isEmpty(this.props.apartmentDetail)) {
             const images = this.processImageList(apartment);
             return (
-                <div className="apt--detail--container main-section-animation">
+                <div
+                    className="apt--detail--container main-section-animation"
+                    id="apartmentDetailSection"
+                >
                     <div
                         className={
                             up
@@ -96,6 +110,13 @@ class ApartmentDetail extends Component {
                                 this.processNextApartmentID('up'),
                                 apartmentsList.apartments
                             );
+
+                            this.resetAnimationClass();
+                            setTimeout(() => {
+                                document
+                                    .getElementById('apartmentDetailSection')
+                                    .classList.add('section-up-animation');
+                            }, 50);
                         }}
                     >
                         <Link
@@ -173,6 +194,13 @@ class ApartmentDetail extends Component {
                                 this.processNextApartmentID('up'),
                                 apartmentsList.apartments
                             );
+
+                            this.resetAnimationClass();
+                            setTimeout(() => {
+                                document
+                                    .getElementById('apartmentDetailSection')
+                                    .classList.add('section-down-animation');
+                            }, 50);
                         }}
                     >
                         <img
