@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import moment from 'moment-timezone';
-
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 class Header extends Component {
@@ -51,11 +51,13 @@ class Header extends Component {
                         navigateTo('/');
                     }}
                 >
-                    <img
-                        src={require(`../../images/header.png`)}
-                        width="1080"
-                        alt="header"
-                    />
+                    <Link to={'/apartments'}>
+                        <img
+                            src={require(`../../images/header.png`)}
+                            width="1080"
+                            alt="header"
+                        />
+                    </Link>
                 </div>
                 <div className="headerItem headerItem--welcome">
                     <p>WELCOME TO AIRWAYS RESIDENCES</p>
