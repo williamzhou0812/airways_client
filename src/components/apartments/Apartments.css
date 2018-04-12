@@ -5,12 +5,12 @@
 
 .section-up-animation {
   animation-name: moveInBottom;
-  animation-duration: 0.5s;
+  animation-duration: 1s;
   animation-timing-function: ease-in; }
 
 .section-down-animation {
   animation-name: moveInUp;
-  animation-duration: 0.5s;
+  animation-duration: 1s;
   animation-timing-function: ease-in; }
 
 .home-section-animation {

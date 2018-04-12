@@ -100,15 +100,16 @@ body {
 }
 
 .menu--shadow {
-    position: fixed;
+    position: absolute;
     z-index: 20;
     top: 490px;
 }
 
 .sidebar--logo {
-    position: fixed;
+    position: absolute;
     z-index: 20;
-    bottom: 63px;
+    bottom: 0px;
+    transform: translateY(57px);
 }
 
 .loadingContainer {
