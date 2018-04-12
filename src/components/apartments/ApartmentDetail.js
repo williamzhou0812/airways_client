@@ -8,7 +8,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import LeftIcon from 'material-ui/svg-icons/navigation/chevron-left';
 import RightIcon from 'material-ui/svg-icons/navigation/chevron-right';
 import ImageGallery from 'react-image-gallery';
-import { Link } from 'react-router-dom';
 
 class ApartmentDetail extends Component {
     constructor(props) {
@@ -112,6 +111,7 @@ class ApartmentDetail extends Component {
                             );
 
                             this.resetAnimationClass();
+
                             setTimeout(() => {
                                 document
                                     .getElementById('apartmentDetailSection')
@@ -119,18 +119,11 @@ class ApartmentDetail extends Component {
                             }, 50);
                         }}
                     >
-                        <Link
-                            to={`/apartments/${parseInt(
-                                this.props.match.params.id
-                            ) + 1}`}
-                            style={{ height: '80px', width: '880px' }}
-                        >
-                            <img
-                                src={require(`../../images/arrowup.png`)}
-                                width="100"
-                                alt="arrow_up"
-                            />
-                        </Link>
+                        <img
+                            src={require(`../../images/arrowup.png`)}
+                            width="100"
+                            alt="arrow_up"
+                        />
                     </div>
 
                     <div className="aptdetail aptdetail--gallery">
@@ -196,6 +189,7 @@ class ApartmentDetail extends Component {
                             );
 
                             this.resetAnimationClass();
+
                             setTimeout(() => {
                                 document
                                     .getElementById('apartmentDetailSection')

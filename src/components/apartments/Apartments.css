@@ -127,4 +127,5 @@
         opacity: 0.7;
         text-align: center;
         letter-spacing: 15px;
-        line-height: 3em; }
+        line-height: 3em;
+        text-transform: uppercase; }

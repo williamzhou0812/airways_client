@@ -41,7 +41,8 @@
     letter-spacing: 2px; }
     .aptdetail--description--name {
       text-align: center;
-      font-size: 28px; }
+      font-size: 28px;
+      text-transform: uppercase; }
     .aptdetail--description--contact {
       text-align: left;
       font-size: 20px; }
