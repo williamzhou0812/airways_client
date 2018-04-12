@@ -35,18 +35,39 @@ class ApartmentDetail extends Component {
         apartment.images_path.forEach(each => {
             images.push({
                 original: createImageURL(each),
-                thumbnail: createImageURL(each),
-                description: apartment.name,
-                sizes: { width: '500px', height: '500px' }
+                thumbnail: createImageURL(each)
             });
         });
         return images;
     }
 
+    processNextApartmentID(action) {
+        const { apartmentDetail, apartmentsList } = this.props;
+        let nextID;
+        if (action === 'up') {
+            if (
+                apartmentDetail.apartment.id == apartmentsList.apartments.length
+            ) {
+                nextID = 1;
+            } else {
+                nextID = parseInt(apartmentDetail.apartment.id) + 1;
+            }
+        }
+
+        if (action === 'down') {
+            if (apartmentDetail.apartment.id == 1) {
+                nextID = apartmentsList.apartments.length;
+            } else {
+                nextID = parseInt(apartmentDetail.apartment.id) - 1;
+            }
+        }
+        return nextID;
+    }
+
     render() {
         console.log(this.props.apartmentDetail);
         const { up, down } = this.state;
-        const { navigateTo } = this.props;
+        const { navigateTo, apartmentsList } = this.props;
         const { apartment } = this.props.apartmentDetail;
 
         if (!_.isEmpty(this.props.apartmentDetail)) {
@@ -60,7 +81,6 @@ class ApartmentDetail extends Component {
                                 : 'aptdetail aptdetail--up--arrow aptdetail aptdetail--clicked'
                         }
                         onClick={() => {
-                            console.log('UP');
                             {
                                 /*FOR ARROW BUTTON ANIMATION PURPOSE ONLY*/
                             }
@@ -71,10 +91,11 @@ class ApartmentDetail extends Component {
                                     });
                                 }, 300);
                             });
-                            /*this.props.getSelectedApartmentDetail(
-                                parseInt(this.props.match.params.id) + 1,
-                                this.props.apartmentsList.apartments
-                            );*/
+
+                            this.props.getSelectedApartmentDetail(
+                                this.processNextApartmentID('up'),
+                                apartmentsList.apartments
+                            );
                         }}
                     >
                         <Link
@@ -138,7 +159,6 @@ class ApartmentDetail extends Component {
                                 : 'aptdetail aptdetail--down--arrow aptdetail aptdetail--clicked'
                         }
                         onClick={() => {
-                            console.log('UP');
                             {
                                 /*FOR ARROW BUTTON ANIMATION PURPOSE ONLY*/
                             }
@@ -149,6 +169,10 @@ class ApartmentDetail extends Component {
                                     });
                                 }, 300);
                             });
+                            this.props.getSelectedApartmentDetail(
+                                this.processNextApartmentID('up'),
+                                apartmentsList.apartments
+                            );
                         }}
                     >
                         <img
