@@ -104,19 +104,18 @@ class ApartmentDetail extends Component {
                                     });
                                 }, 300);
                             });*/
-
-                            this.props.getSelectedApartmentDetail(
-                                this.processNextApartmentID('up'),
-                                apartmentsList.apartments
-                            );
-
                             this.resetAnimationClass();
 
                             setTimeout(() => {
                                 document
                                     .getElementById('apartmentDetailSection')
                                     .classList.add('section-up-animation');
-                            }, 50);
+                            }, 1);
+
+                            this.props.getSelectedApartmentDetail(
+                                this.processNextApartmentID('up'),
+                                apartmentsList.apartments
+                            );
                         }}
                     >
                         <img
@@ -183,10 +182,6 @@ class ApartmentDetail extends Component {
                                     });
                                 }, 300);
                             });*/
-                            this.props.getSelectedApartmentDetail(
-                                this.processNextApartmentID('up'),
-                                apartmentsList.apartments
-                            );
 
                             this.resetAnimationClass();
 
@@ -194,7 +189,12 @@ class ApartmentDetail extends Component {
                                 document
                                     .getElementById('apartmentDetailSection')
                                     .classList.add('section-down-animation');
-                            }, 50);
+                            }, 1);
+
+                            this.props.getSelectedApartmentDetail(
+                                this.processNextApartmentID('up'),
+                                apartmentsList.apartments
+                            );
                         }}
                     >
                         <img

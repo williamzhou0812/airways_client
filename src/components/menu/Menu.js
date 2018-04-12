@@ -73,7 +73,7 @@ class Menu extends Component {
                         width="90"
                         alt="menu_feature_icon"
                     />
-                    <p className="menuText">FEATURES</p>
+                    <p className="menuText">FEATURES & FACILITIES</p>
                 </div>
                 <div
                     className={

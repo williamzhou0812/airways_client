@@ -102,19 +102,18 @@ class FeatureDetail extends Component {
                                     });
                                 }, 300);
                             });*/
-
-                            this.props.getSelectedFeatureDetail(
-                                this.processNextFeatureID('up'),
-                                featuresList.features
-                            );
-
                             this.resetAnimationClass();
 
                             setTimeout(() => {
                                 document
                                     .getElementById('featureDetailSection')
                                     .classList.add('section-up-animation');
-                            }, 50);
+                            }, 1);
+
+                            this.props.getSelectedFeatureDetail(
+                                this.processNextFeatureID('up'),
+                                featuresList.features
+                            );
                         }}
                     >
                         <img
@@ -181,10 +180,6 @@ class FeatureDetail extends Component {
                                     });
                                 }, 300);
                             });*/
-                            this.props.getSelectedFeatureDetail(
-                                this.processNextFeatureID('up'),
-                                featuresList.features
-                            );
 
                             this.resetAnimationClass();
 
@@ -192,7 +187,12 @@ class FeatureDetail extends Component {
                                 document
                                     .getElementById('featureDetailSection')
                                     .classList.add('section-down-animation');
-                            }, 50);
+                            }, 1);
+
+                            this.props.getSelectedFeatureDetail(
+                                this.processNextFeatureID('up'),
+                                featuresList.features
+                            );
                         }}
                     >
                         <img
