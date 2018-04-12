@@ -98,13 +98,13 @@ class ApartmentDetail extends Component {
                             {
                                 /*FOR ARROW BUTTON ANIMATION PURPOSE ONLY*/
                             }
-                            this.setState({ up: true }, () => {
+                            /*this.setState({ up: true }, () => {
                                 setTimeout(() => {
                                     this.setState({
                                         up: false
                                     });
                                 }, 300);
-                            });
+                            });*/
 
                             this.props.getSelectedApartmentDetail(
                                 this.processNextApartmentID('up'),
@@ -183,13 +183,13 @@ class ApartmentDetail extends Component {
                             {
                                 /*FOR ARROW BUTTON ANIMATION PURPOSE ONLY*/
                             }
-                            this.setState({ down: true }, () => {
+                            /*this.setState({ down: true }, () => {
                                 setTimeout(() => {
                                     this.setState({
                                         down: false
                                     });
                                 }, 300);
-                            });
+                            });*/
                             this.props.getSelectedApartmentDetail(
                                 this.processNextApartmentID('up'),
                                 apartmentsList.apartments
