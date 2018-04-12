@@ -97,6 +97,7 @@ class ApartmentDetail extends Component {
                             autoPlay={true}
                             showPlayButton={false}
                             showFullscreenButton={false}
+                            slideDuration={1000}
                             renderItem={item => {
                                 return (
                                     <div className="image-gallery-image">
@@ -112,12 +113,15 @@ class ApartmentDetail extends Component {
                                 );
                             }}
                         />
+                        <div className="aptdetail aptdetail--gallery--name">
+                            {apartment.name}
+                        </div>
                     </div>
 
                     <div className="aptdetail aptdetail--description">
-                        <p className="aptdetail--description--name">
+                        {/*<p className="aptdetail--description--name">
                             {apartment.name}
-                        </p>
+                        </p>*/}
                         <p>{apartment.description}</p>
                         <p className="aptdetail--description--contact">
                             <span>If you would like to find out more</span>

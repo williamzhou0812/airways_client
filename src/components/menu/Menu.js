@@ -6,9 +6,10 @@ import './Menu.css';
 class Menu extends Component {
     constructor(props) {
         super(props);
+        const { location } = this.props.router;
         let currentMenuId = '/apartments';
-        if (this.props.router.location.pathname != '/') {
-            currentMenuId = this.props.router.location.pathname;
+        if (location.pathname != '/') {
+            currentMenuId = location.pathname;
         }
         this.state = {
             currentMenu: currentMenuId
