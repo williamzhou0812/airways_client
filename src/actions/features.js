@@ -40,7 +40,7 @@ export const getSelectedFeatureDetail = (id, featureList) => dispatch => {
         dispatch({
             type: FEATURE_DETAIL,
             payload: {
-                apartment: data,
+                feature: data,
                 status: responseStatus
             }
         });

@@ -14,6 +14,7 @@ import Features from './features/Features';
 import Gallery from './gallery/Gallery';
 import Maps from './maps/Maps';
 import _ from 'lodash';
+import FeatureDetail from './features/FeatureDetail';
 
 class App extends Component {
     constructor(props) {
@@ -91,6 +92,11 @@ class App extends Component {
                             component={ApartmentDetail}
                         />
                         <Route exact path="/features" component={Features} />
+                        <Route
+                            exact
+                            path="/features/:id"
+                            component={FeatureDetail}
+                        />
                         <Route exact path="/gallery" component={Gallery} />
                         <Route exact path="/maps" component={Maps} />
                         <Redirect from="/" to="/apartments" />

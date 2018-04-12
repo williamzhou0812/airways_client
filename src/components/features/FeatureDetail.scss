@@ -1,6 +1,6 @@
 @import '../sass/variables.scss';
 
-.apt--detail--container {
+.feature--detail--container {
     background-color: $color-white;
     display: grid;
     grid-template-columns: 880px;
@@ -8,7 +8,7 @@
     grid-row-gap: 3px;
 }
 
-.aptdetail {
+.featuredetail {
     color: $color-white;
     font-size: 20px;
 

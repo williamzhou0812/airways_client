@@ -20,23 +20,25 @@ class Features extends Component {
             this.props.featuresList.features,
             ({ id, name, images_path }) => {
                 return (
-                    <div
-                        className="featuresection--list--each"
-                        style={
-                            !_.isEmpty(images_path[0]) && {
-                                backgroundImage: `url(${createImageURL(
-                                    images_path[0]
-                                )})`,
-                                backgroundRepeat: 'no-repeat',
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center'
+                    <Link to={`/features/${id}`} key={id}>
+                        <div
+                            className="featuresection--list--each"
+                            style={
+                                !_.isEmpty(images_path[0]) && {
+                                    backgroundImage: `url(${createImageURL(
+                                        images_path[0]
+                                    )})`,
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center'
+                                }
                             }
-                        }
-                    >
-                        <div className="featuresection--list--each--name">
-                            {name}
+                        >
+                            <div className="featuresection--list--each--name">
+                                {name}
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 );
             }
         );
