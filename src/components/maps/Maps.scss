@@ -1,1 +1,9 @@
 @import '../sass/animation.scss';
+@import '../sass/variables.scss';
+
+.map--container {
+    background-color: $color-arrow-grey;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1367px;
+}
