@@ -1,1 +1,40 @@
 @import '../sass/animation.scss';
+@import '../sass/variables.scss';
+
+.gallery--container {
+    background-color: $color-white;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 700px 667px;
+}
+
+.galleryitem {
+    &--image {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        background-color: Orange;
+    }
+
+    &--list {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+        background-color: Red;
+    }
+}
+
+.list--container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    align-content: stretch;
+    overflow: auto;
+    height: 667px;
+}
+
+.thumbnail--item {
+    background-color: green;
+    flex-basis: 25%;
+    height: 135px;
+}
