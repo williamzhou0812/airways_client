@@ -12,12 +12,25 @@ class Gallery extends Component {
 
         this.state = {
             currentImage: this.props.galleryList.gallery[0],
-            opacity: 1
+            opacity: 1,
+            autoPlay: true
         };
     }
 
     componentDidMount() {
-        console.log(this.props.galleryList.gallery);
+        const { galleryList } = this.props;
+        setInterval(() => {
+            if (this.state.autoPlay) {
+                this.setState({
+                    currentImage:
+                        galleryList.gallery[
+                            Math.floor(
+                                Math.random() * galleryList.gallery.length
+                            )
+                        ]
+                });
+            }
+        }, 2000);
     }
 
     handleClickThumbnail(event, currentImage) {
@@ -27,9 +40,17 @@ class Gallery extends Component {
                 opacity: 0
             },
             () => {
-                this.setState({
-                    opacity: 1
-                });
+                this.setState(
+                    {
+                        opacity: 1,
+                        autoPlay: false
+                    },
+                    () => {
+                        setTimeout(() => {
+                            this.setState({ autoPlay: true });
+                        }, 10000);
+                    }
+                );
             }
         );
     }
