@@ -45,19 +45,24 @@ class Features extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <div className="main-section-animation">
-                    <div className="feature--container">
-                        <div className="featuresection  ">
-                            <div className=" featuresection--list">
-                                {this.renderEachFeature()}
+        const { featuresList } = this.props;
+        if (!_.isEmpty(featuresList)) {
+            return (
+                <div>
+                    <div className="main-section-animation">
+                        <div className="feature--container">
+                            <div className="featuresection  ">
+                                <div className=" featuresection--list">
+                                    {this.renderEachFeature()}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        );
+            );
+        } else {
+            return <div>loading</div>;
+        }
     }
 }
 

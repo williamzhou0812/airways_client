@@ -45,19 +45,24 @@ class Apartments extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <div className="main-section-animation">
-                    <div className="apt--container">
-                        <div className="aptsection  ">
-                            <div className=" aptsection--list">
-                                {this.renderEachApartment()}
+        const { apartmentsList } = this.props;
+        if (!_.isEmpty(apartmentsList)) {
+            return (
+                <div>
+                    <div className="main-section-animation">
+                        <div className="apt--container">
+                            <div className="aptsection  ">
+                                <div className=" aptsection--list">
+                                    {this.renderEachApartment()}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        );
+            );
+        } else {
+            return <div>loading</div>;
+        }
     }
 }
 
