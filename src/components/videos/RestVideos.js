@@ -25,12 +25,13 @@ class RestVideos extends Component {
                                 videosList.videos[0].video_path
                             )}
                             type="video/mp4"
+                            preload="none"
                             autoPlay
                             style={{ width: '1080px' }}
                         />
                     </div>
                     <div className="restvideoItem restvideoItem--promotion">
-                        PROMOTION
+                        STATIC PROMOTION SPACE
                     </div>
                 </div>
             );
