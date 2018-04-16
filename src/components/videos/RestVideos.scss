@@ -16,11 +16,11 @@
     &--promotion {
         grid-column: 1 / -1;
         grid-row: 2 / 3;
-        background-color: $color-dark-grey;
+        background: linear-gradient($color-black 35%, $color-light-grey);
         color: white;
         text-align: center;
         font-size: 60px;
-        line-height: 5em;
+        line-height: 6em;
         letter-spacing: 10px;
     }
 }

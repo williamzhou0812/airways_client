@@ -9,7 +9,9 @@ class RestVideos extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
+        this.state = {
+            reload: false
+        };
     }
 
     componentDidMount() {}
@@ -25,9 +27,15 @@ class RestVideos extends Component {
                                 videosList.videos[0].video_path
                             )}
                             type="video/mp4"
-                            preload="none"
-                            autoPlay
+                            autoplay="autoplay"
+                            loop="loop"
                             style={{ width: '1080px' }}
+                            onEnded={() => {
+                                console.log('end');
+                                this.setState({ reload: true }, () => {
+                                    this.forceUpdate();
+                                });
+                            }}
                         />
                     </div>
                     <div className="restvideoItem restvideoItem--promotion">

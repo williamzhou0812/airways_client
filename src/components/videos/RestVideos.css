@@ -11,9 +11,9 @@
 .restvideoItem--promotion {
   grid-column: 1 / -1;
   grid-row: 2 / 3;
-  background-color: #5f6662;
+  background: linear-gradient(black 35%, #c29a78);
   color: white;
   text-align: center;
   font-size: 60px;
-  line-height: 5em;
+  line-height: 6em;
   letter-spacing: 10px; }
