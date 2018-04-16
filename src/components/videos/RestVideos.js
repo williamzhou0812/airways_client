@@ -8,13 +8,7 @@ import './RestVideos.css';
 class RestVideos extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            reload: false
-        };
     }
-
-    componentDidMount() {}
 
     render() {
         const { videosList } = this.props;
@@ -30,12 +24,6 @@ class RestVideos extends Component {
                             autoplay="autoplay"
                             loop="loop"
                             style={{ width: '1080px' }}
-                            onEnded={() => {
-                                console.log('end');
-                                this.setState({ reload: true }, () => {
-                                    this.forceUpdate();
-                                });
-                            }}
                         />
                     </div>
                     <div className="restvideoItem restvideoItem--promotion">
