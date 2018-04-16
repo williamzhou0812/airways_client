@@ -1,0 +1,23 @@
+.restvideoContainer {
+    display: grid;
+    grid-template-columns: 1080px;
+    grid-template-rows: 607px 760px;
+    width: 1080px;
+}
+
+.restvideoItem {
+    &--video {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+    }
+
+    &--promotion {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+        background-color: green;
+        color: white;
+        text-align: center;
+        font-size: 60px;
+        line-height: 5em;
+    }
+}

@@ -15,34 +15,81 @@ import Gallery from './gallery/Gallery';
 import Maps from './maps/Maps';
 import _ from 'lodash';
 import FeatureDetail from './features/FeatureDetail';
+import idleJs from 'idle-js';
+import { IDLE_TIME } from './utils/Constants.js';
+import RestVideo from './videos/RestVideos';
 
 class App extends Component {
+    idleRef;
+
     constructor(props) {
         super(props);
+        this.state = {
+            isIdle: false
+        };
+        this.setIdleTrue = this.setIdleTrue.bind(this);
+        this.setIdleFalse = this.setIdleFalse.bind(this);
     }
 
     componentDidMount() {
+        this.idleRef = new idleJs({
+            idle: IDLE_TIME,
+            onIdle: this.setIdleTrue,
+            onActive: () => {
+                this.setIdleFalse();
+            }
+        }).start();
+
         this.props.getApartmentList();
         this.props.getFeatureList();
         this.props.getGalleryList();
         this.props.getMapList();
+        this.props.getVideoList();
+    }
+
+    componentWillUnmount() {
+        this.idleRef = null;
+    }
+
+    setIdleTrue() {
+        this.setState({
+            isIdle: true
+        });
+    }
+
+    setIdleFalse() {
+        this.setState({
+            isIdle: false
+        });
     }
 
     render() {
+        const { isIdle } = this.state;
+        const {
+            apartmentsList,
+            mapsList,
+            galleryList,
+            featuresList,
+            videosList,
+            router,
+            history
+        } = this.props;
+
         let sidebarText = 'APARTMENTS';
-        if (!_.isEmpty(this.props.router.location)) {
-            if (this.props.router.location.pathname === '/') {
+        if (!_.isEmpty(router.location)) {
+            if (router.location.pathname === '/') {
                 sidebarText = 'APARTMENTS';
             } else {
-                sidebarText = this.props.router.location.pathname.split('/')[1];
+                sidebarText = router.location.pathname.split('/')[1];
             }
         }
 
         if (
-            this.props.apartmentsList.status !== 200 ||
-            this.props.galleryList.status !== 200 ||
-            this.props.mapsList.status !== 200 ||
-            this.props.featuresList.status !== 200
+            apartmentsList.status !== 200 ||
+            galleryList.status !== 200 ||
+            mapsList.status !== 200 ||
+            featuresList.status !== 200 ||
+            videosList.status !== 200
         ) {
             return (
                 <div className="loadingContainer">
@@ -61,56 +108,82 @@ class App extends Component {
             );
         }
         return (
-            <Router history={this.props.history}>
-                <div className="container home-section-animation">
-                    <div className="section section--header">
-                        <Header />
-                    </div>
-                    <div className="section section--breakline" />
-                    <div className="section section--menu">
-                        <Menu />
-                    </div>
-                    <img
-                        className="menu--shadow"
-                        src={require(`../images/Button-Shadow.png`)}
-                        alt="sidebar_logo"
-                        width="1080"
-                    />
-                    <div className="section section--sidebar">
-                        <p>{sidebarText}</p>
-                    </div>
-                    <Switch>
-                        <Route exact path="/" component={Apartments} />
-                        <Route
-                            exact
-                            path="/apartments"
-                            component={Apartments}
+            <Router history={history}>
+                {!isIdle ? (
+                    <div className="container home-section-animation">
+                        <div className="section section--header">
+                            <Header />
+                        </div>
+                        <div className="section section--breakline" />
+                        <div className="section section--menu">
+                            <Menu />
+                        </div>
+                        <img
+                            className="menu--shadow"
+                            src={require(`../images/Button-Shadow.png`)}
+                            alt="sidebar_logo"
+                            width="1080"
                         />
-                        <Route
-                            exact
-                            path="/apartments/:id"
-                            component={ApartmentDetail}
+                        <div className="section section--sidebar ">
+                            <p>{sidebarText}</p>
+                        </div>
+                        <Switch>
+                            <Route exact path="/" component={Apartments} />
+                            <Route
+                                exact
+                                path="/apartments"
+                                component={Apartments}
+                            />
+                            <Route
+                                exact
+                                path="/apartments/:id"
+                                component={ApartmentDetail}
+                            />
+                            <Route
+                                exact
+                                path="/features"
+                                component={Features}
+                            />
+                            <Route
+                                exact
+                                path="/features/:id"
+                                component={FeatureDetail}
+                            />
+                            <Route exact path="/gallery" component={Gallery} />
+                            <Route exact path="/maps" component={Maps} />
+                            <Redirect from="/" to="/apartments" />
+                        </Switch>
+                        <img
+                            className="sidebar--logo"
+                            src={require(`../images/sidebar_logo.png`)}
+                            alt="sidebar_logo"
+                            width="260"
                         />
-                        <Route exact path="/features" component={Features} />
-                        <Route
-                            exact
-                            path="/features/:id"
-                            component={FeatureDetail}
-                        />
-                        <Route exact path="/gallery" component={Gallery} />
-                        <Route exact path="/maps" component={Maps} />
-                        <Redirect from="/" to="/apartments" />
-                    </Switch>
-                    <img
-                        className="sidebar--logo"
-                        src={require(`../images/sidebar_logo.png`)}
-                        alt="sidebar_logo"
-                        width="260"
-                    />
-                    <div className="section section--footer">
-                        <Footer />
+                        <div className="section section--footer">
+                            <Footer />
+                        </div>
                     </div>
-                </div>
+                ) : (
+                    <div className="container home-section-animation">
+                        <div className="section section--header">
+                            <Header />
+                        </div>
+                        <div className="section section--breakline" />
+                        <div className="section section--menu">
+                            <Menu />
+                        </div>
+                        <img
+                            className="menu--shadow"
+                            src={require(`../images/Button-Shadow.png`)}
+                            alt="sidebar_logo"
+                            width="1080"
+                        />
+                        <RestVideo />
+                        <div className="section section--footer">
+                            <Footer />
+                        </div>
+                    </div>
+                )}
             </Router>
         );
     }
@@ -121,9 +194,17 @@ function mapStateToProps({
     featuresList,
     galleryList,
     mapsList,
+    videosList,
     router
 }) {
-    return { apartmentsList, featuresList, galleryList, mapsList, router };
+    return {
+        apartmentsList,
+        featuresList,
+        galleryList,
+        mapsList,
+        videosList,
+        router
+    };
 }
 
 export default connect(mapStateToProps, actions)(App);

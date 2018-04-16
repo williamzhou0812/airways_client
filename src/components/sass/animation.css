@@ -13,6 +13,11 @@
   animation-duration: 1s;
   animation-timing-function: ease-in; }
 
+.section-left-animation {
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-in; }
+
 .home-section-animation {
   -webkit-animation-name: rotateIn;
   animation-name: rotateIn;

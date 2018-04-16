@@ -6,6 +6,7 @@ import galleryReducer from './galleryReducer';
 import mapsReducer from './mapsReducer';
 import apartmentDetailReducer from './apartmentDetailReducer';
 import featureDetailReducer from './featureDetailReducer';
+import videosReducer from './videosReducer';
 
 export default combineReducers({
     router: routerReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
     galleryList: galleryReducer,
     mapsList: mapsReducer,
     apartmentDetail: apartmentDetailReducer,
-    featureDetail: featureDetailReducer
+    featureDetail: featureDetailReducer,
+    videosList: videosReducer
 });

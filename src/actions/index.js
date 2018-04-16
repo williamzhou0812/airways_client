@@ -3,6 +3,7 @@ import { getApartmentList, getSelectedApartmentDetail } from './apartments';
 import { getFeatureList, getSelectedFeatureDetail } from './features';
 import { getGalleryList } from './gallery';
 import { getMapList } from './maps';
+import { getVideoList } from './videos';
 
 export {
     navigateTo,
@@ -11,5 +12,6 @@ export {
     getGalleryList,
     getMapList,
     getSelectedApartmentDetail,
-    getSelectedFeatureDetail
+    getSelectedFeatureDetail,
+    getVideoList
 };
