@@ -23,6 +23,25 @@ class Maps extends Component {
             <div className="main-section-animation">
                 <div className="map--container">
                     <div className="mapitem mapitem--image">
+                        <img
+                            src={createImageURL(mapsList.maps[0].images_path)}
+                            alt="Map"
+                            width="880"
+                        />
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    /*render() {
+        const { mapsList } = this.props;
+        const width = document.documentElement.clientWidth * 0.75; //75vw width
+        const height = document.documentElement.clientHeight;
+        return (
+            <div className="main-section-animation">
+                <div className="map--container">
+                    <div className="mapitem mapitem--image">
                         <ReactImageMagnify
                             largeImage={{
                                 src: createImageURL(
@@ -45,7 +64,7 @@ class Maps extends Component {
                 </div>
             </div>
         );
-    }
+    }*/
 }
 
 function mapStateToProps({ mapsList }) {

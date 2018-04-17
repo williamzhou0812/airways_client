@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { VIDEO_LIST, VIDEO_LIST_ERROR } from './types';
+import { VIDEO_LIST, VIDEO_LIST_ERROR, VIDEO_CURRENT_TIME } from './types';
 import { createURL } from '../components/utils/Constants';
 
 export const getVideoList = () => async dispatch => {
@@ -22,4 +22,13 @@ export const getVideoList = () => async dispatch => {
                 error: error.response
             });
         });
+};
+
+export const setCurrentTime = currentTime => async dispatch => {
+    dispatch({
+        type: VIDEO_CURRENT_TIME,
+        payload: {
+            currentTime: currentTime
+        }
+    });
 };

@@ -10,6 +10,17 @@ class RestVideos extends Component {
         super(props);
     }
 
+    componentDidMount() {
+        const { restVideoCurrentTime } = this.props;
+        if (!_.isEmpty(restVideoCurrentTime)) {
+            this.refs.restVideo.currentTime = restVideoCurrentTime.currentTime;
+        }
+    }
+
+    componentWillUnmount() {
+        this.props.setCurrentTime(this.refs.restVideo.currentTime);
+    }
+
     render() {
         const { videosList } = this.props;
         if (!_.isEmpty(videosList.videos[0].video_path)) {
@@ -17,12 +28,14 @@ class RestVideos extends Component {
                 <div className="restvideoContainer home-section-animation">
                     <div className="restvideoItem restvideoItem--video">
                         <video
+                            ref="restVideo"
                             src={createImageURL(
                                 videosList.videos[0].video_path
                             )}
                             type="video/mp4"
-                            autoplay="autoplay"
+                            autoPlay
                             loop="loop"
+                            preload="none"
                             style={{ width: '1080px' }}
                         />
                     </div>
@@ -37,8 +50,8 @@ class RestVideos extends Component {
     }
 }
 
-function mapStateToProps({ videosList }) {
-    return { videosList };
+function mapStateToProps({ videosList, restVideoCurrentTime }) {
+    return { videosList, restVideoCurrentTime };
 }
 
 export default connect(mapStateToProps, actions)(RestVideos);
