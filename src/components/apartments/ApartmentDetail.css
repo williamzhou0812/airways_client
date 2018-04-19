@@ -36,19 +36,36 @@
   .aptdetail--description {
     grid-column: 1 / -1;
     grid-row: 3 / 4;
-    background-color: #8d8e90;
-    padding-left: 60px;
-    padding-right: 60px;
-    letter-spacing: 2px; }
-    .aptdetail--description--name {
-      text-align: center;
-      font-size: 28px;
-      text-transform: uppercase; }
-    .aptdetail--description--contact {
-      text-align: left;
-      font-size: 20px; }
-      .aptdetail--description--contact span {
-        font-weight: 500; }
+    background-color: #8d8e90; }
+    .aptdetail--description--container {
+      display: grid;
+      grid-template-columns: 60px 760px 60px;
+      grid-template-rows: 350px auto;
+      grid-row-gap: 3px;
+      background-color: white;
+      line-height: 130%;
+      letter-spacing: 2px; }
+      .aptdetail--description--container--desc {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        background-color: #8d8e90; }
+      .aptdetail--description--container--contact {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        text-align: left;
+        font-size: 28px;
+        line-height: 150%;
+        background-color: #8d8e90; }
+        .aptdetail--description--container--contact span {
+          font-weight: 500; }
+      .aptdetail--description--container--leftWhite {
+        background-color: #8d8e90;
+        grid-column: 1 / 2;
+        grid-row: 1 / 3; }
+      .aptdetail--description--container--rightWhite {
+        background-color: #8d8e90;
+        grid-column: 3 / 4;
+        grid-row: 1 / 3; }
   .aptdetail--down--arrow {
     grid-column: 1 / -1;
     grid-row: 4 / 5;

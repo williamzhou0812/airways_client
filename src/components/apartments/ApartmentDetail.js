@@ -152,17 +152,20 @@ class ApartmentDetail extends Component {
                         </div>
                     </div>
 
-                    <div className="aptdetail aptdetail--description">
-                        {/*<p className="aptdetail--description--name">
-                            {apartment.name}
-                        </p>*/}
-                        <p>{apartment.description}</p>
-                        <p className="aptdetail--description--contact">
-                            <span>If you would like to find out more</span>
-                            <br />
-                            {apartment.phone}
-                            <br /> {apartment.open_hours}
-                        </p>
+                    <div className="aptdetail aptdetail--description aptdetail--description--container">
+                        <div className="aptdetail--description--container--leftWhite" />
+                        <div className="aptdetail--description--container--rightWhite" />
+                        <div className="aptdetail--description--container--desc">
+                            <p>{apartment.description}</p>
+                        </div>
+                        <div className="aptdetail--description--container--contact">
+                            <p className="aptdetail--description--contact">
+                                <span>If you would like to find out more</span>
+                                <br />
+                                Telephone: {apartment.phone} <br />
+                                Office Hours: {apartment.open_hours}
+                            </p>
+                        </div>
                     </div>
 
                     <div
