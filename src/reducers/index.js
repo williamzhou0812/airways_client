@@ -8,6 +8,7 @@ import apartmentDetailReducer from './apartmentDetailReducer';
 import featureDetailReducer from './featureDetailReducer';
 import videosReducer from './videosReducer';
 import restVideoCurrentTimeReducer from './restVideoCurrentTimeReducer';
+import promotionListReducer from './promotionListReducer';
 
 export default combineReducers({
     router: routerReducer,
@@ -18,5 +19,6 @@ export default combineReducers({
     apartmentDetail: apartmentDetailReducer,
     featureDetail: featureDetailReducer,
     videosList: videosReducer,
-    restVideoCurrentTime: restVideoCurrentTimeReducer
+    restVideoCurrentTime: restVideoCurrentTimeReducer,
+    promotionList: promotionListReducer
 });

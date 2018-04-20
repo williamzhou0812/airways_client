@@ -1,6 +1,6 @@
 const SERVER_HOST = 'airways_server.test';
 const CMS_HOST = 'airways_cms.test';
-const IDLE_TIME = 90000;
+const IDLE_TIME = 10000;
 
 function createURL(namespace) {
     return 'http://' + SERVER_HOST + '/' + namespace;

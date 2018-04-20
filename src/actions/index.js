@@ -4,7 +4,7 @@ import { getFeatureList, getSelectedFeatureDetail } from './features';
 import { getGalleryList } from './gallery';
 import { getMapList } from './maps';
 import { getVideoList, setCurrentTime } from './videos';
-
+import { getPromotionList } from './promotion';
 export {
     navigateTo,
     getApartmentList,
@@ -14,5 +14,6 @@ export {
     getSelectedApartmentDetail,
     getSelectedFeatureDetail,
     getVideoList,
-    setCurrentTime
+    setCurrentTime,
+    getPromotionList
 };

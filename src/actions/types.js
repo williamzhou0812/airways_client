@@ -15,3 +15,6 @@ export const MAPS_LIST_ERROR = 'maps_list_error';
 export const VIDEO_LIST = 'video_list';
 export const VIDEO_LIST_ERROR = 'video_list_error';
 export const VIDEO_CURRENT_TIME = 'video_current_time';
+
+export const PROMOTION_LIST = 'promotion_list';
+export const PROMOTION_LIST_ERROR = 'promotion_list_error';

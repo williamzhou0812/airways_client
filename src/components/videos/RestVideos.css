@@ -12,8 +12,4 @@
   grid-column: 1 / -1;
   grid-row: 2 / 3;
   background: linear-gradient(black 35%, #c29a78);
-  color: white;
-  text-align: center;
-  font-size: 60px;
-  line-height: 6em;
-  letter-spacing: 10px; }
+  color: white; }
