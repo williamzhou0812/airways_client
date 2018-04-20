@@ -39,7 +39,6 @@ class RestVideos extends Component {
         if (!_.isEmpty(videosList.videos[0].video_path)) {
             if (!_.isEmpty(promotionList.promotion)) {
                 promotionImage = this.processImageList(promotionList.promotion);
-                console.log(promotionImage);
             }
 
             return (
