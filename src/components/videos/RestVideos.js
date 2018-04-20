@@ -68,7 +68,7 @@ class RestVideos extends Component {
                                 showNav={false}
                                 renderItem={item => {
                                     return (
-                                        <div className="image-gallery-image">
+                                        <div>
                                             <img
                                                 src={item.original}
                                                 srcSet={item.srcSet}
