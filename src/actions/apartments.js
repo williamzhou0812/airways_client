@@ -4,7 +4,7 @@ import {
     APARTMENTS_LIST_ERROR,
     APARTMENT_DETAIL
 } from './types';
-import { createURL, DECIMAL_RADIX } from '../components/utils/Constants';
+import { createURL } from '../components/utils/Constants';
 import _ from 'lodash';
 
 export const getApartmentList = () => async dispatch => {
@@ -30,7 +30,7 @@ export const getApartmentList = () => async dispatch => {
 };
 
 export const getSelectedApartmentDetail = (id, apartmentList) => dispatch => {
-    const apartmentDetailID = parseInt(id);
+    const apartmentDetailID = parseInt(id, 10);
     const selectedApartmentDetail = _.find(apartmentList, o => {
         return o.id === apartmentDetailID;
     });

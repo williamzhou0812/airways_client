@@ -4,9 +4,6 @@ import * as actions from '../../actions';
 import './ApartmentDetail.css';
 import _ from 'lodash';
 import { createImageURL } from '../utils/Constants';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import LeftIcon from 'material-ui/svg-icons/navigation/chevron-left';
-import RightIcon from 'material-ui/svg-icons/navigation/chevron-right';
 import ImageGallery from 'react-image-gallery';
 
 class ApartmentDetail extends Component {
@@ -45,19 +42,20 @@ class ApartmentDetail extends Component {
         let nextID;
         if (action === 'up') {
             if (
-                apartmentDetail.apartment.id == apartmentsList.apartments.length
+                apartmentDetail.apartment.id ===
+                apartmentsList.apartments.length
             ) {
                 nextID = 1;
             } else {
-                nextID = parseInt(apartmentDetail.apartment.id) + 1;
+                nextID = parseInt(apartmentDetail.apartment.id, 10) + 1;
             }
         }
 
         if (action === 'down') {
-            if (apartmentDetail.apartment.id == 1) {
+            if (apartmentDetail.apartment.id === 1) {
                 nextID = apartmentsList.apartments.length;
             } else {
-                nextID = parseInt(apartmentDetail.apartment.id) - 1;
+                nextID = parseInt(apartmentDetail.apartment.id, 10) - 1;
             }
         }
         return nextID;
@@ -77,7 +75,7 @@ class ApartmentDetail extends Component {
 
     render() {
         const { up, down } = this.state;
-        const { navigateTo, apartmentsList } = this.props;
+        const { apartmentsList } = this.props;
         const { apartment } = this.props.apartmentDetail;
 
         if (!_.isEmpty(this.props.apartmentDetail)) {
@@ -94,24 +92,12 @@ class ApartmentDetail extends Component {
                                 : 'aptdetail aptdetail--up--arrow aptdetail aptdetail--clicked'
                         }
                         onClick={() => {
-                            {
-                                /*FOR ARROW BUTTON ANIMATION PURPOSE ONLY*/
-                            }
-                            /*this.setState({ up: true }, () => {
-                                setTimeout(() => {
-                                    this.setState({
-                                        up: false
-                                    });
-                                }, 300);
-                            });*/
                             this.resetAnimationClass();
-
                             setTimeout(() => {
                                 document
                                     .getElementById('apartmentDetailSection')
                                     .classList.add('section-up-animation');
                             }, 1);
-
                             this.props.getSelectedApartmentDetail(
                                 this.processNextApartmentID('up'),
                                 apartmentsList.apartments
@@ -142,6 +128,7 @@ class ApartmentDetail extends Component {
                                                 width: '880px',
                                                 height: '600px'
                                             }}
+                                            alt={item.original}
                                         />
                                     </div>
                                 );
@@ -175,25 +162,12 @@ class ApartmentDetail extends Component {
                                 : 'aptdetail aptdetail--down--arrow aptdetail aptdetail--clicked'
                         }
                         onClick={() => {
-                            {
-                                /*FOR ARROW BUTTON ANIMATION PURPOSE ONLY*/
-                            }
-                            /*this.setState({ down: true }, () => {
-                                setTimeout(() => {
-                                    this.setState({
-                                        down: false
-                                    });
-                                }, 300);
-                            });*/
-
                             this.resetAnimationClass();
-
                             setTimeout(() => {
                                 document
                                     .getElementById('apartmentDetailSection')
                                     .classList.add('section-down-animation');
                             }, 1);
-
                             this.props.getSelectedApartmentDetail(
                                 this.processNextApartmentID('up'),
                                 apartmentsList.apartments

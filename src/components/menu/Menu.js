@@ -8,7 +8,7 @@ class Menu extends Component {
         super(props);
         const { location } = this.props.router;
         let currentMenuId = '/apartments';
-        if (location.pathname != '/') {
+        if (location.pathname !== '/') {
             currentMenuId = location.pathname;
         }
         this.state = {

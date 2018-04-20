@@ -7,10 +7,6 @@ import { createImageURL } from '../utils/Constants';
 import { Link } from 'react-router-dom';
 
 class Features extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         console.log(this.props.featuresList.features);
     }

@@ -26,7 +26,7 @@ export const getFeatureList = () => async dispatch => {
 };
 
 export const getSelectedFeatureDetail = (id, featureList) => dispatch => {
-    const featureDetailID = parseInt(id);
+    const featureDetailID = parseInt(id, 10);
 
     const selectedFeatureDetail = _.find(featureList, o => {
         return o.id === featureDetailID;

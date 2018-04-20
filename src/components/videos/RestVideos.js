@@ -7,10 +7,6 @@ import './RestVideos.css';
 import ImageGallery from 'react-image-gallery';
 
 class RestVideos extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         const { restVideoCurrentTime } = this.props;
         if (!_.isEmpty(restVideoCurrentTime)) {
@@ -61,7 +57,8 @@ class RestVideos extends Component {
                                 autoPlay={true}
                                 showPlayButton={false}
                                 showFullscreenButton={false}
-                                slideDuration={1000}
+                                slideDuration={2000}
+                                slideInterval={5000}
                                 showThumbnails={false}
                                 showNav={false}
                                 renderItem={item => {
@@ -74,6 +71,7 @@ class RestVideos extends Component {
                                                     width: '1080px',
                                                     height: '760px'
                                                 }}
+                                                alt={item.original}
                                             />
                                         </div>
                                     );
@@ -93,7 +91,7 @@ class RestVideos extends Component {
                 </div>
             );
         } else {
-            <div>loading</div>;
+            return <div>loading</div>;
         }
     }
 }

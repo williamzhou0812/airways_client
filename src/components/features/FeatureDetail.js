@@ -4,9 +4,6 @@ import * as actions from '../../actions';
 import './FeatureDetail.css';
 import _ from 'lodash';
 import { createImageURL } from '../utils/Constants';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import LeftIcon from 'material-ui/svg-icons/navigation/chevron-left';
-import RightIcon from 'material-ui/svg-icons/navigation/chevron-right';
 import ImageGallery from 'react-image-gallery';
 
 class FeatureDetail extends Component {
@@ -44,18 +41,18 @@ class FeatureDetail extends Component {
         const { featureDetail, featuresList } = this.props;
         let nextID;
         if (action === 'up') {
-            if (featureDetail.feature.id == featuresList.features.length) {
+            if (featureDetail.feature.id === featuresList.features.length) {
                 nextID = 1;
             } else {
-                nextID = parseInt(featureDetail.feature.id) + 1;
+                nextID = parseInt(featureDetail.feature.id, 10) + 1;
             }
         }
 
         if (action === 'down') {
-            if (featureDetail.feature.id == 1) {
+            if (featureDetail.feature.id === 1) {
                 nextID = featuresList.features.length;
             } else {
-                nextID = parseInt(featureDetail.feature.id) - 1;
+                nextID = parseInt(featureDetail.feature.id, 10) - 1;
             }
         }
         return nextID;
@@ -75,7 +72,7 @@ class FeatureDetail extends Component {
 
     render() {
         const { up, down } = this.state;
-        const { navigateTo, featuresList } = this.props;
+        const { featuresList } = this.props;
         const { feature } = this.props.featureDetail;
 
         if (!_.isEmpty(this.props.featureDetail)) {
@@ -92,24 +89,12 @@ class FeatureDetail extends Component {
                                 : 'featuredetail featuredetail--up--arrow featuredetail--clicked'
                         }
                         onClick={() => {
-                            {
-                                /*FOR ARROW BUTTON ANIMATION PURPOSE ONLY*/
-                            }
-                            /*this.setState({ up: true }, () => {
-                                setTimeout(() => {
-                                    this.setState({
-                                        up: false
-                                    });
-                                }, 300);
-                            });*/
                             this.resetAnimationClass();
-
                             setTimeout(() => {
                                 document
                                     .getElementById('featureDetailSection')
                                     .classList.add('section-up-animation');
                             }, 1);
-
                             this.props.getSelectedFeatureDetail(
                                 this.processNextFeatureID('up'),
                                 featuresList.features
@@ -140,6 +125,7 @@ class FeatureDetail extends Component {
                                                 width: '880px',
                                                 height: '600px'
                                             }}
+                                            alt={item.original}
                                         />
                                     </div>
                                 );
@@ -173,25 +159,12 @@ class FeatureDetail extends Component {
                                 : 'featuredetail featuredetail--down--arrow featuredetail featuredetail--clicked'
                         }
                         onClick={() => {
-                            {
-                                /*FOR ARROW BUTTON ANIMATION PURPOSE ONLY*/
-                            }
-                            /*this.setState({ down: true }, () => {
-                                setTimeout(() => {
-                                    this.setState({
-                                        down: false
-                                    });
-                                }, 300);
-                            });*/
-
                             this.resetAnimationClass();
-
                             setTimeout(() => {
                                 document
                                     .getElementById('featureDetailSection')
                                     .classList.add('section-down-animation');
                             }, 1);
-
                             this.props.getSelectedFeatureDetail(
                                 this.processNextFeatureID('up'),
                                 featuresList.features
