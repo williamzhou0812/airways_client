@@ -36,19 +36,36 @@
   .featuredetail--description {
     grid-column: 1 / -1;
     grid-row: 3 / 4;
-    background-color: #8d8e90;
-    padding-left: 60px;
-    padding-right: 60px;
-    letter-spacing: 2px; }
-    .featuredetail--description--name {
-      text-align: center;
-      font-size: 28px;
-      text-transform: uppercase; }
-    .featuredetail--description--contact {
-      text-align: left;
-      font-size: 20px; }
-      .featuredetail--description--contact span {
-        font-weight: 500; }
+    background-color: #8d8e90; }
+    .featuredetail--description--container {
+      display: grid;
+      grid-template-columns: 60px 760px 60px;
+      grid-template-rows: 350px auto;
+      grid-row-gap: 3px;
+      background-color: white;
+      line-height: 130%;
+      letter-spacing: 2px; }
+      .featuredetail--description--container--desc {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        background-color: #8d8e90; }
+      .featuredetail--description--container--contact {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        text-align: left;
+        font-size: 28px;
+        line-height: 150%;
+        background-color: #8d8e90; }
+        .featuredetail--description--container--contact span {
+          font-weight: 500; }
+      .featuredetail--description--container--leftWhite {
+        background-color: #8d8e90;
+        grid-column: 1 / 2;
+        grid-row: 1 / 3; }
+      .featuredetail--description--container--rightWhite {
+        background-color: #8d8e90;
+        grid-column: 3 / 4;
+        grid-row: 1 / 3; }
   .featuredetail--down--arrow {
     grid-column: 1 / -1;
     grid-row: 4 / 5;

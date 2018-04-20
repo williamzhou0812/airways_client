@@ -150,17 +150,20 @@ class FeatureDetail extends Component {
                         </div>
                     </div>
 
-                    <div className="featuredetail featuredetail--description">
-                        {/*<p className="aptdetail--description--name">
-                            {apartment.name}
-                        </p>*/}
-                        <p>{feature.description}</p>
-                        <p className="featuredetail--description--contact">
-                            <span>If you would like to find out more</span>
-                            <br />
-                            {feature.phone}
-                            <br /> {feature.open_hours}
-                        </p>
+                    <div className="featuredetail featuredetail--description featuredetail--description--container">
+                        <div className="featuredetail--description--container--leftWhite" />
+                        <div className="featuredetail--description--container--rightWhite" />
+                        <div className="featuredetail--description--container--desc">
+                            <p>{feature.description}</p>
+                        </div>
+                        <div className="featuredetail--description--container--contact">
+                            <p className="featuredetail--description--contact">
+                                <span>If you would like to find out more</span>
+                                <br />
+                                Telephone: {feature.phone} <br />
+                                Office Hours: {feature.open_hours}
+                            </p>
+                        </div>
                     </div>
 
                     <div
