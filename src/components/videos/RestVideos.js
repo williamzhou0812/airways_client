@@ -35,12 +35,10 @@ class RestVideos extends Component {
     render() {
         const { videosList, promotionList } = this.props;
         let promotionImage;
-
         if (!_.isEmpty(videosList.videos[0].video_path)) {
             if (!_.isEmpty(promotionList.promotion)) {
                 promotionImage = this.processImageList(promotionList.promotion);
             }
-
             return (
                 <div className="restvideoContainer home-section-animation">
                     <div className="restvideoItem restvideoItem--video">
