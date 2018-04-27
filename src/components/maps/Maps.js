@@ -9,7 +9,7 @@ class Maps extends Component {
     render() {
         const { mapsList } = this.props;
         const width = 880;
-        const height = 500;
+        const height = 600;
         return (
             <div className="main-section-animation">
                 <div className="map--container">
