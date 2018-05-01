@@ -4,7 +4,7 @@
     "private": true,
     "proxy": {
         "/api/*": {
-            "target": "http://airways_server.test"
+            "target": "http://api.jbgconcierge.com.au"
         }
     },
     "dependencies": {

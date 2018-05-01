@@ -1,5 +1,5 @@
-const SERVER_HOST = 'airways_server.test';
-const CMS_HOST = 'airways_cms.test';
+const SERVER_HOST = 'api.jbgconcierge.com.au';
+const CMS_HOST = 'cms.jbgconcierge.com.au';
 const IDLE_TIME = 10000;
 
 function createURL(namespace) {

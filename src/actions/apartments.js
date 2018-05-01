@@ -9,7 +9,7 @@ import _ from 'lodash';
 
 export const getApartmentList = () => async dispatch => {
     await axios
-        .get(createURL('api/apartment/'))
+        .get(createURL('api/apartment'))
         .then(response => {
             if (response.status === 200) {
                 dispatch({

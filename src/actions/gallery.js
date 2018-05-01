@@ -4,7 +4,7 @@ import { createURL } from '../components/utils/Constants';
 
 export const getGalleryList = () => async dispatch => {
     await axios
-        .get(createURL('api/gallery/'))
+        .get(createURL('api/gallery'))
         .then(response => {
             if (response.status === 200) {
                 dispatch({

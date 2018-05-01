@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 export const getFeatureList = () => async dispatch => {
     await axios
-        .get(createURL('api/feature/'))
+        .get(createURL('api/feature'))
         .then(response => {
             if (response.status === 200) {
                 dispatch({

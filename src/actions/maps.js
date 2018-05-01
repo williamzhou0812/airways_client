@@ -4,7 +4,7 @@ import { createURL } from '../components/utils/Constants';
 
 export const getMapList = () => async dispatch => {
     await axios
-        .get(createURL('api/map/'))
+        .get(createURL('api/map'))
         .then(response => {
             if (response.status === 200) {
                 dispatch({

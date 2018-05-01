@@ -4,7 +4,7 @@ import { createURL } from '../components/utils/Constants';
 
 export const getVideoList = () => async dispatch => {
     await axios
-        .get(createURL('api/video/'))
+        .get(createURL('api/video'))
         .then(response => {
             if (response.status === 200) {
                 dispatch({

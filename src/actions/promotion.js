@@ -4,7 +4,7 @@ import { createURL } from '../components/utils/Constants';
 
 export const getPromotionList = () => async dispatch => {
     await axios
-        .get(createURL('api/promotion/'))
+        .get(createURL('api/promotion'))
         .then(response => {
             if (response.status === 200) {
                 dispatch({
