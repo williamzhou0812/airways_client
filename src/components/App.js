@@ -75,7 +75,9 @@ class App extends Component {
             featuresList,
             videosList,
             router,
-            history
+            history,
+            directoryDisplayList,
+            sectionList
         } = this.props;
 
         let sidebarText = 'APARTMENTS';
@@ -92,6 +94,8 @@ class App extends Component {
             galleryList.status !== 200 ||
             mapsList.status !== 200 ||
             featuresList.status !== 200 ||
+            directoryDisplayList.status !== 200 ||
+            sectionList.status !== 200 ||
             videosList.status !== 200
         ) {
             return (
@@ -198,6 +202,8 @@ function mapStateToProps({
     galleryList,
     mapsList,
     videosList,
+    directoryDisplayList,
+    sectionList,
     router
 }) {
     return {
@@ -206,6 +212,8 @@ function mapStateToProps({
         galleryList,
         mapsList,
         videosList,
+        directoryDisplayList,
+        sectionList,
         router
     };
 }

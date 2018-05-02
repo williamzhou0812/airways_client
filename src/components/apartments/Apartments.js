@@ -7,10 +7,6 @@ import { createImageURL } from '../utils/Constants';
 import { Link } from 'react-router-dom';
 
 class Apartments extends Component {
-    componentDidMount() {
-        console.log(this.props.apartmentsList.apartments);
-    }
-
     renderEachApartment() {
         return _.map(
             this.props.apartmentsList.apartments,

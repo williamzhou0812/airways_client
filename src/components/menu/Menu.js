@@ -51,11 +51,11 @@ class Menu extends Component {
                     }}
                 >
                     <img
-                        src={require(`../../images/menu_map_icon.png`)}
+                        src={require(`../../images/menu_around.png`)}
                         width="90"
-                        alt="menu_map_icon"
+                        alt="menu_around"
                     />
-                    <p className="menuText">MAPS</p>
+                    <p className="menuText">AROUND PORT MORESBY</p>
                 </div>
                 <div
                     className={

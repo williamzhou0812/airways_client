@@ -11,7 +11,12 @@ export const getDirectoryDisplayList = () => async dispatch => {
                 dispatch({
                     type: DIRECTORY_DISPLAY_LIST,
                     payload: {
-                        directory_displays: response.data.data,
+                        directory_displays: _.groupBy(
+                            response.data.data,
+                            directoryDisplay => {
+                                return directoryDisplay.section.data.id;
+                            }
+                        ),
                         status: response.status
                     }
                 });
