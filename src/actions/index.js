@@ -5,6 +5,9 @@ import { getGalleryList } from './gallery';
 import { getMapList } from './maps';
 import { getVideoList, setCurrentTime } from './videos';
 import { getPromotionList } from './promotion';
+import { getDirectoryDisplayList } from './directoryDisplay';
+import { getSectionList } from './section';
+
 export {
     navigateTo,
     getApartmentList,
@@ -15,5 +18,7 @@ export {
     getSelectedFeatureDetail,
     getVideoList,
     setCurrentTime,
-    getPromotionList
+    getPromotionList,
+    getDirectoryDisplayList,
+    getSectionList
 };

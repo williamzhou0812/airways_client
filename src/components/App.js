@@ -46,6 +46,8 @@ class App extends Component {
         this.props.getMapList();
         this.props.getVideoList();
         this.props.getPromotionList();
+        this.props.getSectionList();
+        this.props.getDirectoryDisplayList();
     }
 
     componentWillUnmount() {

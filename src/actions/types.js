@@ -18,3 +18,9 @@ export const VIDEO_CURRENT_TIME = 'video_current_time';
 
 export const PROMOTION_LIST = 'promotion_list';
 export const PROMOTION_LIST_ERROR = 'promotion_list_error';
+
+export const DIRECTORY_DISPLAY_LIST = 'directory_display_list';
+export const DIRECTORY_DISPLAY_LIST_ERROR = 'directory_display_list_error';
+
+export const SECTION_LIST = 'section_list';
+export const SECTION_LIST_ERROR = 'section_list_error';
