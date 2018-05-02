@@ -18,6 +18,7 @@ import FeatureDetail from './features/FeatureDetail';
 import idleJs from 'idle-js';
 import { IDLE_TIME } from './utils/Constants.js';
 import RestVideo from './videos/RestVideos';
+import Around from './around/Around';
 
 class App extends Component {
     idleRef;
@@ -157,7 +158,7 @@ class App extends Component {
                                 component={FeatureDetail}
                             />
                             <Route exact path="/gallery" component={Gallery} />
-                            <Route exact path="/maps" component={Maps} />
+                            <Route exact path="/around" component={Around} />
                             <Redirect from="/" to="/apartments" />
                         </Switch>
                         <img

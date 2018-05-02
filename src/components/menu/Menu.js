@@ -41,13 +41,13 @@ class Menu extends Component {
                 </div>
                 <div
                     className={
-                        currentMenu === '/maps'
+                        currentMenu === '/around'
                             ? 'menuItem menuItem--maps menuItem--active'
                             : 'menuItem menuItem--maps menuItem--inactive'
                     }
                     onClick={() => {
-                        navigateTo('/maps');
-                        this.setState({ currentMenu: '/maps' });
+                        navigateTo('/around');
+                        this.setState({ currentMenu: '/around' });
                     }}
                 >
                     <img

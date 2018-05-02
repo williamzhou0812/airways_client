@@ -1,0 +1,33 @@
+@import '../sass/variables.scss';
+.around--container {
+    background-color: #eee;
+    width: 880px;
+    height: 1367px;
+    display: grid;
+    grid-template-rows: repeat(auto, 250px);
+    grid-template-columns: repeat(1, 1fr);
+    overflow: auto;
+}
+
+.aroundsection {
+    &--list {
+        grid-column: 1 / -1;
+        height: 341.75px;
+        position: relative;
+
+        &--name {
+            font-size: 30px;
+            width: 100%;
+            height: 80px;
+            position: absolute;
+            bottom: 0;
+            color: $color-white;
+            background-color: $color-black;
+            opacity: 0.7;
+            text-align: center;
+            letter-spacing: 15px;
+            line-height: 3em;
+            text-transform: uppercase;
+        }
+    }
+}
