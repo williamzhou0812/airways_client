@@ -9,22 +9,52 @@ import { Link } from 'react-router-dom';
 class SectionList extends Component {
     constructor(props) {
         super(props);
-
-        this.props.getDirectoryDisplayListBySection(
-            this.props.directoryDisplayList.directory_displays[
-                this.props.match.params.id
-            ]
+        const {
+            getDirectoryDisplayListBySection,
+            directoryDisplayList,
+            match
+        } = this.props;
+        getDirectoryDisplayListBySection(
+            directoryDisplayList.directory_displays[match.params.id]
         );
-
         this.state = {
             up: false,
             down: false
         };
     }
 
+    componentDidMount() {
+        const {
+            getDirectoryDisplayListBySection,
+            directoryDisplayList,
+            match
+        } = this.props;
+        getDirectoryDisplayListBySection(
+            directoryDisplayList.directory_displays[match.params.id]
+        );
+    }
+
     render() {
-        if (this.props.directoryDisplayListBySection.status === 200) {
-            return <div className="main-section-animation">SECTION LIST</div>;
+        const { directoryDisplayListBySection } = this.props;
+        if (directoryDisplayListBySection.status === 200) {
+            return (
+                <div className="main-section-animation">
+                    <div className="sectionlist--container">
+                        <div className="sectionlistsection sectionlistsection--up">
+                            UP
+                        </div>
+                        <div className="sectionlistsection sectionlistsection--heading">
+                            HEADING
+                        </div>
+                        <div className="sectionlistsection sectionlistsection--list">
+                            LIST
+                        </div>
+                        <div className="sectionlistsection sectionlistsection--down">
+                            DOWN
+                        </div>
+                    </div>
+                </div>
+            );
         } else {
             return (
                 <div className="main-section-animation">

@@ -1,0 +1,26 @@
+.sectionlist--container {
+  background-color: #eee;
+  display: grid;
+  grid-template-rows: 75px 77px 1140px 75px;
+  grid-template-columns: 880px;
+  overflow: auto; }
+
+.sectionlistsection--up {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  background-color: red; }
+
+.sectionlistsection--heading {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  background-color: blue; }
+
+.sectionlistsection--list {
+  grid-column: 1 / -1;
+  grid-row: 3 / 4;
+  background-color: yellow; }
+
+.sectionlistsection--down {
+  grid-column: 1 / -1;
+  grid-row: 4 / 5;
+  background-color: orange; }

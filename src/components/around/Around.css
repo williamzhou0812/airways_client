@@ -3,7 +3,7 @@
   width: 880px;
   height: 1367px;
   display: grid;
-  grid-template-rows: repeat(auto, 250px);
+  grid-template-rows: repeat(auto);
   grid-template-columns: repeat(1, 1fr);
   overflow: auto; }
 

@@ -9,10 +9,12 @@ import ImageGallery from 'react-image-gallery';
 class ApartmentDetail extends Component {
     constructor(props) {
         super(props);
-        this.props.getSelectedApartmentDetail(
-            this.props.match.params.id,
-            this.props.apartmentsList.apartments
-        );
+        const {
+            getSelectedApartmentDetail,
+            match,
+            apartmentsList
+        } = this.props;
+        getSelectedApartmentDetail(match.params.id, apartmentsList.apartments);
         this.state = {
             up: false,
             down: false
@@ -20,10 +22,12 @@ class ApartmentDetail extends Component {
     }
 
     componentDidMount() {
-        this.props.getSelectedApartmentDetail(
-            this.props.match.params.id,
-            this.props.apartmentsList.apartments
-        );
+        const {
+            getSelectedApartmentDetail,
+            match,
+            apartmentsList
+        } = this.props;
+        getSelectedApartmentDetail(match.params.id, apartmentsList.apartments);
     }
 
     processImageList(apartment) {
