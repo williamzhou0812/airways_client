@@ -86,9 +86,9 @@ class App extends Component {
         if (!_.isEmpty(router.location)) {
             if (router.location.pathname === '/') {
                 sidebarText = 'APARTMENTS';
-            } else if (router.location.pathname === '/around') {
+            } else if (router.location.pathname.includes('around')) {
                 sidebarText = 'AROUND PORT MORESBY';
-            } else if (router.location.pathname === '/features') {
+            } else if (router.location.pathname.includes('features')) {
                 sidebarText = 'FEATURES & FACILITIES';
             } else {
                 sidebarText = router.location.pathname.split('/')[1];

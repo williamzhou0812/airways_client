@@ -1,26 +1,69 @@
 .sectionlist--container {
   background-color: #eee;
+  grid-row-gap: 3px;
   display: grid;
-  grid-template-rows: 75px 77px 1140px 75px;
+  grid-template-rows: 74px 76px 1134px 74px;
   grid-template-columns: 880px;
   overflow: auto; }
 
 .sectionlistsection--up {
   grid-column: 1 / -1;
-  grid-row: 1 / 2;
-  background-color: red; }
+  grid-row: 1 / 2; }
 
 .sectionlistsection--heading {
   grid-column: 1 / -1;
   grid-row: 2 / 3;
-  background-color: blue; }
+  background-color: #c29a78;
+  color: white;
+  text-align: center;
+  font-size: 60px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 3px;
+  padding-top: 13px; }
 
 .sectionlistsection--list {
   grid-column: 1 / -1;
   grid-row: 3 / 4;
-  background-color: yellow; }
+  width: 880px;
+  height: 1134px;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(1, 1fr);
+  overflow: auto;
+  grid-row-gap: 3px;
+  grid-column-gap: 3px;
+  align-content: flex-start;
+  background-color: white; }
+  .sectionlistsection--list--item {
+    grid-column: 1 / -1;
+    height: 186.5px;
+    display: grid;
+    grid-template-rows: 186.5px;
+    grid-template-columns: 340px 537px;
+    grid-column-gap: 3px; }
+    .sectionlistsection--list--item--image {
+      grid-column: 1 / 2;
+      grid-row: 1 / -1;
+      background-color: #8d8e90; }
+    .sectionlistsection--list--item--name {
+      grid-column: 2 / 3;
+      grid-row: 1 / -1;
+      background-color: #8d8e90;
+      padding-left: 30px;
+      padding-top: 60px;
+      color: white;
+      font-size: 30px;
+      letter-spacing: 3px;
+      text-transform: uppercase; }
+      .sectionlistsection--list--item--name--heading {
+        font-weight: 500; }
 
 .sectionlistsection--down {
   grid-column: 1 / -1;
-  grid-row: 4 / 5;
-  background-color: orange; }
+  grid-row: 4 / 5; }
+
+.sectionlistsection--arrow {
+  background-color: #8d8e90;
+  text-align: center;
+  padding-top: 1.5em; }

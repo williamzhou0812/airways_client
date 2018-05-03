@@ -8,7 +8,7 @@ import _ from 'lodash';
 import { Link } from 'react-router-dom';
 
 class Around extends Component {
-    renderEachFeature() {
+    renderEachSection() {
         return _.map(
             this.props.sectionList.sections,
             ({ id, name, images_path }) => {
@@ -41,7 +41,7 @@ class Around extends Component {
         return (
             <div className="main-section-animation">
                 <div className="around--container">
-                    {this.renderEachFeature()}
+                    {this.renderEachSection()}
                 </div>
             </div>
         );
