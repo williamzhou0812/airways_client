@@ -87,3 +87,19 @@
         padding-top: 1.5em;
     }
 }
+
+.error--directory--display--list {
+    background-color: $color-arrow-grey;
+    color: $color-white;
+
+    display: grid;
+    grid-template-rows: 1367px;
+    grid-template-columns: 880px;
+    overflow: auto;
+    &--text {
+        text-align: center;
+        font-size: 60px;
+        padding-top: 300px;
+        letter-spacing: 3px;
+    }
+}

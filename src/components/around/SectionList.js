@@ -205,8 +205,15 @@ class SectionList extends Component {
             );
         } else {
             return (
-                <div className="main-section-animation">
-                    NO DIRECTORY DISPLAY
+                <div
+                    className="main-section-animation"
+                    id="SectionListDetailSection"
+                >
+                    <div className="error--directory--display--list">
+                        <p className="error--directory--display--list--text">
+                            NO DIRECTORY DISPLAY
+                        </p>
+                    </div>
                 </div>
             );
         }

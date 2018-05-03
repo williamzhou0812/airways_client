@@ -67,3 +67,16 @@
   background-color: #8d8e90;
   text-align: center;
   padding-top: 1.5em; }
+
+.error--directory--display--list {
+  background-color: #8d8e90;
+  color: white;
+  display: grid;
+  grid-template-rows: 1367px;
+  grid-template-columns: 880px;
+  overflow: auto; }
+  .error--directory--display--list--text {
+    text-align: center;
+    font-size: 60px;
+    padding-top: 300px;
+    letter-spacing: 3px; }
