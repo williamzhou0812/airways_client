@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import './Around.css';
 import { createImageURL } from '../utils/Constants';
-import ReactImageMagnify from 'react-image-magnify';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
 
@@ -30,7 +29,7 @@ class Around extends Component {
                             <div className="aroundsection--list--name">
                                 {name}
                             </div>
-                        </div>{' '}
+                        </div>
                     </Link>
                 );
             }

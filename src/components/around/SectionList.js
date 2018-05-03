@@ -87,7 +87,6 @@ class SectionList extends Component {
         const {
             directoryDisplayList,
             directoryDisplayListBySection,
-            sectionList,
             getDirectoryDisplayListBySection
         } = this.props;
 
@@ -100,7 +99,7 @@ class SectionList extends Component {
         let selectedSectionId = _.find(sectionIdList, (item, index) => {
             selectedSectionKey = index;
             return (
-                item ==
+                item ===
                 directoryDisplayListBySection.directory_displays[0].section.data
                     .id
             );
@@ -152,7 +151,6 @@ class SectionList extends Component {
                         <div
                             className="sectionlistsection sectionlistsection--up sectionlistsection--arrow"
                             onClick={() => {
-                                console.log('up');
                                 this.resetAnimationClass();
                                 setTimeout(() => {
                                     document
@@ -183,7 +181,6 @@ class SectionList extends Component {
                         <div
                             className="sectionlistsection sectionlistsection--down sectionlistsection--arrow"
                             onClick={() => {
-                                console.log('down');
                                 this.resetAnimationClass();
                                 setTimeout(() => {
                                     document

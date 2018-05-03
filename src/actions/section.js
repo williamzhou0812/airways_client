@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { SECTION_LIST, SECTION_LIST_ERROR } from './types';
 import { createURL } from '../components/utils/Constants';
-import _ from 'lodash';
 
 export const getSectionList = () => async dispatch => {
     await axios
