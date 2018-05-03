@@ -7,15 +7,43 @@ import _ from 'lodash';
 import { Link } from 'react-router-dom';
 
 class SectionList extends Component {
+    constructor(props) {
+        super(props);
+
+        this.props.getDirectoryDisplayListBySection(
+            this.props.directoryDisplayList.directory_displays[
+                this.props.match.params.id
+            ]
+        );
+
+        this.state = {
+            up: false,
+            down: false
+        };
+    }
+
     render() {
-        return <div className="main-section-animation">SECTION LIST</div>;
+        if (this.props.directoryDisplayListBySection.status === 200) {
+            return <div className="main-section-animation">SECTION LIST</div>;
+        } else {
+            return (
+                <div className="main-section-animation">
+                    NO DIRECTORY DISPLAY
+                </div>
+            );
+        }
     }
 }
 
-function mapStateToProps({ directoryDisplayList, sectionList }) {
+function mapStateToProps({
+    directoryDisplayList,
+    sectionList,
+    directoryDisplayListBySection
+}) {
     return {
         directoryDisplayList,
-        sectionList
+        sectionList,
+        directoryDisplayListBySection
     };
 }
 

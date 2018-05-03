@@ -5,7 +5,10 @@ import { getGalleryList } from './gallery';
 import { getMapList } from './maps';
 import { getVideoList, setCurrentTime } from './videos';
 import { getPromotionList } from './promotion';
-import { getDirectoryDisplayList } from './directoryDisplay';
+import {
+    getDirectoryDisplayList,
+    getDirectoryDisplayListBySection
+} from './directoryDisplay';
 import { getSectionList } from './section';
 
 export {
@@ -20,5 +23,6 @@ export {
     setCurrentTime,
     getPromotionList,
     getDirectoryDisplayList,
-    getSectionList
+    getSectionList,
+    getDirectoryDisplayListBySection
 };

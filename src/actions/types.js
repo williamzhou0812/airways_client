@@ -20,6 +20,9 @@ export const PROMOTION_LIST = 'promotion_list';
 export const PROMOTION_LIST_ERROR = 'promotion_list_error';
 
 export const DIRECTORY_DISPLAY_LIST = 'directory_display_list';
+export const DIRECTORY_DISPLAY_LIST_BY_SECTION =
+    'directory_display_list_by_section';
+
 export const DIRECTORY_DISPLAY_LIST_ERROR = 'directory_display_list_error';
 
 export const SECTION_LIST = 'section_list';

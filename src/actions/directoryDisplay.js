@@ -1,5 +1,9 @@
 import axios from 'axios';
-import { DIRECTORY_DISPLAY_LIST, DIRECTORY_DISPLAY_LIST_ERROR } from './types';
+import {
+    DIRECTORY_DISPLAY_LIST,
+    DIRECTORY_DISPLAY_LIST_ERROR,
+    DIRECTORY_DISPLAY_LIST_BY_SECTION
+} from './types';
 import { createURL } from '../components/utils/Constants';
 import _ from 'lodash';
 
@@ -28,4 +32,24 @@ export const getDirectoryDisplayList = () => async dispatch => {
                 error: error.response
             });
         });
+};
+
+export const getDirectoryDisplayListBySection = directoryDisplayListBySection => dispatch => {
+    if (!_.isEmpty(directoryDisplayListBySection)) {
+        dispatch({
+            type: DIRECTORY_DISPLAY_LIST_BY_SECTION,
+            payload: {
+                directory_displays: directoryDisplayListBySection,
+                status: 200
+            }
+        });
+    } else {
+        dispatch({
+            type: DIRECTORY_DISPLAY_LIST_ERROR,
+            payload: {
+                directory_displays: DIRECTORY_DISPLAY_LIST_ERROR,
+                status: 404
+            }
+        });
+    }
 };
