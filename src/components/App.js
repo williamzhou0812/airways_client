@@ -19,6 +19,7 @@ import idleJs from 'idle-js';
 import { IDLE_TIME } from './utils/Constants.js';
 import RestVideo from './videos/RestVideos';
 import Around from './around/Around';
+import SectionList from './around/SectionList';
 
 class App extends Component {
     idleRef;
@@ -85,6 +86,10 @@ class App extends Component {
         if (!_.isEmpty(router.location)) {
             if (router.location.pathname === '/') {
                 sidebarText = 'APARTMENTS';
+            } else if (router.location.pathname === '/around') {
+                sidebarText = 'AROUND PORT MORESBY';
+            } else if (router.location.pathname === '/features') {
+                sidebarText = 'FEATURES & FACILITIES';
             } else {
                 sidebarText = router.location.pathname.split('/')[1];
             }
@@ -132,7 +137,17 @@ class App extends Component {
                             alt="sidebar_logo"
                             width="1080"
                         />
-                        <div className="section section--sidebar ">
+                        <div
+                            className="section section--sidebar"
+                            style={
+                                sidebarText === 'AROUND PORT MORESBY' ||
+                                sidebarText === 'FEATURES & FACILITIES'
+                                    ? {
+                                          paddingTop: '350px'
+                                      }
+                                    : { paddingTop: '550px' }
+                            }
+                        >
                             <p>{sidebarText}</p>
                         </div>
                         <Switch>
@@ -159,6 +174,12 @@ class App extends Component {
                             />
                             <Route exact path="/gallery" component={Gallery} />
                             <Route exact path="/around" component={Around} />
+                            <Route
+                                exact
+                                path="/around/:id"
+                                component={SectionList}
+                            />
+
                             <Redirect from="/" to="/apartments" />
                         </Switch>
                         <img

@@ -84,8 +84,8 @@ body {
     &--sidebar {
         grid-column: 1 / 2;
         grid-row: 4 / 5;
+        font-weight: 500;
         background: linear-gradient($color-black 35%, $color-light-grey);
-        text-align: center;
         color: white;
         font-size: 70px;
         letter-spacing: 10px;
