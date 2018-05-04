@@ -20,11 +20,12 @@ class SectionList extends Component {
         getDirectoryDisplayListBySection(
             directoryDisplayList.directory_displays[match.params.id]
         );
-        setSelectedSection(sectionList.sections[match.params.id]);
 
-        this.state = {
-            total_directory_display: -1
-        };
+        setSelectedSection(
+            _.find(sectionList.sections, (item, index) => {
+                return item.id === parseInt(match.params.id, 10);
+            })
+        );
     }
 
     componentDidMount() {
@@ -120,19 +121,25 @@ class SectionList extends Component {
     }
 
     renderEachDirectoryDisplay() {
-        const { directoryDisplayListBySection } = this.props;
+        const { directoryDisplayListBySection, match } = this.props;
 
-        return _.map(
-            directoryDisplayListBySection.directory_displays,
-            ({ id, heading, subheading, images_path }) => {
-                return (
-                    <div className="sectionlistsection--list--item">
+        return _.map(directoryDisplayListBySection.directory_displays, item => {
+            return (
+                <Link
+                    to={`/around/${match.params.id}/${item.id}`}
+                    key={item.id}
+                    style={{ textDecoration: 'none' }}
+                >
+                    <div
+                        className="sectionlistsection--list--item"
+                        onClick={e => this.handleClick(e, item)}
+                    >
                         <div
                             className="sectionlistsection--list--item--image"
                             style={
-                                !_.isEmpty(images_path[0]) && {
+                                !_.isEmpty(item.images_path[0]) && {
                                     backgroundImage: `url(${createImageURL(
-                                        images_path[0]
+                                        item.images_path[0]
                                     )})`,
                                     backgroundRepeat: 'no-repeat',
                                     backgroundSize: 'cover',
@@ -142,25 +149,27 @@ class SectionList extends Component {
                         />
                         <div className="sectionlistsection--list--item--name">
                             <div className="sectionlistsection--list--item--name--heading">
-                                {heading}
+                                <span>{item.heading}</span>
                             </div>
                             <div className="sectionlistsection--list--item--name--subheading">
-                                {subheading}
+                                <span>{item.subheading}</span>
                             </div>
                         </div>
                     </div>
-                );
-            }
-        );
+                </Link>
+            );
+        });
     }
-
+    handleClick(e, item) {
+        this.props.setSelectedDirectoryDisplay(item);
+    }
     renderEmptyDirectoryDisplaySpace() {
         const { directoryDisplayListBySection } = this.props;
         return _.times(
             6 - directoryDisplayListBySection.directory_displays.length,
-            () => {
+            index => {
                 return (
-                    <div className="sectionlistsection--list--item">
+                    <div key={index} className="sectionlistsection--list--item">
                         <div className="sectionlistsection--list--item--image" />
                         <div className="sectionlistsection--list--item--name" />
                     </div>

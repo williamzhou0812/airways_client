@@ -13,6 +13,7 @@ import directoryDisplayReducer from './directoryDisplayReducer';
 import sectionReducer from './sectionReducer';
 import directoryDisplayBySectionReducer from './directoryDisplayBySectionReducer';
 import currentSectionReducer from './currentSectionReducer';
+import directoryDisplayDetailReducer from './directoryDisplayDetailReducer';
 
 export default combineReducers({
     router: routerReducer,
@@ -28,5 +29,6 @@ export default combineReducers({
     directoryDisplayList: directoryDisplayReducer,
     sectionList: sectionReducer,
     directoryDisplayListBySection: directoryDisplayBySectionReducer,
-    currentSection: currentSectionReducer
+    currentSection: currentSectionReducer,
+    directoryDisplayDetail: directoryDisplayDetailReducer
 });

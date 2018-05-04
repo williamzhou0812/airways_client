@@ -7,7 +7,8 @@ import { getVideoList, setCurrentTime } from './videos';
 import { getPromotionList } from './promotion';
 import {
     getDirectoryDisplayList,
-    getDirectoryDisplayListBySection
+    getDirectoryDisplayListBySection,
+    setSelectedDirectoryDisplay
 } from './directoryDisplay';
 import { getSectionList, setSelectedSection } from './section';
 
@@ -25,5 +26,6 @@ export {
     getDirectoryDisplayList,
     getSectionList,
     getDirectoryDisplayListBySection,
-    setSelectedSection
+    setSelectedSection,
+    setSelectedDirectoryDisplay
 };

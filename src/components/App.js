@@ -20,6 +20,7 @@ import { IDLE_TIME } from './utils/Constants.js';
 import RestVideo from './videos/RestVideos';
 import Around from './around/Around';
 import SectionList from './around/SectionList';
+import DirectoryDisplay from './around/DirectoryDisplay';
 
 class App extends Component {
     idleRef;
@@ -179,7 +180,11 @@ class App extends Component {
                                 path="/around/:id"
                                 component={SectionList}
                             />
-
+                            <Route
+                                exact
+                                path="/around/:id/:id"
+                                component={DirectoryDisplay}
+                            />
                             <Redirect from="/" to="/apartments" />
                         </Switch>
                         <img

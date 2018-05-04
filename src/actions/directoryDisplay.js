@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
     DIRECTORY_DISPLAY_LIST,
     DIRECTORY_DISPLAY_LIST_ERROR,
-    DIRECTORY_DISPLAY_LIST_BY_SECTION
+    DIRECTORY_DISPLAY_LIST_BY_SECTION,
+    SELECTED_DIRECTORY_DISPLAY
 } from './types';
 import { createURL } from '../components/utils/Constants';
 import _ from 'lodash';
@@ -52,4 +53,14 @@ export const getDirectoryDisplayListBySection = directoryDisplayListBySection =>
             }
         });
     }
+};
+
+export const setSelectedDirectoryDisplay = SelectedDirectoryDisplay => dispatch => {
+    dispatch({
+        type: SELECTED_DIRECTORY_DISPLAY,
+        payload: {
+            directory_display: SelectedDirectoryDisplay,
+            status: 200
+        }
+    });
 };
