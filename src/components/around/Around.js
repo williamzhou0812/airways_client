@@ -7,33 +7,34 @@ import _ from 'lodash';
 import { Link } from 'react-router-dom';
 
 class Around extends Component {
+    handleClick(e, item) {
+        this.props.setSelectedSection(item);
+    }
     renderEachSection() {
-        return _.map(
-            this.props.sectionList.sections,
-            ({ id, name, images_path }) => {
-                return (
-                    <Link to={`/around/${id}`} key={id}>
-                        <div
-                            className="aroundsection--list"
-                            style={
-                                !_.isEmpty(images_path) && {
-                                    backgroundImage: `url(${createImageURL(
-                                        images_path
-                                    )})`,
-                                    backgroundRepeat: 'no-repeat',
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center'
-                                }
+        return _.map(this.props.sectionList.sections, item => {
+            return (
+                <Link to={`/around/${item.id}`} key={item.id}>
+                    <div
+                        className="aroundsection--list"
+                        style={
+                            !_.isEmpty(item.images_path) && {
+                                backgroundImage: `url(${createImageURL(
+                                    item.images_path
+                                )})`,
+                                backgroundRepeat: 'no-repeat',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center'
                             }
-                        >
-                            <div className="aroundsection--list--name">
-                                {name}
-                            </div>
+                        }
+                        onClick={e => this.handleClick(e, item)}
+                    >
+                        <div className="aroundsection--list--name">
+                            {item.name}
                         </div>
-                    </Link>
-                );
-            }
-        );
+                    </div>
+                </Link>
+            );
+        });
     }
 
     render() {

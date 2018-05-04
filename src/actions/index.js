@@ -9,7 +9,7 @@ import {
     getDirectoryDisplayList,
     getDirectoryDisplayListBySection
 } from './directoryDisplay';
-import { getSectionList } from './section';
+import { getSectionList, setSelectedSection } from './section';
 
 export {
     navigateTo,
@@ -24,5 +24,6 @@ export {
     getPromotionList,
     getDirectoryDisplayList,
     getSectionList,
-    getDirectoryDisplayListBySection
+    getDirectoryDisplayListBySection,
+    setSelectedSection
 };

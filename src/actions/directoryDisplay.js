@@ -48,7 +48,7 @@ export const getDirectoryDisplayListBySection = directoryDisplayListBySection =>
             type: DIRECTORY_DISPLAY_LIST_ERROR,
             payload: {
                 directory_displays: DIRECTORY_DISPLAY_LIST_ERROR,
-                status: 404
+                status: 400
             }
         });
     }

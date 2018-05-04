@@ -12,11 +12,16 @@ class SectionList extends Component {
         const {
             getDirectoryDisplayListBySection,
             directoryDisplayList,
+            setSelectedSection,
+            sectionList,
             match
         } = this.props;
+
         getDirectoryDisplayListBySection(
             directoryDisplayList.directory_displays[match.params.id]
         );
+        setSelectedSection(sectionList.sections[match.params.id]);
+
         this.state = {
             total_directory_display: -1
         };
@@ -31,6 +36,87 @@ class SectionList extends Component {
         getDirectoryDisplayListBySection(
             directoryDisplayList.directory_displays[match.params.id]
         );
+    }
+
+    processNextDirectoryDisplayList(action) {
+        const {
+            directoryDisplayList,
+            directoryDisplayListBySection,
+            getDirectoryDisplayListBySection,
+            currentSection,
+            sectionList,
+            setSelectedSection
+        } = this.props;
+
+        let sectionIdList = new Array();
+
+        _.forEach(this.props.sectionList.sections, (value, key) => {
+            sectionIdList.push(value.id);
+        });
+
+        let selectedSectionKey;
+        let selectedSectionId = _.find(sectionIdList, (item, index) => {
+            selectedSectionKey = index;
+            return item === currentSection.sections.id;
+        });
+
+        /*FOR UPDATE DIRECTORY DISPLAY LIST TO REDUX STORE*/
+        let nextDirectoryDisplayListID = selectedSectionKey;
+        if (action === 'up') {
+            nextDirectoryDisplayListID = nextDirectoryDisplayListID - 1;
+            if (nextDirectoryDisplayListID === -1) {
+                nextDirectoryDisplayListID = sectionIdList.length - 1;
+            }
+        }
+
+        if (action === 'down') {
+            nextDirectoryDisplayListID = nextDirectoryDisplayListID + 1;
+            if (nextDirectoryDisplayListID === sectionIdList.length) {
+                nextDirectoryDisplayListID = 0;
+            }
+        }
+
+        getDirectoryDisplayListBySection(
+            directoryDisplayList.directory_displays[
+                sectionIdList[nextDirectoryDisplayListID]
+            ]
+        );
+
+        /*FOR UPDATE CURRENT SECTION LIST TO REDUX STORE*/
+        let nextSectionListID = -1;
+
+        _.find(sectionList.sections, (item, index) => {
+            nextSectionListID = index;
+            return item.id === currentSection.sections.id;
+        });
+
+        if (action === 'up') {
+            nextSectionListID = nextSectionListID - 1;
+            if (nextSectionListID === -1) {
+                nextSectionListID = sectionList.sections.length - 1;
+            }
+        }
+
+        if (action === 'down') {
+            nextSectionListID = nextSectionListID + 1;
+            if (nextSectionListID === sectionList.sections.length) {
+                nextSectionListID = 0;
+            }
+        }
+
+        setSelectedSection(sectionList.sections[nextSectionListID]);
+    }
+
+    resetAnimationClass() {
+        document
+            .getElementById('SectionListDetailSection')
+            .classList.remove('main-section-animation');
+        document
+            .getElementById('SectionListDetailSection')
+            .classList.remove('section-down-animation');
+        document
+            .getElementById('SectionListDetailSection')
+            .classList.remove('section-up-animation');
     }
 
     renderEachDirectoryDisplay() {
@@ -83,65 +169,27 @@ class SectionList extends Component {
         );
     }
 
-    processNextDirectoryDisplayList(action) {
-        const {
-            directoryDisplayList,
-            directoryDisplayListBySection,
-            getDirectoryDisplayListBySection
-        } = this.props;
-
-        let sectionIdList = new Array();
-        _.forEach(this.props.sectionList.sections, (value, key) => {
-            sectionIdList.push(value.id);
-        });
-
-        let selectedSectionKey;
-        let selectedSectionId = _.find(sectionIdList, (item, index) => {
-            selectedSectionKey = index;
-            return (
-                item ===
-                directoryDisplayListBySection.directory_displays[0].section.data
-                    .id
-            );
-        });
-
-        let nextSectionKey = selectedSectionKey;
-        if (action === 'up') {
-            nextSectionKey = nextSectionKey - 1;
-            if (nextSectionKey === -1) {
-                nextSectionKey = sectionIdList.length - 1;
-            }
-        }
-
-        if (action === 'down') {
-            nextSectionKey = nextSectionKey + 1;
-            if (nextSectionKey === sectionIdList.length) {
-                nextSectionKey = 0;
-            }
-        }
-
-        getDirectoryDisplayListBySection(
-            directoryDisplayList.directory_displays[
-                sectionIdList[nextSectionKey]
-            ]
+    renderNoDirectoryDisplay() {
+        return (
+            <div className="error--directory--display--list">
+                <p className="error--directory--display--list--text">
+                    NO DIRECTORY DISPLAY
+                </p>
+            </div>
         );
     }
 
-    resetAnimationClass() {
-        document
-            .getElementById('SectionListDetailSection')
-            .classList.remove('main-section-animation');
-        document
-            .getElementById('SectionListDetailSection')
-            .classList.remove('section-down-animation');
-        document
-            .getElementById('SectionListDetailSection')
-            .classList.remove('section-up-animation');
-    }
-
     render() {
-        const { directoryDisplayListBySection } = this.props;
-        if (directoryDisplayListBySection.status === 200) {
+        const {
+            directoryDisplayListBySection,
+            match,
+            sectionList,
+            currentSection
+        } = this.props;
+        if (
+            !_.isEmpty(directoryDisplayListBySection.directory_displays) &&
+            !_.isEmpty(currentSection.sections)
+        ) {
             return (
                 <div
                     className="main-section-animation"
@@ -169,14 +217,15 @@ class SectionList extends Component {
                             />
                         </div>
                         <div className="sectionlistsection sectionlistsection--heading">
-                            {
-                                directoryDisplayListBySection
-                                    .directory_displays[0].section.data.name
-                            }
+                            {currentSection.sections.name}
                         </div>
                         <div className="sectionlistsection sectionlistsection--list">
-                            {this.renderEachDirectoryDisplay()}
-                            {this.renderEmptyDirectoryDisplaySpace()}
+                            {directoryDisplayListBySection.status === 400 &&
+                                this.renderNoDirectoryDisplay()}
+                            {directoryDisplayListBySection.status === 200 &&
+                                this.renderEachDirectoryDisplay()}
+                            {directoryDisplayListBySection.status === 200 &&
+                                this.renderEmptyDirectoryDisplaySpace()}
                         </div>
                         <div
                             className="sectionlistsection sectionlistsection--down sectionlistsection--arrow"
@@ -209,11 +258,7 @@ class SectionList extends Component {
                     className="main-section-animation"
                     id="SectionListDetailSection"
                 >
-                    <div className="error--directory--display--list">
-                        <p className="error--directory--display--list--text">
-                            NO DIRECTORY DISPLAY
-                        </p>
-                    </div>
+                    <p>Loading</p>
                 </div>
             );
         }
@@ -223,12 +268,14 @@ class SectionList extends Component {
 function mapStateToProps({
     directoryDisplayList,
     sectionList,
-    directoryDisplayListBySection
+    directoryDisplayListBySection,
+    currentSection
 }) {
     return {
         directoryDisplayList,
         sectionList,
-        directoryDisplayListBySection
+        directoryDisplayListBySection,
+        currentSection
     };
 }
 

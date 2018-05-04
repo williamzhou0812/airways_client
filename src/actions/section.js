@@ -1,6 +1,11 @@
 import axios from 'axios';
-import { SECTION_LIST, SECTION_LIST_ERROR } from './types';
+import {
+    SECTION_LIST,
+    SECTION_LIST_ERROR,
+    SELECTED_SECTION_LIST
+} from './types';
 import { createURL } from '../components/utils/Constants';
+import _ from 'lodash';
 
 export const getSectionList = () => async dispatch => {
     await axios
@@ -22,4 +27,14 @@ export const getSectionList = () => async dispatch => {
                 error: error.response
             });
         });
+};
+
+export const setSelectedSection = sectionList => dispatch => {
+    dispatch({
+        type: SELECTED_SECTION_LIST,
+        payload: {
+            sections: sectionList,
+            status: 200
+        }
+    });
 };
