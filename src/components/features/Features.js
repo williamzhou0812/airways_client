@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 class Features extends Component {
     componentDidMount() {
-        console.log(this.props.featuresList.features);
         this.props.setBackButton('/features', false);
     }
 

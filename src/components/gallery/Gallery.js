@@ -9,7 +9,7 @@ class Gallery extends Component {
     constructor(props) {
         super(props);
         this.handleClickThumbnail = this.handleClickThumbnail.bind(this);
-
+        this.props.setBackButton('/gallery', false);
         this.state = {
             currentImage: this.props.galleryList.gallery[0],
             opacity: 1,

@@ -28,12 +28,12 @@
 
 .back-button-in-animation {
   animation-name: moveBackButtonIn;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
   animation-timing-function: ease-in; }
 
 .back-button-out-animation {
   animation-name: moveBackButtonOut;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
   animation-timing-function: ease-in; }
 
 @keyframes moveBackButtonIn {

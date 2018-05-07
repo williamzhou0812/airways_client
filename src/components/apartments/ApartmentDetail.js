@@ -12,10 +12,11 @@ class ApartmentDetail extends Component {
         const {
             getSelectedApartmentDetail,
             match,
-            apartmentsList
+            apartmentsList,
+            setBackButton
         } = this.props;
         getSelectedApartmentDetail(match.params.id, apartmentsList.apartments);
-        this.props.setBackButton('/apartments', true);
+        setBackButton('/apartments', true);
 
         this.state = {
             up: false,
