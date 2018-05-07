@@ -21,6 +21,7 @@ import RestVideo from './videos/RestVideos';
 import Around from './around/Around';
 import SectionList from './around/SectionList';
 import DirectoryDisplay from './around/DirectoryDisplay';
+import DirectoryDisplayList from './around/DirectoryDisplayList';
 
 class App extends Component {
     idleRef;
@@ -210,11 +211,11 @@ class App extends Component {
                             <Route
                                 exact
                                 path="/around/:id"
-                                component={SectionList}
+                                component={DirectoryDisplayList}
                             />
                             <Route
                                 exact
-                                path="/around/:id/:id"
+                                path="/around/:id/:did"
                                 component={DirectoryDisplay}
                             />
                             <Redirect from="/" to="/apartments" />

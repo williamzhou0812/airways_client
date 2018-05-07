@@ -7,6 +7,10 @@ import _ from 'lodash';
 import { Link } from 'react-router-dom';
 
 class Around extends Component {
+    constructor(props) {
+        super(props);
+        this.props.setBackButton('/around', false);
+    }
     handleClick(e, item) {
         this.props.setSelectedSection(item);
     }

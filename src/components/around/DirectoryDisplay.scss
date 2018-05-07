@@ -1,0 +1,109 @@
+@import '../sass/variables.scss';
+
+.directorydisplay--detail--container {
+    background-color: $color-white;
+    display: grid;
+    grid-template-columns: 880px;
+    grid-template-rows: 75px 600px 75px auto;
+    grid-row-gap: 3px;
+}
+
+.directorydisplay--detail--item {
+    &--heading {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        background-color: $color-light-grey;
+        text-align: center;
+        color: $color-white;
+        letter-spacing: 10px;
+        font-size: 60px;
+        font-weight: 500;
+        line-height: 1.7em;
+        text-transform: uppercase;
+    }
+
+    &--image {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+        background-color: $color-arrow-grey;
+    }
+
+    &--subheading {
+        grid-column: 1 / -1;
+        grid-row: 3 / 4;
+        background-color: $color-white;
+
+        &--container {
+            display: grid;
+            grid-template-rows: 75px;
+            grid-template-columns: 200px 480px 200px;
+            grid-row-gap: 3px;
+            grid-column-gap: 3px;
+            text-align: center;
+            color: $color-white;
+
+            &--previous {
+                grid-column: 1 / 2;
+                grid-row: 1 / -1;
+                background-color: $color-arrow-grey;
+                font-size: 30px;
+                line-height: 2.5em;
+                letter-spacing: 3px;
+            }
+
+            &--text {
+                grid-column: 2 / 3;
+                grid-row: 1 / -1;
+                background-color: $color-arrow-grey;
+                letter-spacing: 10px;
+                font-size: 45px;
+                text-transform: uppercase;
+                font-weight: 500;
+                line-height: 1.8em;
+            }
+
+            &--next {
+                grid-column: 3 / 4;
+                grid-row: 1 / -1;
+                background-color: $color-arrow-grey;
+                font-size: 30px;
+                line-height: 2.5em;
+                letter-spacing: 3px;
+            }
+        }
+    }
+
+    &--description {
+        grid-column: 1 / -1;
+        grid-row: 4 / 5;
+        background-color: $color-white;
+
+        &--container {
+            display: grid;
+            grid-template-rows: 608px;
+            grid-template-columns: repeat(2, 1fr);
+            grid-row-gap: 3px;
+            grid-column-gap: 3px;
+            text-align: center;
+            color: $color-white;
+
+            &--left {
+                grid-column: 1 / 2;
+                grid-row: 1 / -1;
+                background-color: $color-arrow-grey;
+                font-size: 20ox;
+                line-height: 2.5em;
+                letter-spacing: 3px;
+            }
+
+            &--right {
+                grid-column: 2 / 3;
+                grid-row: 1 / -1;
+                background-color: $color-arrow-grey;
+                font-size: 20ox;
+                line-height: 2.5em;
+                letter-spacing: 3px;
+            }
+        }
+    }
+}
