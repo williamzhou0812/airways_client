@@ -15,6 +15,8 @@ class ApartmentDetail extends Component {
             apartmentsList
         } = this.props;
         getSelectedApartmentDetail(match.params.id, apartmentsList.apartments);
+        this.props.setBackButton('/apartments', true);
+
         this.state = {
             up: false,
             down: false

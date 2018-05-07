@@ -28,3 +28,5 @@ export const DIRECTORY_DISPLAY_LIST_ERROR = 'directory_display_list_error';
 export const SECTION_LIST = 'section_list';
 export const SECTION_LIST_ERROR = 'section_list_error';
 export const SELECTED_SECTION_LIST = 'selected_section_list';
+
+export const DISPLAY_BACK_BUTTON = 'display_back_Button';

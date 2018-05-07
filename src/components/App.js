@@ -27,6 +27,7 @@ class App extends Component {
 
     constructor(props) {
         super(props);
+        this.props.setBackButton('/apartments', false);
         this.state = {
             isIdle: false
         };
@@ -69,6 +70,35 @@ class App extends Component {
         });
     }
 
+    resetAnimationClass() {
+        document
+            .getElementById('backButton')
+            .classList.remove('back-button-in-animation');
+        document
+            .getElementById('backButton')
+            .classList.remove('back-button-out-animation');
+    }
+
+    renderReturnButton() {
+        return (
+            <div
+                className="section--sidebar--backButton back-button-in-animation"
+                onClick={() => {
+                    console.log('back to list');
+                    this.props.navigateTo(this.props.backButton.location);
+                }}
+                id="backButton"
+            >
+                <img
+                    src={require(`../images/back_button.png`)}
+                    alt="sidebar_button"
+                    width="75px"
+                />
+                <p>Back To List</p>
+            </div>
+        );
+    }
+
     render() {
         const { isIdle } = this.state;
         const {
@@ -80,7 +110,8 @@ class App extends Component {
             router,
             history,
             directoryDisplayList,
-            sectionList
+            sectionList,
+            backButton
         } = this.props;
 
         let sidebarText = 'APARTMENTS';
@@ -151,14 +182,7 @@ class App extends Component {
                         >
                             <p>{sidebarText}</p>
                         </div>
-                        <div className="section--sidebar--backButton">
-                            <img
-                                src={require(`../images/back_button.png`)}
-                                alt="sidebar_button"
-                                width="75px"
-                            />
-                            <p>Back To List</p>
-                        </div>
+                        {backButton.display && this.renderReturnButton()}
                         <Switch>
                             <Route exact path="/" component={Apartments} />
                             <Route
@@ -239,7 +263,8 @@ function mapStateToProps({
     videosList,
     directoryDisplayList,
     sectionList,
-    router
+    router,
+    backButton
 }) {
     return {
         apartmentsList,
@@ -249,7 +274,8 @@ function mapStateToProps({
         videosList,
         directoryDisplayList,
         sectionList,
-        router
+        router,
+        backButton
     };
 }
 

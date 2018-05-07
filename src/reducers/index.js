@@ -14,6 +14,7 @@ import sectionReducer from './sectionReducer';
 import directoryDisplayBySectionReducer from './directoryDisplayBySectionReducer';
 import currentSectionReducer from './currentSectionReducer';
 import directoryDisplayDetailReducer from './directoryDisplayDetailReducer';
+import backButtonReducer from './backButtonReducer';
 
 export default combineReducers({
     router: routerReducer,
@@ -30,5 +31,6 @@ export default combineReducers({
     sectionList: sectionReducer,
     directoryDisplayListBySection: directoryDisplayBySectionReducer,
     currentSection: currentSectionReducer,
+    backButton: backButtonReducer,
     directoryDisplayDetail: directoryDisplayDetailReducer
 });

@@ -9,6 +9,7 @@ import ImageGallery from 'react-image-gallery';
 class FeatureDetail extends Component {
     constructor(props) {
         super(props);
+        this.props.setBackButton('/features', true);
         this.props.getSelectedFeatureDetail(
             this.props.match.params.id,
             this.props.featuresList.features

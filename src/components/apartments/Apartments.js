@@ -7,6 +7,11 @@ import { createImageURL } from '../utils/Constants';
 import { Link } from 'react-router-dom';
 
 class Apartments extends Component {
+    constructor(props) {
+        super(props);
+        this.props.setBackButton('/apartments', false);
+    }
+
     renderEachApartment() {
         return _.map(
             this.props.apartmentsList.apartments,

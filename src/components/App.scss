@@ -103,17 +103,19 @@ body {
 .section--sidebar--backButton {
     position: absolute;
     width: 200px;
-    height: 150px;
+    height: 123px;
     z-index: 11;
     color: white;
     transform: translateY(520px);
     text-align: center;
     p {
         margin: 0;
-        font-size: 22px;
+        font-size: 20px;
         text-transform: uppercase;
         letter-spacing: 3px;
+        font-weight: 500;
     }
+    border-bottom: 3px solid white;
 }
 
 .menu--shadow {

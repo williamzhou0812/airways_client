@@ -26,6 +26,28 @@
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both; }
 
+.back-button-in-animation {
+  animation-name: moveBackButtonIn;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in; }
+
+.back-button-out-animation {
+  animation-name: moveBackButtonOut;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in; }
+
+@keyframes moveBackButtonIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes moveBackButtonOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 @keyframes moveInUp {
   0% {
     opacity: 0;
