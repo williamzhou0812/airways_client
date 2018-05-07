@@ -151,6 +151,14 @@ class App extends Component {
                         >
                             <p>{sidebarText}</p>
                         </div>
+                        <div className="section--sidebar--backButton">
+                            <img
+                                src={require(`../images/back_button.png`)}
+                                alt="sidebar_button"
+                                width="75px"
+                            />
+                            <p>Back To List</p>
+                        </div>
                         <Switch>
                             <Route exact path="/" component={Apartments} />
                             <Route

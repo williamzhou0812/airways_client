@@ -72,7 +72,7 @@ body {
     font-weight: 500;
     background: linear-gradient(black 35%, #c29a78);
     color: white;
-    font-size: 70px;
+    font-size: 60px;
     letter-spacing: 10px;
     writing-mode: vertical-rl;
     /* vertical text */
@@ -85,6 +85,20 @@ body {
     -moz-box-shadow: -7px 0px 5px 0px rgba(0, 0, 0, 0.6);
     box-shadow: -7px 0px 5px 0px rgba(0, 0, 0, 0.6);
     z-index: 10; }
+
+.section--sidebar--backButton {
+  position: absolute;
+  width: 200px;
+  height: 150px;
+  z-index: 11;
+  color: white;
+  transform: translateY(520px);
+  text-align: center; }
+  .section--sidebar--backButton p {
+    margin: 0;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 3px; }
 
 .menu--shadow {
   position: absolute;
