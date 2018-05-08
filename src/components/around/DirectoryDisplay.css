@@ -64,15 +64,18 @@
   background-color: white; }
   .directorydisplay--detail--item--description--container {
     display: grid;
-    grid-template-rows: 608px;
+    grid-template-rows: 30px 548px 30px;
     grid-template-columns: repeat(2, 1fr);
-    grid-row-gap: 3px;
     grid-column-gap: 3px;
     text-align: center;
     color: white; }
+    .directorydisplay--detail--item--description--container--topWhite {
+      grid-column: 1 / -1;
+      grid-row: 1 / 2;
+      background-color: #5f6662; }
     .directorydisplay--detail--item--description--container--left {
       grid-column: 1 / 2;
-      grid-row: 1 / -1;
+      grid-row: 2 / 3;
       padding: 30px;
       background-color: #5f6662;
       font-size: 26px;
@@ -80,9 +83,13 @@
       text-align: left; }
     .directorydisplay--detail--item--description--container--right {
       grid-column: 2 / 3;
-      grid-row: 1 / -1;
+      grid-row: 2 / 3;
       padding: 30px;
       background-color: #5f6662;
       font-size: 26px;
       letter-spacing: 1px;
       text-align: left; }
+    .directorydisplay--detail--item--description--container--bottomWhite {
+      grid-column: 1 / -1;
+      grid-row: 3 / 4;
+      background-color: #5f6662; }

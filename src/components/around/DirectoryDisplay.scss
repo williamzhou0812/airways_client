@@ -80,16 +80,21 @@
 
         &--container {
             display: grid;
-            grid-template-rows: 608px;
+            grid-template-rows: 30px 548px 30px;
             grid-template-columns: repeat(2, 1fr);
-            grid-row-gap: 3px;
             grid-column-gap: 3px;
             text-align: center;
             color: $color-white;
 
+            &--topWhite {
+                grid-column: 1 / -1;
+                grid-row: 1 / 2;
+                background-color: $color-dark-grey;
+            }
+
             &--left {
                 grid-column: 1 / 2;
-                grid-row: 1 / -1;
+                grid-row: 2 / 3;
                 padding: 30px;
                 background-color: $color-dark-grey;
                 font-size: 26px;
@@ -99,12 +104,18 @@
 
             &--right {
                 grid-column: 2 / 3;
-                grid-row: 1 / -1;
+                grid-row: 2 / 3;
                 padding: 30px;
                 background-color: $color-dark-grey;
                 font-size: 26px;
                 letter-spacing: 1px;
                 text-align: left;
+            }
+
+            &--bottomWhite {
+                grid-column: 1 / -1;
+                grid-row: 3 / 4;
+                background-color: $color-dark-grey;
             }
         }
     }

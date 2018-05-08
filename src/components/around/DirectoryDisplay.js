@@ -205,6 +205,8 @@ class DirectoryDisplay extends Component {
                     </div>
                     <div className="directorydisplay--detail--item--description">
                         <div className="directorydisplay--detail--item--description--container">
+                            <div className="directorydisplay--detail--item--description--container--topWhite" />
+                            <div className="directorydisplay--detail--item--description--container--bottomWhite" />
                             <div className="directorydisplay--detail--item--description--container--left">
                                 {directory_display.left_description}
                             </div>
