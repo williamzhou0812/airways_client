@@ -107,6 +107,18 @@ class DirectoryDisplay extends Component {
         return currentSection.sections.directory_display.data[moveID];
     }
 
+    resetAnimationClass() {
+        document
+            .getElementById('directoryDetailSection')
+            .classList.remove('main-section-animation');
+        document
+            .getElementById('directoryDetailSection')
+            .classList.remove('section-left-animation');
+        document
+            .getElementById('directoryDetailSection')
+            .classList.remove('section-right-animation');
+    }
+
     render() {
         const { directory_display } = this.props.directoryDisplayDetail;
         console.log(directory_display);
@@ -114,7 +126,10 @@ class DirectoryDisplay extends Component {
             const images = this.processImageList(directory_display);
 
             return (
-                <div className="directorydisplay--detail--container main-section-animation">
+                <div
+                    className="directorydisplay--detail--container main-section-animation"
+                    id="directoryDetailSection"
+                >
                     <div className="directorydisplay--detail--item--heading">
                         {directory_display.heading}
                     </div>
@@ -148,7 +163,16 @@ class DirectoryDisplay extends Component {
                             <div
                                 className="directorydisplay--detail--item--subheading--container--previous"
                                 onClick={() => {
-                                    console.log('previous');
+                                    this.resetAnimationClass();
+                                    setTimeout(() => {
+                                        document
+                                            .getElementById(
+                                                'directoryDetailSection'
+                                            )
+                                            .classList.add(
+                                                'section-left-animation'
+                                            );
+                                    }, 1);
                                     this.props.setSelectedDirectoryDisplay(
                                         this.moveDirectoryDisplay('previous')
                                     );
@@ -162,7 +186,16 @@ class DirectoryDisplay extends Component {
                             <div
                                 className="directorydisplay--detail--item--subheading--container--next"
                                 onClick={() => {
-                                    console.log('next');
+                                    this.resetAnimationClass();
+                                    setTimeout(() => {
+                                        document
+                                            .getElementById(
+                                                'directoryDetailSection'
+                                            )
+                                            .classList.add(
+                                                'section-right-animation'
+                                            );
+                                    }, 1);
                                     this.props.setSelectedDirectoryDisplay(
                                         this.moveDirectoryDisplay('next')
                                     );
