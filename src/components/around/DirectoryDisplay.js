@@ -52,10 +52,75 @@ class DirectoryDisplay extends Component {
         return images;
     }
 
+    moveDirectoryDisplay(action) {
+        const {
+            currentSection,
+            directoryDisplayDetail,
+            setSelectedDirectoryDisplay
+        } = this.props;
+        let moveID;
+
+        const current_directory_display_list =
+            currentSection.sections.directory_display.data;
+        const current_directory_display_detail =
+            directoryDisplayDetail.directory_display;
+        let current_directory_display_detail_index = parseInt(
+            current_directory_display_list.indexOf(
+                _.find(current_directory_display_list, (item, index) => {
+                    return (
+                        item.id ===
+                        parseInt(current_directory_display_detail.id, 10)
+                    );
+                })
+            ),
+            10
+        );
+
+        if (action === 'next') {
+            if (
+                current_directory_display_list.indexOf(
+                    _.find(current_directory_display_list, (item, index) => {
+                        return (
+                            item.id ===
+                            parseInt(current_directory_display_detail.id, 10)
+                        );
+                    })
+                ) +
+                    1 ===
+                current_directory_display_list.length
+            ) {
+                moveID = 0;
+            } else {
+                moveID = current_directory_display_detail_index + 1;
+            }
+        }
+
+        if (action === 'previous') {
+            if (
+                current_directory_display_list.indexOf(
+                    _.find(current_directory_display_list, (item, index) => {
+                        return (
+                            item.id ===
+                            parseInt(current_directory_display_detail.id, 10)
+                        );
+                    })
+                ) +
+                    1 ===
+                1
+            ) {
+                moveID = current_directory_display_list.length - 1;
+            } else {
+                moveID = current_directory_display_detail_index - 1;
+            }
+        }
+
+        return currentSection.sections.directory_display.data[moveID];
+    }
+
     render() {
         const { directory_display } = this.props.directoryDisplayDetail;
         console.log(directory_display);
-        if (!_.isEmpty(directory_display)) {
+        if (!_.isEmpty(directory_display, this.props.currentSection)) {
             const images = this.processImageList(directory_display);
 
             return (
@@ -90,13 +155,29 @@ class DirectoryDisplay extends Component {
                     </div>
                     <div className="directorydisplay--detail--item--subheading">
                         <div className="directorydisplay--detail--item--subheading--container">
-                            <div className="directorydisplay--detail--item--subheading--container--previous">
+                            <div
+                                className="directorydisplay--detail--item--subheading--container--previous"
+                                onClick={() => {
+                                    console.log('previous');
+                                    this.props.setSelectedDirectoryDisplay(
+                                        this.moveDirectoryDisplay('previous')
+                                    );
+                                }}
+                            >
                                 PREVIOUS
                             </div>
                             <div className="directorydisplay--detail--item--subheading--container--text">
                                 {directory_display.subheading}
                             </div>
-                            <div className="directorydisplay--detail--item--subheading--container--next">
+                            <div
+                                className="directorydisplay--detail--item--subheading--container--next"
+                                onClick={() => {
+                                    console.log('next');
+                                    this.props.setSelectedDirectoryDisplay(
+                                        this.moveDirectoryDisplay('next')
+                                    );
+                                }}
+                            >
                                 NEXT
                             </div>
                         </div>
