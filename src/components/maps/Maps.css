@@ -39,7 +39,8 @@
 .back-button-out-animation {
   animation-name: moveBackButtonOut;
   animation-duration: 1s;
-  animation-timing-function: ease-in; }
+  animation-timing-function: ease-in;
+  opacity: 0; }
 
 @keyframes moveBackButtonIn {
   0% {

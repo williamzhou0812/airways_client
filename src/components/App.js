@@ -81,7 +81,11 @@ class App extends Component {
     renderReturnButton() {
         return (
             <div
-                className="section--sidebar--backButton back-button-in-animation"
+                className={
+                    this.props.backButton.display
+                        ? 'section--sidebar--backButton back-button-in-animation'
+                        : 'section--sidebar--backButton back-button-out-animation'
+                }
                 onClick={() => {
                     console.log('back to list');
                     this.props.navigateTo(this.props.backButton.location);
@@ -181,7 +185,7 @@ class App extends Component {
                         >
                             <p>{sidebarText}</p>
                         </div>
-                        {backButton.display && this.renderReturnButton()}
+                        {this.renderReturnButton()}
                         <Switch>
                             <Route exact path="/" component={Apartments} />
                             <Route
