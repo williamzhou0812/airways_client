@@ -9,12 +9,7 @@ import ImageGallery from 'react-image-gallery';
 class DirectoryDisplay extends Component {
     constructor(props) {
         super(props);
-        const {
-            match,
-            setSelectedSection,
-            sectionList,
-            currentSection
-        } = this.props;
+        const { match, setSelectedSection, sectionList } = this.props;
         this.props.setBackButton(`/around/${match.params.id}`, true);
 
         setSelectedSection(
@@ -53,11 +48,7 @@ class DirectoryDisplay extends Component {
     }
 
     moveDirectoryDisplay(action) {
-        const {
-            currentSection,
-            directoryDisplayDetail,
-            setSelectedDirectoryDisplay
-        } = this.props;
+        const { currentSection, directoryDisplayDetail } = this.props;
         const current_directory_display_list =
             currentSection.sections.directory_display.data;
         const current_directory_display_detail =

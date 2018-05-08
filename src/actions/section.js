@@ -5,7 +5,6 @@ import {
     SELECTED_SECTION_LIST
 } from './types';
 import { createURL } from '../components/utils/Constants';
-import _ from 'lodash';
 
 export const getSectionList = () => async dispatch => {
     await axios

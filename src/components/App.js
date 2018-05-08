@@ -12,14 +12,12 @@ import Apartments from './apartments/Apartments';
 import ApartmentDetail from './apartments/ApartmentDetail';
 import Features from './features/Features';
 import Gallery from './gallery/Gallery';
-import Maps from './maps/Maps';
 import _ from 'lodash';
 import FeatureDetail from './features/FeatureDetail';
 import idleJs from 'idle-js';
 import { IDLE_TIME } from './utils/Constants.js';
 import RestVideo from './videos/RestVideos';
 import Around from './around/Around';
-import SectionList from './around/SectionList';
 import DirectoryDisplay from './around/DirectoryDisplay';
 import DirectoryDisplayList from './around/DirectoryDisplayList';
 

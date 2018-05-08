@@ -9,13 +9,7 @@ import { Link } from 'react-router-dom';
 class DirectoryDisplayList extends Component {
     constructor(props) {
         super(props);
-        const {
-            getDirectoryDisplayListBySection,
-            directoryDisplayList,
-            setSelectedSection,
-            sectionList,
-            match
-        } = this.props;
+        const { setSelectedSection, sectionList, match } = this.props;
         this.props.setBackButton('/around', true);
         setSelectedSection(
             _.find(sectionList.sections, (item, index) => {
@@ -42,20 +36,22 @@ class DirectoryDisplayList extends Component {
     }
 
     renderEmptyDirectoryDisplaySpace() {
-        const { currentSection } = this.props;
         const { currentDirectoryDisplayList } = this.state;
         return _.times(6 - currentDirectoryDisplayList.length, index => {
             return (
-                <div key={index} className="sectionlistsection--list--item">
-                    <div className="sectionlistsection--list--item--image" />
-                    <div className="sectionlistsection--list--item--name" />
+                <div
+                    key={index}
+                    className="directoryDisplayListSection--list--item"
+                >
+                    <div className="directoryDisplayListSection--list--item--image" />
+                    <div className="directoryDisplayListSection--list--item--name" />
                 </div>
             );
         });
     }
 
     renderEachDirectoryDisplay() {
-        const { currentSection, match } = this.props;
+        const { match } = this.props;
         const { currentDirectoryDisplayList } = this.state;
 
         return _.map(currentDirectoryDisplayList, item => {

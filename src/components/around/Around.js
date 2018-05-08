@@ -56,7 +56,7 @@ class Around extends Component {
                 </div>
             );
         } else {
-            <p>loading</p>;
+            return <p>loading</p>;
         }
     }
 }
