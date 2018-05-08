@@ -54,6 +54,7 @@ body {
 
 .section {
     font-size: 20px;
+    z-index: 10;
 
     &--header {
         grid-column: 1 / -1;
