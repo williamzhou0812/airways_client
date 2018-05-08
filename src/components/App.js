@@ -87,7 +87,6 @@ class App extends Component {
                         : 'section--sidebar--backButton back-button-out-animation'
                 }
                 onClick={() => {
-                    console.log('back to list');
                     this.props.navigateTo(this.props.backButton.location);
                 }}
                 id="backButton"
