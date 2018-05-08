@@ -88,7 +88,6 @@ class DirectoryDisplay extends Component {
                             }}
                         />
                     </div>
-
                     <div className="directorydisplay--detail--item--subheading">
                         <div className="directorydisplay--detail--item--subheading--container">
                             <div className="directorydisplay--detail--item--subheading--container--previous">

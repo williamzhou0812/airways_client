@@ -96,6 +96,30 @@ class DirectoryDisplayList extends Component {
         });
     }
 
+    processDirectoryOrder(action) {
+        const { currentDirectoryDisplayList } = this.state;
+        let processedDirectoryDisplayList = [...currentDirectoryDisplayList];
+        if (action === 'down') {
+            //get the last element via pop() and add to the begining of the array via unshift()
+            processedDirectoryDisplayList.unshift(
+                processedDirectoryDisplayList.pop()
+            );
+            this.setState({
+                currentDirectoryDisplayList: processedDirectoryDisplayList
+            });
+        }
+
+        if (action === 'up') {
+            //get the first element via shift() and add to the end of the array via push()
+            processedDirectoryDisplayList.push(
+                processedDirectoryDisplayList.shift()
+            );
+            this.setState({
+                currentDirectoryDisplayList: processedDirectoryDisplayList
+            });
+        }
+    }
+
     render() {
         const { currentSection } = this.props;
         const { currentDirectoryDisplayList } = this.state;
@@ -113,7 +137,7 @@ class DirectoryDisplayList extends Component {
                         <div
                             className="directoryDisplayListSection directoryDisplayListSection--up directoryDisplayListSection--arrow"
                             onClick={() => {
-                                console.log('up');
+                                this.processDirectoryOrder('up');
                             }}
                         >
                             <img
@@ -131,7 +155,7 @@ class DirectoryDisplayList extends Component {
                         <div
                             className="directoryDisplayListSection directoryDisplayListSection--down directoryDisplayListSection--arrow"
                             onClick={() => {
-                                console.log('down');
+                                this.processDirectoryOrder('down');
                             }}
                         >
                             <img
