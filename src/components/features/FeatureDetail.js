@@ -41,7 +41,7 @@ class FeatureDetail extends Component {
         return images;
     }
 
-    processNextFeatureID(action) {
+    /*processNextFeatureID(action) {
         const { featureDetail, featuresList } = this.props;
         let nextID;
         if (action === 'up') {
@@ -57,6 +57,40 @@ class FeatureDetail extends Component {
                 nextID = featuresList.features.length;
             } else {
                 nextID = parseInt(featureDetail.feature.id, 10) - 1;
+            }
+        }
+        return nextID;
+    }*/
+
+    processNextFeatureID(action) {
+        const featuresList = this.props.featuresList.features;
+        const featureDetail = this.props.featureDetail.feature;
+        let current_feature_detail_index = parseInt(
+            featuresList.indexOf(
+                _.find(featuresList, (item, index) => {
+                    return item.id === parseInt(featureDetail.id, 10);
+                })
+            ),
+            10
+        );
+        let nextID;
+
+        if (action === 'up') {
+            if (
+                featuresList.indexOf(featureDetail) + 1 ===
+                featuresList.length
+            ) {
+                nextID = 0;
+            } else {
+                nextID = current_feature_detail_index + 1;
+            }
+        }
+
+        if (action === 'down') {
+            if (featuresList.indexOf(featureDetail) + 1 === 1) {
+                nextID = featuresList.length - 1;
+            } else {
+                nextID = current_feature_detail_index - 1;
             }
         }
         return nextID;
@@ -100,7 +134,9 @@ class FeatureDetail extends Component {
                                     .classList.add('section-up-animation');
                             }, 1);
                             this.props.getSelectedFeatureDetail(
-                                this.processNextFeatureID('up'),
+                                featuresList.features[
+                                    this.processNextFeatureID('up')
+                                ].id,
                                 featuresList.features
                             );
                         }}
@@ -170,7 +206,9 @@ class FeatureDetail extends Component {
                                     .classList.add('section-down-animation');
                             }, 1);
                             this.props.getSelectedFeatureDetail(
-                                this.processNextFeatureID('up'),
+                                featuresList.features[
+                                    this.processNextFeatureID('down')
+                                ].id,
                                 featuresList.features
                             );
                         }}
