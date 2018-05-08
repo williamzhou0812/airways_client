@@ -79,12 +79,7 @@ class DirectoryDisplay extends Component {
         if (action === 'next') {
             if (
                 current_directory_display_list.indexOf(
-                    _.find(current_directory_display_list, (item, index) => {
-                        return (
-                            item.id ===
-                            parseInt(current_directory_display_detail.id, 10)
-                        );
-                    })
+                    directoryDisplayDetail.directory_display
                 ) +
                     1 ===
                 current_directory_display_list.length
@@ -98,12 +93,7 @@ class DirectoryDisplay extends Component {
         if (action === 'previous') {
             if (
                 current_directory_display_list.indexOf(
-                    _.find(current_directory_display_list, (item, index) => {
-                        return (
-                            item.id ===
-                            parseInt(current_directory_display_detail.id, 10)
-                        );
-                    })
+                    directoryDisplayDetail.directory_display
                 ) +
                     1 ===
                 1
