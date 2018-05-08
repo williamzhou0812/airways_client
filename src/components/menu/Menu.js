@@ -23,7 +23,7 @@ class Menu extends Component {
             <div className="menu">
                 <div
                     className={
-                        currentMenu === '/apartments'
+                        currentMenu.includes('apartments')
                             ? 'menuItem menuItem--apartments menuItem--active'
                             : 'menuItem menuItem--apartments menuItem--inactive'
                     }
@@ -41,7 +41,7 @@ class Menu extends Component {
                 </div>
                 <div
                     className={
-                        currentMenu === '/around'
+                        currentMenu.includes('/around')
                             ? 'menuItem menuItem--maps menuItem--active'
                             : 'menuItem menuItem--maps menuItem--inactive'
                     }
@@ -59,7 +59,7 @@ class Menu extends Component {
                 </div>
                 <div
                     className={
-                        currentMenu === '/features'
+                        currentMenu.includes('/features')
                             ? 'menuItem menuItem--features menuItem--active'
                             : 'menuItem menuItem--features menuItem--inactive'
                     }
@@ -77,7 +77,7 @@ class Menu extends Component {
                 </div>
                 <div
                     className={
-                        currentMenu === '/gallery'
+                        currentMenu.includes('/gallery')
                             ? 'menuItem menuItem--gallery menuItem--active'
                             : 'menuItem menuItem--gallery menuItem--inactive'
                     }
