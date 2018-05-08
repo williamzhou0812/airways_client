@@ -15,46 +15,54 @@ class Around extends Component {
         this.props.setSelectedSection(item);
     }
     renderEachSection() {
-        return _.map(this.props.sectionList.sections, item => {
-            return (
-                <Link to={`/around/${item.id}`} key={item.id}>
-                    <div
-                        className="aroundsection--list"
-                        style={
-                            !_.isEmpty(item.images_path) && {
-                                backgroundImage: `url(${createImageURL(
-                                    item.images_path
-                                )})`,
-                                backgroundRepeat: 'no-repeat',
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center'
+        return _.map(
+            _.filter(this.props.sectionList.sections, item => {
+                return item.directory_display.data.length > 0;
+            }),
+            item => {
+                return (
+                    <Link to={`/around/${item.id}`} key={item.id}>
+                        <div
+                            className="aroundsection--list"
+                            style={
+                                !_.isEmpty(item.images_path) && {
+                                    backgroundImage: `url(${createImageURL(
+                                        item.images_path
+                                    )})`,
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center'
+                                }
                             }
-                        }
-                        onClick={e => this.handleClick(e, item)}
-                    >
-                        <div className="aroundsection--list--name">
-                            {item.name}
+                            onClick={e => this.handleClick(e, item)}
+                        >
+                            <div className="aroundsection--list--name">
+                                {item.name}
+                            </div>
                         </div>
-                    </div>
-                </Link>
-            );
-        });
+                    </Link>
+                );
+            }
+        );
     }
 
     render() {
-        return (
-            <div className="main-section-animation">
-                <div className="around--container">
-                    {this.renderEachSection()}
+        if (!_.isEmpty(this.props.sectionList)) {
+            return (
+                <div className="main-section-animation">
+                    <div className="around--container">
+                        {this.renderEachSection()}
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        } else {
+            <p>loading</p>;
+        }
     }
 }
 
-function mapStateToProps({ directoryDisplayList, sectionList }) {
+function mapStateToProps({ sectionList }) {
     return {
-        directoryDisplayList,
         sectionList
     };
 }
