@@ -112,8 +112,7 @@ class App extends Component {
             router,
             history,
             directoryDisplayList,
-            sectionList,
-            backButton
+            sectionList
         } = this.props;
 
         let sidebarText = 'APARTMENTS';
