@@ -12,15 +12,15 @@
   text-align: center;
   color: white;
   letter-spacing: 10px;
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 500;
-  line-height: 1.7em;
+  line-height: 2em;
   text-transform: uppercase; }
 
 .directorydisplay--detail--item--image {
   grid-column: 1 / -1;
   grid-row: 2 / 3;
-  background-color: #8d8e90; }
+  background-color: #8c8e90; }
 
 .directorydisplay--detail--item--subheading {
   grid-column: 1 / -1;
@@ -29,7 +29,7 @@
   .directorydisplay--detail--item--subheading--container {
     display: grid;
     grid-template-rows: 75px;
-    grid-template-columns: 200px 480px 200px;
+    grid-template-columns: 200px 474px 200px;
     grid-row-gap: 3px;
     grid-column-gap: 3px;
     text-align: center;
@@ -37,25 +37,25 @@
     .directorydisplay--detail--item--subheading--container--previous {
       grid-column: 1 / 2;
       grid-row: 1 / -1;
-      background-color: #8d8e90;
-      font-size: 30px;
-      line-height: 2.5em;
+      background-color: #aeb0b1;
+      font-size: 22px;
+      line-height: 3.7em;
       letter-spacing: 3px; }
     .directorydisplay--detail--item--subheading--container--text {
       grid-column: 2 / 3;
       grid-row: 1 / -1;
-      background-color: #8d8e90;
+      background-color: #8c8e90;
       letter-spacing: 10px;
-      font-size: 45px;
+      font-size: 38px;
       text-transform: uppercase;
       font-weight: 500;
-      line-height: 1.8em; }
+      line-height: 2.3em; }
     .directorydisplay--detail--item--subheading--container--next {
       grid-column: 3 / 4;
       grid-row: 1 / -1;
-      background-color: #8d8e90;
-      font-size: 30px;
-      line-height: 2.5em;
+      background-color: #aeb0b1;
+      font-size: 22px;
+      line-height: 3.7em;
       letter-spacing: 3px; }
 
 .directorydisplay--detail--item--description {
@@ -73,14 +73,16 @@
     .directorydisplay--detail--item--description--container--left {
       grid-column: 1 / 2;
       grid-row: 1 / -1;
-      background-color: #8d8e90;
-      font-size: 20ox;
-      line-height: 2.5em;
-      letter-spacing: 3px; }
+      padding: 30px;
+      background-color: #5f6662;
+      font-size: 26px;
+      letter-spacing: 1px;
+      text-align: left; }
     .directorydisplay--detail--item--description--container--right {
       grid-column: 2 / 3;
       grid-row: 1 / -1;
-      background-color: #8d8e90;
-      font-size: 20ox;
-      line-height: 2.5em;
-      letter-spacing: 3px; }
+      padding: 30px;
+      background-color: #5f6662;
+      font-size: 26px;
+      letter-spacing: 1px;
+      text-align: left; }

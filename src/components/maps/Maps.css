@@ -109,7 +109,7 @@
     opacity: 1; } }
 
 .map--container {
-  background-color: #8d8e90;
+  background-color: #8c8e90;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1367px; }

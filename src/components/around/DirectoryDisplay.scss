@@ -16,9 +16,9 @@
         text-align: center;
         color: $color-white;
         letter-spacing: 10px;
-        font-size: 60px;
+        font-size: 50px;
         font-weight: 500;
-        line-height: 1.7em;
+        line-height: 2em;
         text-transform: uppercase;
     }
 
@@ -36,7 +36,7 @@
         &--container {
             display: grid;
             grid-template-rows: 75px;
-            grid-template-columns: 200px 480px 200px;
+            grid-template-columns: 200px 474px 200px;
             grid-row-gap: 3px;
             grid-column-gap: 3px;
             text-align: center;
@@ -45,9 +45,9 @@
             &--previous {
                 grid-column: 1 / 2;
                 grid-row: 1 / -1;
-                background-color: $color-arrow-grey;
-                font-size: 30px;
-                line-height: 2.5em;
+                background-color: $color-button-grey;
+                font-size: 22px;
+                line-height: 3.7em;
                 letter-spacing: 3px;
             }
 
@@ -56,18 +56,18 @@
                 grid-row: 1 / -1;
                 background-color: $color-arrow-grey;
                 letter-spacing: 10px;
-                font-size: 45px;
+                font-size: 38px;
                 text-transform: uppercase;
                 font-weight: 500;
-                line-height: 1.8em;
+                line-height: 2.3em;
             }
 
             &--next {
                 grid-column: 3 / 4;
                 grid-row: 1 / -1;
-                background-color: $color-arrow-grey;
-                font-size: 30px;
-                line-height: 2.5em;
+                background-color: $color-button-grey;
+                font-size: 22px;
+                line-height: 3.7em;
                 letter-spacing: 3px;
             }
         }
@@ -90,19 +90,21 @@
             &--left {
                 grid-column: 1 / 2;
                 grid-row: 1 / -1;
-                background-color: $color-arrow-grey;
-                font-size: 20ox;
-                line-height: 2.5em;
-                letter-spacing: 3px;
+                padding: 30px;
+                background-color: $color-dark-grey;
+                font-size: 26px;
+                letter-spacing: 1px;
+                text-align: left;
             }
 
             &--right {
                 grid-column: 2 / 3;
                 grid-row: 1 / -1;
-                background-color: $color-arrow-grey;
-                font-size: 20ox;
-                line-height: 2.5em;
-                letter-spacing: 3px;
+                padding: 30px;
+                background-color: $color-dark-grey;
+                font-size: 26px;
+                letter-spacing: 1px;
+                text-align: left;
             }
         }
     }

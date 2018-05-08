@@ -45,11 +45,11 @@
     .directoryDisplayListSection--list--item--image {
       grid-column: 1 / 2;
       grid-row: 1 / -1;
-      background-color: #8d8e90; }
+      background-color: #8c8e90; }
     .directoryDisplayListSection--list--item--name {
       grid-column: 2 / 3;
       grid-row: 1 / -1;
-      background-color: #8d8e90;
+      background-color: #8c8e90;
       padding-left: 30px;
       padding-top: 60px;
       color: white;
@@ -64,12 +64,12 @@
   grid-row: 4 / 5; }
 
 .directoryDisplayListSection--arrow {
-  background-color: #8d8e90;
+  background-color: #8c8e90;
   text-align: center;
   padding-top: 1.5em; }
 
 .error--directory--display--list {
-  background-color: #8d8e90;
+  background-color: #8c8e90;
   color: white;
   display: grid;
   grid-template-rows: 1367px;

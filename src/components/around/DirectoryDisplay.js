@@ -104,7 +104,7 @@ class DirectoryDisplay extends Component {
                     <div className="directorydisplay--detail--item--description">
                         <div className="directorydisplay--detail--item--description--container">
                             <div className="directorydisplay--detail--item--description--container--left">
-                                {directory_display.left_description}{' '}
+                                {directory_display.left_description}
                             </div>
                             <div className="directorydisplay--detail--item--description--container--right">
                                 {directory_display.right_description}

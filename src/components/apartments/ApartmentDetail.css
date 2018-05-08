@@ -11,13 +11,13 @@
   .aptdetail--up--arrow {
     grid-column: 1 / -1;
     grid-row: 1 / 2;
-    background-color: #8d8e90;
+    background-color: #8c8e90;
     text-align: center;
     padding-top: 1.5em; }
   .aptdetail--gallery {
     grid-column: 1 / -1;
     grid-row: 2 / 3;
-    background-color: #8d8e90;
+    background-color: #8c8e90;
     position: relative; }
     .aptdetail--gallery--name {
       width: 100%;
@@ -36,7 +36,7 @@
   .aptdetail--description {
     grid-column: 1 / -1;
     grid-row: 3 / 4;
-    background-color: #8d8e90; }
+    background-color: #8c8e90; }
     .aptdetail--description--container {
       display: grid;
       grid-template-columns: 60px 760px 60px;
@@ -48,33 +48,33 @@
       .aptdetail--description--container--desc {
         grid-column: 2 / 3;
         grid-row: 1 / 2;
-        background-color: #8d8e90; }
+        background-color: #8c8e90; }
       .aptdetail--description--container--contact {
         grid-column: 2 / 3;
         grid-row: 2 / 3;
         text-align: left;
         font-size: 28px;
         line-height: 150%;
-        background-color: #8d8e90; }
+        background-color: #8c8e90; }
         .aptdetail--description--container--contact span {
           font-weight: 500; }
       .aptdetail--description--container--leftWhite {
-        background-color: #8d8e90;
+        background-color: #8c8e90;
         grid-column: 1 / 2;
         grid-row: 1 / 3; }
       .aptdetail--description--container--rightWhite {
-        background-color: #8d8e90;
+        background-color: #8c8e90;
         grid-column: 3 / 4;
         grid-row: 1 / 3; }
   .aptdetail--down--arrow {
     grid-column: 1 / -1;
     grid-row: 4 / 5;
-    background-color: #8d8e90;
+    background-color: #8c8e90;
     text-align: center;
     padding-top: 1.5em; }
   .aptdetail--click {
     background-color: #5f6662;
     transition: all 0.3s ease-in-out; }
   .aptdetail--clicked {
-    background-color: #8d8e90;
+    background-color: #8c8e90;
     transition: all 0.3s ease-in-out; }
