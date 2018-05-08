@@ -58,8 +58,6 @@ class DirectoryDisplay extends Component {
             directoryDisplayDetail,
             setSelectedDirectoryDisplay
         } = this.props;
-        let moveID;
-
         const current_directory_display_list =
             currentSection.sections.directory_display.data;
         const current_directory_display_detail =
@@ -75,6 +73,7 @@ class DirectoryDisplay extends Component {
             ),
             10
         );
+        let moveID;
 
         if (action === 'next') {
             if (
@@ -104,7 +103,7 @@ class DirectoryDisplay extends Component {
             }
         }
 
-        return currentSection.sections.directory_display.data[moveID];
+        return current_directory_display_list[moveID];
     }
 
     resetAnimationClass() {
@@ -121,7 +120,6 @@ class DirectoryDisplay extends Component {
 
     render() {
         const { directory_display } = this.props.directoryDisplayDetail;
-        console.log(directory_display);
         if (!_.isEmpty(directory_display, this.props.currentSection)) {
             const images = this.processImageList(directory_display);
 

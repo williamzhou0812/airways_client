@@ -45,24 +45,34 @@ class ApartmentDetail extends Component {
     }
 
     processNextApartmentID(action) {
-        const { apartmentDetail, apartmentsList } = this.props;
+        const apartment_list = this.props.apartmentsList.apartments;
+        const apartment_detail = this.props.apartmentDetail.apartment;
+        let current_apartment_detail_index = parseInt(
+            apartment_list.indexOf(
+                _.find(apartment_list, (item, index) => {
+                    return item.id === parseInt(apartment_detail.id, 10);
+                })
+            ),
+            10
+        );
         let nextID;
+
         if (action === 'up') {
             if (
-                apartmentDetail.apartment.id ===
-                apartmentsList.apartments.length
+                apartment_list.indexOf(apartment_detail) + 1 ===
+                apartment_list.length
             ) {
-                nextID = 1;
+                nextID = 0;
             } else {
-                nextID = parseInt(apartmentDetail.apartment.id, 10) + 1;
+                nextID = current_apartment_detail_index + 1;
             }
         }
 
         if (action === 'down') {
-            if (apartmentDetail.apartment.id === 1) {
-                nextID = apartmentsList.apartments.length;
+            if (apartment_list.indexOf(apartment_detail) + 1 === 1) {
+                nextID = apartment_list.length - 1;
             } else {
-                nextID = parseInt(apartmentDetail.apartment.id, 10) - 1;
+                nextID = current_apartment_detail_index - 1;
             }
         }
         return nextID;
@@ -106,7 +116,9 @@ class ApartmentDetail extends Component {
                                     .classList.add('section-up-animation');
                             }, 1);
                             this.props.getSelectedApartmentDetail(
-                                this.processNextApartmentID('up'),
+                                apartmentsList.apartments[
+                                    this.processNextApartmentID('up')
+                                ].id,
                                 apartmentsList.apartments
                             );
                         }}
@@ -176,7 +188,9 @@ class ApartmentDetail extends Component {
                                     .classList.add('section-down-animation');
                             }, 1);
                             this.props.getSelectedApartmentDetail(
-                                this.processNextApartmentID('up'),
+                                apartmentsList.apartments[
+                                    this.processNextApartmentID('down')
+                                ].id,
                                 apartmentsList.apartments
                             );
                         }}
