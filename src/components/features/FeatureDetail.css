@@ -48,11 +48,12 @@
       .featuredetail--description--container--desc {
         grid-column: 2 / 3;
         grid-row: 1 / 2;
-        background-color: #8c8e90; }
+        background-color: #8c8e90;
+        text-align: center; }
       .featuredetail--description--container--contact {
         grid-column: 2 / 3;
         grid-row: 2 / 3;
-        text-align: left;
+        text-align: center;
         font-size: 28px;
         line-height: 150%;
         background-color: #8c8e90; }

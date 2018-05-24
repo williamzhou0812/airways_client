@@ -59,11 +59,12 @@
                 grid-column: 2 / 3;
                 grid-row: 1 / 2;
                 background-color: $color-arrow-grey;
+                text-align: center;
             }
             &--contact {
                 grid-column: 2 / 3;
                 grid-row: 2 / 3;
-                text-align: left;
+                text-align: center;
                 font-size: 28px;
                 line-height: 150%;
                 background-color: $color-arrow-grey;
