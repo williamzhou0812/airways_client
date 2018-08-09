@@ -76,19 +76,29 @@
     .directorydisplay--detail--item--description--container--left {
       grid-column: 1 / 2;
       grid-row: 2 / 3;
-      padding: 30px;
+      padding-left: 55px;
+      padding-right: 55px;
       background-color: #5f6662;
-      font-size: 26px;
+      font-size: 22px;
       letter-spacing: 1px;
-      text-align: left; }
+      text-align: left;
+      line-height: 1.4em; }
+      .directorydisplay--detail--item--description--container--left p {
+        margin-top: 0px;
+        margin-bottom: 0px; }
     .directorydisplay--detail--item--description--container--right {
       grid-column: 2 / 3;
       grid-row: 2 / 3;
-      padding: 30px;
+      padding-left: 55px;
+      padding-right: 55px;
       background-color: #5f6662;
-      font-size: 26px;
+      font-size: 22px;
       letter-spacing: 1px;
-      text-align: left; }
+      text-align: left;
+      line-height: 1.4em; }
+      .directorydisplay--detail--item--description--container--right p {
+        margin-top: 0px;
+        margin-bottom: 0px; }
     .directorydisplay--detail--item--description--container--bottomWhite {
       grid-column: 1 / -1;
       grid-row: 3 / 4;

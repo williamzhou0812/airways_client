@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import './DirectoryDisplay.css';
-import _ from 'lodash';
-import { createImageURL } from '../utils/Constants';
-import ImageGallery from 'react-image-gallery';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
+import "./DirectoryDisplay.css";
+import _ from "lodash";
+import { createImageURL } from "../utils/Constants";
+import ImageGallery from "react-image-gallery";
 
 class DirectoryDisplay extends Component {
     constructor(props) {
@@ -66,7 +66,7 @@ class DirectoryDisplay extends Component {
         );
         let moveID;
 
-        if (action === 'next') {
+        if (action === "next") {
             if (
                 current_directory_display_list.indexOf(
                     directoryDisplayDetail.directory_display
@@ -80,7 +80,7 @@ class DirectoryDisplay extends Component {
             }
         }
 
-        if (action === 'previous') {
+        if (action === "previous") {
             if (
                 current_directory_display_list.indexOf(
                     directoryDisplayDetail.directory_display
@@ -99,14 +99,14 @@ class DirectoryDisplay extends Component {
 
     resetAnimationClass() {
         document
-            .getElementById('directoryDetailSection')
-            .classList.remove('main-section-animation');
+            .getElementById("directoryDetailSection")
+            .classList.remove("main-section-animation");
         document
-            .getElementById('directoryDetailSection')
-            .classList.remove('section-left-animation');
+            .getElementById("directoryDetailSection")
+            .classList.remove("section-left-animation");
         document
-            .getElementById('directoryDetailSection')
-            .classList.remove('section-right-animation');
+            .getElementById("directoryDetailSection")
+            .classList.remove("section-right-animation");
     }
 
     render() {
@@ -137,8 +137,8 @@ class DirectoryDisplay extends Component {
                                             src={item.original}
                                             srcSet={item.srcSet}
                                             style={{
-                                                width: '880px',
-                                                height: '600px'
+                                                width: "880px",
+                                                height: "600px"
                                             }}
                                             alt={item.original}
                                         />
@@ -156,14 +156,14 @@ class DirectoryDisplay extends Component {
                                     setTimeout(() => {
                                         document
                                             .getElementById(
-                                                'directoryDetailSection'
+                                                "directoryDetailSection"
                                             )
                                             .classList.add(
-                                                'section-left-animation'
+                                                "section-left-animation"
                                             );
                                     }, 1);
                                     this.props.setSelectedDirectoryDisplay(
-                                        this.moveDirectoryDisplay('previous')
+                                        this.moveDirectoryDisplay("previous")
                                     );
                                 }}
                             >
@@ -179,14 +179,14 @@ class DirectoryDisplay extends Component {
                                     setTimeout(() => {
                                         document
                                             .getElementById(
-                                                'directoryDetailSection'
+                                                "directoryDetailSection"
                                             )
                                             .classList.add(
-                                                'section-right-animation'
+                                                "section-right-animation"
                                             );
                                     }, 1);
                                     this.props.setSelectedDirectoryDisplay(
-                                        this.moveDirectoryDisplay('next')
+                                        this.moveDirectoryDisplay("next")
                                     );
                                 }}
                             >
@@ -199,10 +199,20 @@ class DirectoryDisplay extends Component {
                             <div className="directorydisplay--detail--item--description--container--topWhite" />
                             <div className="directorydisplay--detail--item--description--container--bottomWhite" />
                             <div className="directorydisplay--detail--item--description--container--left">
-                                {directory_display.left_description}
+                                <p
+                                    dangerouslySetInnerHTML={{
+                                        __html:
+                                            directory_display.left_description
+                                    }}
+                                />
                             </div>
                             <div className="directorydisplay--detail--item--description--container--right">
-                                {directory_display.right_description}
+                                <p
+                                    dangerouslySetInnerHTML={{
+                                        __html:
+                                            directory_display.right_description
+                                    }}
+                                />
                             </div>
                         </div>
                     </div>
@@ -222,4 +232,7 @@ function mapStateToProps({
     return { directoryDisplayDetail, sectionList, currentSection };
 }
 
-export default connect(mapStateToProps, actions)(DirectoryDisplay);
+export default connect(
+    mapStateToProps,
+    actions
+)(DirectoryDisplay);

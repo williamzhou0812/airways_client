@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import './FeatureDetail.css';
-import _ from 'lodash';
-import { createImageURL } from '../utils/Constants';
-import ImageGallery from 'react-image-gallery';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
+import "./FeatureDetail.css";
+import _ from "lodash";
+import { createImageURL } from "../utils/Constants";
+import ImageGallery from "react-image-gallery";
 
 class FeatureDetail extends Component {
     constructor(props) {
@@ -15,7 +15,7 @@ class FeatureDetail extends Component {
             featuresList,
             setBackButton
         } = this.props;
-        setBackButton('/features', true);
+        setBackButton("/features", true);
         getSelectedFeatureDetail(match.params.id, featuresList.features);
         this.state = {
             up: false,
@@ -75,7 +75,7 @@ class FeatureDetail extends Component {
         );
         let nextID;
 
-        if (action === 'up') {
+        if (action === "up") {
             if (
                 featuresList.indexOf(featureDetail) + 1 ===
                 featuresList.length
@@ -86,7 +86,7 @@ class FeatureDetail extends Component {
             }
         }
 
-        if (action === 'down') {
+        if (action === "down") {
             if (featuresList.indexOf(featureDetail) + 1 === 1) {
                 nextID = featuresList.length - 1;
             } else {
@@ -98,14 +98,14 @@ class FeatureDetail extends Component {
 
     resetAnimationClass() {
         document
-            .getElementById('featureDetailSection')
-            .classList.remove('main-section-animation');
+            .getElementById("featureDetailSection")
+            .classList.remove("main-section-animation");
         document
-            .getElementById('featureDetailSection')
-            .classList.remove('section-down-animation');
+            .getElementById("featureDetailSection")
+            .classList.remove("section-down-animation");
         document
-            .getElementById('featureDetailSection')
-            .classList.remove('section-up-animation');
+            .getElementById("featureDetailSection")
+            .classList.remove("section-up-animation");
     }
 
     render() {
@@ -123,19 +123,19 @@ class FeatureDetail extends Component {
                     <div
                         className={
                             up
-                                ? 'featuredetail featuredetail--up--arrow featuredetail--click'
-                                : 'featuredetail featuredetail--up--arrow featuredetail--clicked'
+                                ? "featuredetail featuredetail--up--arrow featuredetail--click"
+                                : "featuredetail featuredetail--up--arrow featuredetail--clicked"
                         }
                         onClick={() => {
                             this.resetAnimationClass();
                             setTimeout(() => {
                                 document
-                                    .getElementById('featureDetailSection')
-                                    .classList.add('section-up-animation');
+                                    .getElementById("featureDetailSection")
+                                    .classList.add("section-up-animation");
                             }, 1);
                             this.props.getSelectedFeatureDetail(
                                 featuresList.features[
-                                    this.processNextFeatureID('up')
+                                    this.processNextFeatureID("up")
                                 ].id,
                                 featuresList.features
                             );
@@ -162,8 +162,8 @@ class FeatureDetail extends Component {
                                             src={item.original}
                                             srcSet={item.srcSet}
                                             style={{
-                                                width: '880px',
-                                                height: '600px'
+                                                width: "880px",
+                                                height: "600px"
                                             }}
                                             alt={item.original}
                                         />
@@ -180,7 +180,11 @@ class FeatureDetail extends Component {
                         <div className="featuredetail--description--container--leftWhite" />
                         <div className="featuredetail--description--container--rightWhite" />
                         <div className="featuredetail--description--container--desc">
-                            <p>{feature.description}</p>
+                            <p
+                                dangerouslySetInnerHTML={{
+                                    __html: feature.description
+                                }}
+                            />
                         </div>
                         <div className="featuredetail--description--container--contact">
                             <p className="featuredetail--description--contact">
@@ -195,19 +199,19 @@ class FeatureDetail extends Component {
                     <div
                         className={
                             down
-                                ? 'featuredetail featuredetail--down--arrow featuredetail featuredetail--click'
-                                : 'featuredetail featuredetail--down--arrow featuredetail featuredetail--clicked'
+                                ? "featuredetail featuredetail--down--arrow featuredetail featuredetail--click"
+                                : "featuredetail featuredetail--down--arrow featuredetail featuredetail--clicked"
                         }
                         onClick={() => {
                             this.resetAnimationClass();
                             setTimeout(() => {
                                 document
-                                    .getElementById('featureDetailSection')
-                                    .classList.add('section-down-animation');
+                                    .getElementById("featureDetailSection")
+                                    .classList.add("section-down-animation");
                             }, 1);
                             this.props.getSelectedFeatureDetail(
                                 featuresList.features[
-                                    this.processNextFeatureID('down')
+                                    this.processNextFeatureID("down")
                                 ].id,
                                 featuresList.features
                             );
@@ -231,4 +235,7 @@ function mapStateToProps({ featuresList, featureDetail }) {
     return { featuresList, featureDetail };
 }
 
-export default connect(mapStateToProps, actions)(FeatureDetail);
+export default connect(
+    mapStateToProps,
+    actions
+)(FeatureDetail);

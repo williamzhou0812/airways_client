@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import './ApartmentDetail.css';
-import _ from 'lodash';
-import { createImageURL } from '../utils/Constants';
-import ImageGallery from 'react-image-gallery';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
+import "./ApartmentDetail.css";
+import _ from "lodash";
+import { createImageURL } from "../utils/Constants";
+import ImageGallery from "react-image-gallery";
 
 class ApartmentDetail extends Component {
     constructor(props) {
@@ -16,7 +16,7 @@ class ApartmentDetail extends Component {
             setBackButton
         } = this.props;
         getSelectedApartmentDetail(match.params.id, apartmentsList.apartments);
-        setBackButton('/apartments', true);
+        setBackButton("/apartments", true);
 
         this.state = {
             up: false,
@@ -57,7 +57,7 @@ class ApartmentDetail extends Component {
         );
         let nextID;
 
-        if (action === 'up') {
+        if (action === "up") {
             if (
                 apartment_list.indexOf(apartment_detail) + 1 ===
                 apartment_list.length
@@ -68,7 +68,7 @@ class ApartmentDetail extends Component {
             }
         }
 
-        if (action === 'down') {
+        if (action === "down") {
             if (apartment_list.indexOf(apartment_detail) + 1 === 1) {
                 nextID = apartment_list.length - 1;
             } else {
@@ -80,14 +80,14 @@ class ApartmentDetail extends Component {
 
     resetAnimationClass() {
         document
-            .getElementById('apartmentDetailSection')
-            .classList.remove('main-section-animation');
+            .getElementById("apartmentDetailSection")
+            .classList.remove("main-section-animation");
         document
-            .getElementById('apartmentDetailSection')
-            .classList.remove('section-down-animation');
+            .getElementById("apartmentDetailSection")
+            .classList.remove("section-down-animation");
         document
-            .getElementById('apartmentDetailSection')
-            .classList.remove('section-up-animation');
+            .getElementById("apartmentDetailSection")
+            .classList.remove("section-up-animation");
     }
 
     render() {
@@ -105,19 +105,19 @@ class ApartmentDetail extends Component {
                     <div
                         className={
                             up
-                                ? 'aptdetail aptdetail--up--arrow aptdetail aptdetail--click'
-                                : 'aptdetail aptdetail--up--arrow aptdetail aptdetail--clicked'
+                                ? "aptdetail aptdetail--up--arrow aptdetail aptdetail--click"
+                                : "aptdetail aptdetail--up--arrow aptdetail aptdetail--clicked"
                         }
                         onClick={() => {
                             this.resetAnimationClass();
                             setTimeout(() => {
                                 document
-                                    .getElementById('apartmentDetailSection')
-                                    .classList.add('section-up-animation');
+                                    .getElementById("apartmentDetailSection")
+                                    .classList.add("section-up-animation");
                             }, 1);
                             this.props.getSelectedApartmentDetail(
                                 apartmentsList.apartments[
-                                    this.processNextApartmentID('up')
+                                    this.processNextApartmentID("up")
                                 ].id,
                                 apartmentsList.apartments
                             );
@@ -144,8 +144,8 @@ class ApartmentDetail extends Component {
                                             src={item.original}
                                             srcSet={item.srcSet}
                                             style={{
-                                                width: '880px',
-                                                height: '600px'
+                                                width: "880px",
+                                                height: "600px"
                                             }}
                                             alt={item.original}
                                         />
@@ -162,7 +162,11 @@ class ApartmentDetail extends Component {
                         <div className="aptdetail--description--container--leftWhite" />
                         <div className="aptdetail--description--container--rightWhite" />
                         <div className="aptdetail--description--container--desc">
-                            <p>{apartment.description}</p>
+                            <p
+                                dangerouslySetInnerHTML={{
+                                    __html: apartment.description
+                                }}
+                            />
                         </div>
                         <div className="aptdetail--description--container--contact">
                             <p className="aptdetail--description--contact">
@@ -177,19 +181,19 @@ class ApartmentDetail extends Component {
                     <div
                         className={
                             down
-                                ? 'aptdetail aptdetail--down--arrow aptdetail aptdetail--click'
-                                : 'aptdetail aptdetail--down--arrow aptdetail aptdetail--clicked'
+                                ? "aptdetail aptdetail--down--arrow aptdetail aptdetail--click"
+                                : "aptdetail aptdetail--down--arrow aptdetail aptdetail--clicked"
                         }
                         onClick={() => {
                             this.resetAnimationClass();
                             setTimeout(() => {
                                 document
-                                    .getElementById('apartmentDetailSection')
-                                    .classList.add('section-down-animation');
+                                    .getElementById("apartmentDetailSection")
+                                    .classList.add("section-down-animation");
                             }, 1);
                             this.props.getSelectedApartmentDetail(
                                 apartmentsList.apartments[
-                                    this.processNextApartmentID('down')
+                                    this.processNextApartmentID("down")
                                 ].id,
                                 apartmentsList.apartments
                             );
@@ -213,4 +217,7 @@ function mapStateToProps({ apartmentsList, apartmentDetail }) {
     return { apartmentsList, apartmentDetail };
 }
 
-export default connect(mapStateToProps, actions)(ApartmentDetail);
+export default connect(
+    mapStateToProps,
+    actions
+)(ApartmentDetail);
