@@ -1,35 +1,44 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import './Menu.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
+import "./Menu.css";
 
 class Menu extends Component {
     constructor(props) {
         super(props);
         const { location } = this.props.router;
-        let currentMenuId = '/apartments';
-        if (location.pathname !== '/') {
+        let currentMenuId = "/apartments";
+        if (location.pathname !== "/") {
             currentMenuId = location.pathname;
         }
-        this.state = {
-            currentMenu: currentMenuId
-        };
+
+        if (
+            currentMenuId.startsWith("/apartments") ||
+            currentMenuId.startsWith("/around") ||
+            currentMenuId.startsWith("/features") ||
+            currentMenuId.startsWith("/gallery")
+        ) {
+            this.props.setCurrentMenu(currentMenuId);
+        } else {
+            this.props.setCurrentMenu("/apartments");
+        }
     }
 
     render() {
-        const { currentMenu } = this.state;
-        const { navigateTo } = this.props;
+        const { current_menu } = this.props.currentMenu;
+        const { navigateTo, setCurrentMenu } = this.props;
+
         return (
             <div className="menu">
                 <div
                     className={
-                        currentMenu.includes('apartments')
-                            ? 'menuItem menuItem--apartments menuItem--active'
-                            : 'menuItem menuItem--apartments menuItem--inactive'
+                        current_menu.includes("apartments")
+                            ? "menuItem menuItem--apartments menuItem--active"
+                            : "menuItem menuItem--apartments menuItem--inactive"
                     }
                     onClick={() => {
-                        navigateTo('/apartments');
-                        this.setState({ currentMenu: '/apartments' });
+                        navigateTo("/apartments");
+                        setCurrentMenu("/apartments");
                     }}
                 >
                     <img
@@ -41,13 +50,13 @@ class Menu extends Component {
                 </div>
                 <div
                     className={
-                        currentMenu.includes('/around')
-                            ? 'menuItem menuItem--maps menuItem--active'
-                            : 'menuItem menuItem--maps menuItem--inactive'
+                        current_menu.includes("/around")
+                            ? "menuItem menuItem--maps menuItem--active"
+                            : "menuItem menuItem--maps menuItem--inactive"
                     }
                     onClick={() => {
-                        navigateTo('/around');
-                        this.setState({ currentMenu: '/around' });
+                        navigateTo("/around");
+                        setCurrentMenu("/around");
                     }}
                 >
                     <img
@@ -59,13 +68,13 @@ class Menu extends Component {
                 </div>
                 <div
                     className={
-                        currentMenu.includes('/features')
-                            ? 'menuItem menuItem--features menuItem--active'
-                            : 'menuItem menuItem--features menuItem--inactive'
+                        current_menu.includes("/features")
+                            ? "menuItem menuItem--features menuItem--active"
+                            : "menuItem menuItem--features menuItem--inactive"
                     }
                     onClick={() => {
-                        navigateTo('/features');
-                        this.setState({ currentMenu: '/features' });
+                        navigateTo("/features");
+                        setCurrentMenu("/features");
                     }}
                 >
                     <img
@@ -77,13 +86,13 @@ class Menu extends Component {
                 </div>
                 <div
                     className={
-                        currentMenu.includes('/gallery')
-                            ? 'menuItem menuItem--gallery menuItem--active'
-                            : 'menuItem menuItem--gallery menuItem--inactive'
+                        current_menu.includes("/gallery")
+                            ? "menuItem menuItem--gallery menuItem--active"
+                            : "menuItem menuItem--gallery menuItem--inactive"
                     }
                     onClick={() => {
-                        navigateTo('/gallery');
-                        this.setState({ currentMenu: '/gallery' });
+                        navigateTo("/gallery");
+                        setCurrentMenu("/gallery");
                     }}
                 >
                     <img
@@ -98,8 +107,11 @@ class Menu extends Component {
     }
 }
 
-function mapStateToProps({ router }) {
-    return { router };
+function mapStateToProps({ router, currentMenu }) {
+    return { router, currentMenu };
 }
 
-export default connect(mapStateToProps, actions)(Menu);
+export default connect(
+    mapStateToProps,
+    actions
+)(Menu);

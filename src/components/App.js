@@ -1,32 +1,34 @@
-import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import { ConnectedRouter as Router } from 'react-router-redux';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
-import './App.css';
-import Header from './header/Header';
-import Footer from './footer/Footer';
-import Menu from './menu/Menu';
-import ReactLoading from 'react-loading';
-import Apartments from './apartments/Apartments';
-import ApartmentDetail from './apartments/ApartmentDetail';
-import Features from './features/Features';
-import Gallery from './gallery/Gallery';
-import _ from 'lodash';
-import FeatureDetail from './features/FeatureDetail';
-import idleJs from 'idle-js';
-import { IDLE_TIME } from './utils/Constants.js';
-import RestVideo from './videos/RestVideos';
-import Around from './around/Around';
-import DirectoryDisplay from './around/DirectoryDisplay';
-import DirectoryDisplayList from './around/DirectoryDisplayList';
+import React, { Component } from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
+import { ConnectedRouter as Router } from "react-router-redux";
+import { connect } from "react-redux";
+import * as actions from "../actions";
+import "./App.css";
+import Header from "./header/Header";
+import Footer from "./footer/Footer";
+import Menu from "./menu/Menu";
+import ReactLoading from "react-loading";
+import Apartments from "./apartments/Apartments";
+import ApartmentDetail from "./apartments/ApartmentDetail";
+import Features from "./features/Features";
+import Gallery from "./gallery/Gallery";
+import _ from "lodash";
+import FeatureDetail from "./features/FeatureDetail";
+import idleJs from "idle-js";
+import { IDLE_TIME } from "./utils/Constants.js";
+import RestVideo from "./videos/RestVideos";
+import Around from "./around/Around";
+import DirectoryDisplay from "./around/DirectoryDisplay";
+import DirectoryDisplayList from "./around/DirectoryDisplayList";
 
 class App extends Component {
     idleRef;
 
     constructor(props) {
         super(props);
-        this.props.setBackButton('/apartments', false);
+        this.props.setBackButton("/apartments", false);
+        this.props.setCurrentMenu("/apartments");
+
         this.state = {
             isIdle: false
         };
@@ -58,9 +60,15 @@ class App extends Component {
     }
 
     setIdleTrue() {
-        this.setState({
-            isIdle: true
-        });
+        this.setState(
+            {
+                isIdle: true
+            },
+            () => {
+                this.props.setCurrentMenu("/apartments");
+                this.props.navigateTo("/apartments");
+            }
+        );
     }
 
     setIdleFalse() {
@@ -71,11 +79,11 @@ class App extends Component {
 
     resetAnimationClass() {
         document
-            .getElementById('backButton')
-            .classList.remove('back-button-in-animation');
+            .getElementById("backButton")
+            .classList.remove("back-button-in-animation");
         document
-            .getElementById('backButton')
-            .classList.remove('back-button-out-animation');
+            .getElementById("backButton")
+            .classList.remove("back-button-out-animation");
     }
 
     renderReturnButton() {
@@ -83,8 +91,8 @@ class App extends Component {
             <div
                 className={
                     this.props.backButton.display
-                        ? 'section--sidebar--backButton back-button-in-animation'
-                        : 'section--sidebar--backButton back-button-out-animation'
+                        ? "section--sidebar--backButton back-button-in-animation"
+                        : "section--sidebar--backButton back-button-out-animation"
                 }
                 onClick={() => {
                     this.props.navigateTo(this.props.backButton.location);
@@ -115,16 +123,16 @@ class App extends Component {
             sectionList
         } = this.props;
 
-        let sidebarText = 'APARTMENTS';
+        let sidebarText = "APARTMENTS";
         if (!_.isEmpty(router.location)) {
-            if (router.location.pathname === '/') {
-                sidebarText = 'APARTMENTS';
-            } else if (router.location.pathname.includes('around')) {
-                sidebarText = 'AROUND PORT MORESBY';
-            } else if (router.location.pathname.includes('features')) {
-                sidebarText = 'FEATURES & FACILITIES';
+            if (router.location.pathname === "/") {
+                sidebarText = "APARTMENTS";
+            } else if (router.location.pathname.includes("around")) {
+                sidebarText = "AROUND PORT MORESBY";
+            } else if (router.location.pathname.includes("features")) {
+                sidebarText = "FEATURES & FACILITIES";
             } else {
-                sidebarText = router.location.pathname.split('/')[1];
+                sidebarText = router.location.pathname.split("/")[1];
             }
         }
 
@@ -143,8 +151,8 @@ class App extends Component {
                         <p className="loading--title">Initialising</p>
                         <ReactLoading
                             className="loadingAnimation"
-                            type={'bubbles'}
-                            color={'#b9dfe3'}
+                            type={"bubbles"}
+                            color={"#b9dfe3"}
                             height="900"
                             width="393"
                             delay={0}
@@ -173,12 +181,12 @@ class App extends Component {
                         <div
                             className="section section--sidebar"
                             style={
-                                sidebarText === 'AROUND PORT MORESBY' ||
-                                sidebarText === 'FEATURES & FACILITIES'
+                                sidebarText === "AROUND PORT MORESBY" ||
+                                sidebarText === "FEATURES & FACILITIES"
                                     ? {
-                                          paddingTop: '350px'
+                                          paddingTop: "350px"
                                       }
-                                    : { paddingTop: '550px' }
+                                    : { paddingTop: "550px" }
                             }
                         >
                             <p>{sidebarText}</p>
@@ -280,4 +288,7 @@ function mapStateToProps({
     };
 }
 
-export default connect(mapStateToProps, actions)(App);
+export default connect(
+    mapStateToProps,
+    actions
+)(App);

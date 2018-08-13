@@ -1,20 +1,21 @@
-import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
-import apartmentsReducer from './apartmentsReducer';
-import featuresReducer from './featuresReducer';
-import galleryReducer from './galleryReducer';
-import mapsReducer from './mapsReducer';
-import apartmentDetailReducer from './apartmentDetailReducer';
-import featureDetailReducer from './featureDetailReducer';
-import videosReducer from './videosReducer';
-import restVideoCurrentTimeReducer from './restVideoCurrentTimeReducer';
-import promotionListReducer from './promotionListReducer';
-import directoryDisplayReducer from './directoryDisplayReducer';
-import sectionReducer from './sectionReducer';
-import directoryDisplayBySectionReducer from './directoryDisplayBySectionReducer';
-import currentSectionReducer from './currentSectionReducer';
-import directoryDisplayDetailReducer from './directoryDisplayDetailReducer';
-import backButtonReducer from './backButtonReducer';
+import { combineReducers } from "redux";
+import { routerReducer } from "react-router-redux";
+import apartmentsReducer from "./apartmentsReducer";
+import featuresReducer from "./featuresReducer";
+import galleryReducer from "./galleryReducer";
+import mapsReducer from "./mapsReducer";
+import apartmentDetailReducer from "./apartmentDetailReducer";
+import featureDetailReducer from "./featureDetailReducer";
+import videosReducer from "./videosReducer";
+import restVideoCurrentTimeReducer from "./restVideoCurrentTimeReducer";
+import promotionListReducer from "./promotionListReducer";
+import directoryDisplayReducer from "./directoryDisplayReducer";
+import sectionReducer from "./sectionReducer";
+import directoryDisplayBySectionReducer from "./directoryDisplayBySectionReducer";
+import currentSectionReducer from "./currentSectionReducer";
+import directoryDisplayDetailReducer from "./directoryDisplayDetailReducer";
+import backButtonReducer from "./backButtonReducer";
+import currentMenuReducer from "./currentMenuReducer";
 
 export default combineReducers({
     router: routerReducer,
@@ -32,5 +33,6 @@ export default combineReducers({
     directoryDisplayListBySection: directoryDisplayBySectionReducer,
     currentSection: currentSectionReducer,
     backButton: backButtonReducer,
-    directoryDisplayDetail: directoryDisplayDetailReducer
+    directoryDisplayDetail: directoryDisplayDetailReducer,
+    currentMenu: currentMenuReducer
 });
