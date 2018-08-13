@@ -50,7 +50,7 @@
         grid-row: 1 / 2;
         background-color: #8c8e90;
         text-align: left;
-        overflow-y: scroll;
+        overflow-y: auto;
         height: 100%; }
       .aptdetail--description--container--contact {
         grid-column: 2 / 3;

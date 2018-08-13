@@ -83,7 +83,7 @@
       letter-spacing: 1px;
       text-align: left;
       line-height: 1.4em;
-      overflow-y: scroll;
+      overflow-y: auto;
       height: 100%; }
       .directorydisplay--detail--item--description--container--left p {
         margin-top: 0px;
@@ -98,7 +98,7 @@
       letter-spacing: 1px;
       text-align: left;
       line-height: 1.4em;
-      overflow-y: scroll;
+      overflow-y: auto;
       height: 100%; }
       .directorydisplay--detail--item--description--container--right p {
         margin-top: 0px;

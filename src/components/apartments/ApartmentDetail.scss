@@ -60,7 +60,7 @@
                 grid-row: 1 / 2;
                 background-color: $color-arrow-grey;
                 text-align: left;
-                overflow-y : scroll;
+                overflow-y : auto;
                 height: 100%;
             }
             &--contact {
