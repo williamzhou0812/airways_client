@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import moment from 'moment-timezone';
-import { Link } from 'react-router-dom';
-import './Header.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
+import moment from "moment-timezone";
+import { Link } from "react-router-dom";
+import "./Header.css";
 
 class Header extends Component {
     intervalID;
     constructor(props) {
         super(props);
         this.state = {
-            time: '',
-            date: ''
+            time: "",
+            date: ""
         };
     }
     setDatetime() {
         this.setState({
             time: moment()
-                .tz('Pacific/Port_Moresby')
-                .format('HH:mm A'),
+                .tz("Pacific/Port_Moresby")
+                .format("HH:mm A"),
             date: moment()
-                .tz('Pacific/Port_Moresby')
-                .format('DD MMMM YYYY')
+                .tz("Pacific/Port_Moresby")
+                .format("DD MMMM YYYY")
                 .toUpperCase()
         });
     }
@@ -41,17 +41,18 @@ class Header extends Component {
 
     render() {
         const { time, date } = this.state;
-        const { navigateTo } = this.props;
+        const { navigateTo, setCurrentMenu } = this.props;
 
         return (
             <div className="header">
                 <div
                     className="headerItem headerItem--logo"
                     onClick={() => {
-                        navigateTo('/');
+                        navigateTo("/");
+                        setCurrentMenu("/apartments");
                     }}
                 >
-                    <Link to={'/apartments'}>
+                    <Link to={"/apartments"}>
                         <img
                             src={require(`../../images/header.png`)}
                             width="1080"
@@ -73,4 +74,7 @@ class Header extends Component {
     }
 }
 
-export default connect(null, actions)(Header);
+export default connect(
+    null,
+    actions
+)(Header);

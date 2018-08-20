@@ -1,12 +1,28 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import _ from 'lodash';
-import { createImageURL } from '../utils/Constants';
-import './RestVideos.css';
-import ImageGallery from 'react-image-gallery';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
+import _ from "lodash";
+import { createImageURL } from "../utils/Constants";
+import "./RestVideos.css";
+import ImageGallery from "react-image-gallery";
 
 class RestVideos extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            status: false
+        };
+
+        setTimeout(
+            function() {
+                if (!this.state.status) {
+                    this.setState({ status: true });
+                }
+            }.bind(this),
+            180000
+        );
+    }
+
     componentDidMount() {
         const { restVideoCurrentTime } = this.props;
         if (!_.isEmpty(restVideoCurrentTime)) {
@@ -30,6 +46,8 @@ class RestVideos extends Component {
 
     render() {
         const { videosList, promotionList } = this.props;
+        const { status } = this.state;
+
         let promotionImage;
         if (!_.isEmpty(videosList.videos[0].video_path)) {
             if (!_.isEmpty(promotionList.promotion)) {
@@ -45,9 +63,9 @@ class RestVideos extends Component {
                             )}
                             type="video/mp4"
                             autoPlay
-                            loop="loop"
                             preload="none"
-                            style={{ width: '1080px' }}
+                            loop="loop"
+                            style={{ width: "1080px" }}
                         />
                     </div>
                     <div className="restvideoItem restvideoItem--promotion">
@@ -68,8 +86,8 @@ class RestVideos extends Component {
                                                 src={item.original}
                                                 srcSet={item.srcSet}
                                                 style={{
-                                                    width: '1080px',
-                                                    height: '760px'
+                                                    width: "1080px",
+                                                    height: "760px"
                                                 }}
                                                 alt={item.original}
                                             />
@@ -80,8 +98,8 @@ class RestVideos extends Component {
                         ) : (
                             <p
                                 style={{
-                                    textAlign: 'center',
-                                    fontSize: '60px'
+                                    textAlign: "center",
+                                    fontSize: "60px"
                                 }}
                             >
                                 STATIC PROMOTION SPACE
@@ -100,4 +118,7 @@ function mapStateToProps({ videosList, restVideoCurrentTime, promotionList }) {
     return { videosList, restVideoCurrentTime, promotionList };
 }
 
-export default connect(mapStateToProps, actions)(RestVideos);
+export default connect(
+    mapStateToProps,
+    actions
+)(RestVideos);

@@ -35,7 +35,8 @@
         display: grid;
         grid-template-rows: auto;
         grid-template-columns: repeat(1, 1fr);
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
         grid-row-gap: 3px;
         grid-column-gap: 3px;
 

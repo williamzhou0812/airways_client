@@ -7,7 +7,7 @@
 
 .featuredetail {
   color: white;
-  font-size: 20px; }
+  font-size: 21px; }
   .featuredetail--up--arrow {
     grid-column: 1 / -1;
     grid-row: 1 / 2;
