@@ -5,6 +5,9 @@ import "./ApartmentDetail.css";
 import _ from "lodash";
 import { createImageURL } from "../utils/Constants";
 import ImageGallery from "react-image-gallery";
+import LeftIcon from "material-ui/svg-icons/navigation/chevron-left";
+import RightIcon from "material-ui/svg-icons/navigation/chevron-right";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
 class ApartmentDetail extends Component {
     constructor(props) {
@@ -35,12 +38,14 @@ class ApartmentDetail extends Component {
 
     processImageList(apartment) {
         let images = [];
-        apartment.images_path.forEach(each => {
-            images.push({
-                original: createImageURL(each),
-                thumbnail: createImageURL(each)
+        if (!_.isEmpty(apartment.images_path)) {
+            apartment.images_path.forEach(each => {
+                images.push({
+                    original: createImageURL(each),
+                    thumbnail: createImageURL(each)
+                });
             });
-        });
+        }
         return images;
     }
 
@@ -131,28 +136,55 @@ class ApartmentDetail extends Component {
                     </div>
 
                     <div className="aptdetail aptdetail--gallery">
-                        <ImageGallery
-                            items={images}
-                            autoPlay={true}
-                            showPlayButton={false}
-                            showFullscreenButton={false}
-                            slideDuration={1000}
-                            renderItem={item => {
-                                return (
-                                    <div className="image-gallery-image">
-                                        <img
-                                            src={item.original}
-                                            srcSet={item.srcSet}
-                                            style={{
-                                                width: "880px",
-                                                height: "600px"
-                                            }}
-                                            alt={item.original}
-                                        />
-                                    </div>
-                                );
-                            }}
-                        />
+                        <MuiThemeProvider>
+                            <ImageGallery
+                                items={images}
+                                autoPlay={true}
+                                showPlayButton={false}
+                                showFullscreenButton={false}
+                                slideDuration={1000}
+                                renderLeftNav={(onClick, _disabled) => (
+                                    <LeftIcon
+                                        className="image-gallery-left-nav"
+                                        onClick={onClick}
+                                        color={"white"}
+                                        style={{
+                                            padding: 0,
+                                            height: 64,
+                                            width: 64
+                                        }}
+                                    />
+                                )}
+                                renderRightNav={(onClick, _disabled) => (
+                                    <RightIcon
+                                        className="image-gallery-right-nav"
+                                        onClick={onClick}
+                                        color={"white"}
+                                        style={{
+                                            padding: 0,
+                                            height: 64,
+                                            width: 64
+                                        }}
+                                    />
+                                )}
+                                renderItem={item => {
+                                    return (
+                                        <div className="image-gallery-image">
+                                            <img
+                                                src={item.original}
+                                                srcSet={item.srcSet}
+                                                style={{
+                                                    width: "880px",
+                                                    height: "600px"
+                                                }}
+                                                alt={item.original}
+                                            />
+                                        </div>
+                                    );
+                                }}
+                            />
+                        </MuiThemeProvider>
+
                         <div className="aptdetail aptdetail--gallery--name">
                             {apartment.name}
                         </div>

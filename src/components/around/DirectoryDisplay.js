@@ -5,6 +5,9 @@ import "./DirectoryDisplay.css";
 import _ from "lodash";
 import { createImageURL } from "../utils/Constants";
 import ImageGallery from "react-image-gallery";
+import LeftIcon from "material-ui/svg-icons/navigation/chevron-left";
+import RightIcon from "material-ui/svg-icons/navigation/chevron-right";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
 class DirectoryDisplay extends Component {
     constructor(props) {
@@ -39,11 +42,13 @@ class DirectoryDisplay extends Component {
 
     processImageList(directory_display) {
         let images = [];
-        directory_display.images_path.forEach(each => {
-            images.push({
-                original: createImageURL(each)
+        if (!_.isEmpty(directory_display.images_path)) {
+            directory_display.images_path.forEach(each => {
+                images.push({
+                    original: createImageURL(each)
+                });
             });
-        });
+        }
         return images;
     }
 
@@ -123,29 +128,55 @@ class DirectoryDisplay extends Component {
                         {directory_display.heading}
                     </div>
                     <div className="directorydisplay--detail--item--image">
-                        <ImageGallery
-                            items={images}
-                            autoPlay={true}
-                            showPlayButton={false}
-                            showFullscreenButton={false}
-                            slideDuration={1000}
-                            showThumbnails={false}
-                            renderItem={item => {
-                                return (
-                                    <div className="image-gallery-image">
-                                        <img
-                                            src={item.original}
-                                            srcSet={item.srcSet}
-                                            style={{
-                                                width: "880px",
-                                                height: "600px"
-                                            }}
-                                            alt={item.original}
-                                        />
-                                    </div>
-                                );
-                            }}
-                        />
+                        <MuiThemeProvider>
+                            <ImageGallery
+                                items={images}
+                                autoPlay={true}
+                                showPlayButton={false}
+                                showFullscreenButton={false}
+                                slideDuration={1000}
+                                showThumbnails={false}
+                                renderItem={item => {
+                                    return (
+                                        <div className="image-gallery-image">
+                                            <img
+                                                src={item.original}
+                                                srcSet={item.srcSet}
+                                                style={{
+                                                    width: "880px",
+                                                    height: "600px"
+                                                }}
+                                                alt={item.original}
+                                            />
+                                        </div>
+                                    );
+                                }}
+                                renderRightNav={(onClick, _disabled) => (
+                                    <RightIcon
+                                        className="image-gallery-right-nav"
+                                        onClick={onClick}
+                                        color={"white"}
+                                        style={{
+                                            padding: 0,
+                                            height: 64,
+                                            width: 64
+                                        }}
+                                    />
+                                )}
+                                renderLeftNav={(onClick, _disabled) => (
+                                    <LeftIcon
+                                        className="image-gallery-left-nav"
+                                        onClick={onClick}
+                                        color={"white"}
+                                        style={{
+                                            padding: 0,
+                                            height: 64,
+                                            width: 64
+                                        }}
+                                    />
+                                )}
+                            />
+                        </MuiThemeProvider>
                     </div>
                     <div className="directorydisplay--detail--item--subheading">
                         <div className="directorydisplay--detail--item--subheading--container">

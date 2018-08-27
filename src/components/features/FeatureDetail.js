@@ -5,6 +5,9 @@ import "./FeatureDetail.css";
 import _ from "lodash";
 import { createImageURL } from "../utils/Constants";
 import ImageGallery from "react-image-gallery";
+import LeftIcon from "material-ui/svg-icons/navigation/chevron-left";
+import RightIcon from "material-ui/svg-icons/navigation/chevron-right";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
 class FeatureDetail extends Component {
     constructor(props) {
@@ -32,12 +35,15 @@ class FeatureDetail extends Component {
 
     processImageList(feature) {
         let images = [];
-        feature.images_path.forEach(each => {
-            images.push({
-                original: createImageURL(each),
-                thumbnail: createImageURL(each)
+        if (!_.isEmpty(feature.images_path)) {
+            feature.images_path.forEach(each => {
+                images.push({
+                    original: createImageURL(each),
+                    thumbnail: createImageURL(each)
+                });
             });
-        });
+        }
+
         return images;
     }
 
@@ -149,28 +155,57 @@ class FeatureDetail extends Component {
                     </div>
 
                     <div className="featuredetail featuredetail--gallery">
-                        <ImageGallery
-                            items={images}
-                            autoPlay={true}
-                            showPlayButton={false}
-                            showFullscreenButton={false}
-                            slideDuration={1000}
-                            renderItem={item => {
-                                return (
-                                    <div className="image-gallery-image">
-                                        <img
-                                            src={item.original}
-                                            srcSet={item.srcSet}
+                        {images.length > 0 && (
+                            <MuiThemeProvider>
+                                <ImageGallery
+                                    items={images}
+                                    autoPlay={true}
+                                    showPlayButton={false}
+                                    showFullscreenButton={false}
+                                    slideDuration={1000}
+                                    renderLeftNav={(onClick, _disabled) => (
+                                        <LeftIcon
+                                            className="image-gallery-left-nav"
+                                            onClick={onClick}
+                                            color={"white"}
                                             style={{
-                                                width: "880px",
-                                                height: "600px"
+                                                padding: 0,
+                                                height: 64,
+                                                width: 64
                                             }}
-                                            alt={item.original}
                                         />
-                                    </div>
-                                );
-                            }}
-                        />
+                                    )}
+                                    renderRightNav={(onClick, _disabled) => (
+                                        <RightIcon
+                                            className="image-gallery-right-nav"
+                                            onClick={onClick}
+                                            color={"white"}
+                                            style={{
+                                                padding: 0,
+                                                height: 64,
+                                                width: 64
+                                            }}
+                                        />
+                                    )}
+                                    renderItem={item => {
+                                        return (
+                                            <div className="image-gallery-image">
+                                                <img
+                                                    src={item.original}
+                                                    srcSet={item.srcSet}
+                                                    style={{
+                                                        width: "880px",
+                                                        height: "600px"
+                                                    }}
+                                                    alt={item.original}
+                                                />
+                                            </div>
+                                        );
+                                    }}
+                                />
+                            </MuiThemeProvider>
+                        )}
+
                         <div className="featuredetail featuredetail--gallery--name">
                             {feature.name}
                         </div>

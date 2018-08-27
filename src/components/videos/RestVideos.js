@@ -46,7 +46,6 @@ class RestVideos extends Component {
 
     render() {
         const { videosList, promotionList } = this.props;
-        const { status } = this.state;
 
         let promotionImage;
         if (!_.isEmpty(videosList.videos[0].video_path)) {
